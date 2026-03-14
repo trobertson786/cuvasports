@@ -21,10 +21,12 @@ export default function Navigation() {
       {/* Ticker bar */}
       <div className="bg-navy-dark py-1 overflow-hidden text-xs text-silver-light">
         <div className="animate-ticker whitespace-nowrap inline-block">
-          <span className="mx-8">LATEST: Follow CUVA Sports for expert football and cricket coverage</span>
-          <span className="mx-8">William Powell — FWA Life Member, sports journalist since 1987</span>
-          <span className="mx-8">LATEST: Follow CUVA Sports for expert football and cricket coverage</span>
-          <span className="mx-8">William Powell — FWA Life Member, sports journalist since 1987</span>
+          <span className="mx-8">Leicester 1-3 QPR — R&apos;s strike back with stunning away win at the King Power</span>
+          <span className="mx-8">Chelsea face PSG at Stamford Bridge Tuesday — trailing 5-2 from first leg</span>
+          <span className="mx-8">Arsenal lead Premier League with 67 points from 30 matches</span>
+          <span className="mx-8">Sheffield Wednesday relegated after 18-point deduction</span>
+          <span className="mx-8">Leicester 1-3 QPR — R&apos;s strike back with stunning away win at the King Power</span>
+          <span className="mx-8">Chelsea face PSG at Stamford Bridge Tuesday — trailing 5-2 from first leg</span>
         </div>
       </div>
 
@@ -47,25 +49,6 @@ export default function Navigation() {
               >
                 {link.label}
               </Link>
-            ))}
-          </div>
-
-          {/* Social icons (desktop) */}
-          <div className="hidden md:flex items-center gap-3">
-            {[
-              { label: "Facebook", icon: "fb" },
-              { label: "X", icon: "x" },
-              { label: "LinkedIn", icon: "li" },
-              { label: "Instagram", icon: "ig" },
-            ].map((social) => (
-              <a
-                key={social.icon}
-                href="#"
-                aria-label={social.label}
-                className="text-silver-light hover:text-gold transition-colors text-xs font-bold uppercase"
-              >
-                {social.icon}
-              </a>
             ))}
           </div>
 
@@ -113,17 +96,6 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex gap-4 pt-3 mt-3 border-t border-navy-light">
-              {["FB", "X", "LI", "IG"].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="text-xs font-bold text-silver-light hover:text-gold"
-                >
-                  {s}
-                </a>
-              ))}
-            </div>
           </div>
         )}
       </nav>
