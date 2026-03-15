@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
+import { galleryImages } from "@/lib/gallery-images";
 
 export const metadata = generatePageMetadata(
   "About",
@@ -13,12 +15,17 @@ export default function AboutPage() {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Photo / placeholder */}
+        {/* Photo */}
         <div className="md:col-span-1">
-          <div className="aspect-[3/4] bg-navy rounded-lg flex items-center justify-center">
-            <span className="text-gold font-heading text-5xl font-bold">
-              WP
-            </span>
+          <div className="aspect-[3/4] relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/william-powell.jpg"
+              alt="William Powell"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority
+            />
           </div>
           <div className="mt-4 space-y-2">
             <div className="bg-gold/10 rounded-lg px-4 py-3">
@@ -96,6 +103,26 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
+
+      {/* Gallery: From the Press Box */}
+      <section className="mt-16">
+        <h2 className="font-heading text-2xl font-bold text-navy mb-6">
+          From the Press Box
+        </h2>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+          {galleryImages.map((src, i) => (
+            <div key={i} className="aspect-square relative rounded overflow-hidden">
+              <Image
+                src={src}
+                alt={`Press box photo ${i + 1}`}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 33vw, (max-width: 768px) 25vw, 16vw"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -9,6 +9,12 @@ export interface ArticleFrontmatter {
   gameweek?: number;
   tags?: string[];
   author?: string;
+  homeTeam?: string;
+  awayTeam?: string;
+  homeScore?: number;
+  awayScore?: number;
+  competition?: string;
+  venue?: string;
 }
 
 export interface Article extends ArticleFrontmatter {
