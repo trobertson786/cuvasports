@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import Image from "next/image";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import { generateArticleMetadata } from "@/lib/metadata";
 import AuthorBio from "@/components/AuthorBio";
 import ShareButtons from "@/components/ShareButtons";
 import ArticleGrid from "@/components/ArticleGrid";
+import TranslatedHeading from "@/components/TranslatedHeading";
 import Link from "next/link";
 
 interface PageProps {
@@ -73,6 +75,20 @@ export default async function ArticlePage({ params }: PageProps) {
           <span className="text-gray-600">{article.title}</span>
         </nav>
 
+        {/* Hero image */}
+        {article.image && (
+          <div className="mb-8 max-w-4xl mx-auto">
+            <Image
+              src={article.image}
+              alt={article.title}
+              width={1200}
+              height={630}
+              priority
+              className="w-full rounded-lg object-cover"
+            />
+          </div>
+        )}
+
         {/* Header */}
         <header className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -137,9 +153,7 @@ export default async function ArticlePage({ params }: PageProps) {
         {/* Related Articles */}
         {related.length > 0 && (
           <section>
-            <h2 className="font-heading text-2xl font-bold text-navy mb-6">
-              Related Articles
-            </h2>
+            <TranslatedHeading titleKey="related" as="h2" />
             <ArticleGrid articles={related} columns={3} />
           </section>
         )}

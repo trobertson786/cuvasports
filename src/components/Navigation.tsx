@@ -2,19 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
+import { TranslationKey } from "@/lib/translations";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/football", label: "Football" },
-  { href: "/cricket", label: "Cricket" },
-  { href: "/analysis", label: "Analysis" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+const navLinks: { href: string; labelKey: TranslationKey }[] = [
+  { href: "/", labelKey: "nav.home" },
+  { href: "/blog", labelKey: "nav.blog" },
+  { href: "/football", labelKey: "nav.football" },
+  { href: "/cricket", labelKey: "nav.cricket" },
+  { href: "/analysis", labelKey: "nav.analysis" },
+  { href: "/gallery", labelKey: "nav.gallery" },
+  { href: "/about", labelKey: "nav.about" },
+  { href: "/contact", labelKey: "nav.contact" },
 ];
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   return (
     <header className="bg-navy text-white sticky top-0 z-50">
@@ -47,9 +51,15 @@ export default function Navigation() {
                 href={link.href}
                 className="text-sm font-medium text-silver-light hover:text-gold transition-colors"
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
+            <button
+              onClick={() => setLang(lang === "en" ? "ur" : "en")}
+              className="text-sm text-silver-light hover:text-gold transition-colors"
+            >
+              {lang === "en" ? "اردو" : "English"}
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -86,6 +96,12 @@ export default function Navigation() {
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="md:hidden pb-4 border-t border-navy-light">
+            <button
+              onClick={() => setLang(lang === "en" ? "ur" : "en")}
+              className="block py-2 text-sm text-silver-light hover:text-gold transition-colors"
+            >
+              {lang === "en" ? "اردو" : "English"}
+            </button>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -93,7 +109,7 @@ export default function Navigation() {
                 className="block py-2 text-sm text-silver-light hover:text-gold transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
           </div>

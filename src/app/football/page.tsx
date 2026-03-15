@@ -1,8 +1,9 @@
-import { getArticlesByCategory } from "@/lib/articles";
+import { getArticlesByCategory, getAllSubcategories } from "@/lib/articles";
 import { generatePageMetadata } from "@/lib/metadata";
-import ArticleGrid from "@/components/ArticleGrid";
-import CategoryFilter from "@/components/CategoryFilter";
 import SearchBar from "@/components/SearchBar";
+import CategoryFilter from "@/components/CategoryFilter";
+import MatchReportFilters from "@/components/MatchReportFilters";
+import TranslatedHeading from "@/components/TranslatedHeading";
 
 export const metadata = generatePageMetadata(
   "Football",
@@ -11,6 +12,7 @@ export const metadata = generatePageMetadata(
 
 export default function FootballPage() {
   const articles = getArticlesByCategory("football");
+  const subcategories = getAllSubcategories("football");
   const searchItems = articles.map((a) => ({
     slug: a.slug,
     title: a.title,
@@ -21,12 +23,7 @@ export default function FootballPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="font-heading text-4xl font-bold text-navy mb-2">
-        Football
-      </h1>
-      <p className="text-gray-500 mb-8">
-        Premier League, EFL, and international football coverage.
-      </p>
+      <TranslatedHeading titleKey="football.title" subtitleKey="football.subtitle" />
 
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
         <div className="flex-1">
@@ -35,7 +32,7 @@ export default function FootballPage() {
         <CategoryFilter />
       </div>
 
-      <ArticleGrid articles={articles} />
+      <MatchReportFilters articles={articles} subcategories={subcategories} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface SearchItem {
   slug: string;
@@ -14,6 +15,7 @@ interface SearchItem {
 export default function SearchBar({ items }: { items: SearchItem[] }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   const results = useMemo(() => {
     if (!query.trim()) return [];
@@ -33,7 +35,7 @@ export default function SearchBar({ items }: { items: SearchItem[] }) {
     <div className="relative">
       <input
         type="search"
-        placeholder="Search articles..."
+        placeholder={t("blog.search")}
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);

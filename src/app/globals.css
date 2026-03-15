@@ -117,6 +117,31 @@ h2 {
   margin: 1.5rem 0;
 }
 
+/* RTL support for Urdu */
+[dir="rtl"] body {
+  font-family: var(--font-urdu), var(--font-body), system-ui, sans-serif;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-urdu), var(--font-heading), Georgia, serif;
+}
+
+[dir="rtl"] .prose-article blockquote {
+  border-left: none;
+  border-right: 4px solid var(--color-gold);
+  padding-left: 0;
+  padding-right: 1.25rem;
+}
+
+[dir="rtl"] .animate-ticker {
+  animation-direction: reverse;
+}
+
 /* Ticker animation */
 @keyframes ticker {
   0% { transform: translateX(0); }

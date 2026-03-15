@@ -3,6 +3,7 @@ import { generatePageMetadata } from "@/lib/metadata";
 import ArticleGrid from "@/components/ArticleGrid";
 import CategoryFilter from "@/components/CategoryFilter";
 import SearchBar from "@/components/SearchBar";
+import TranslatedHeading from "@/components/TranslatedHeading";
 
 export const metadata = generatePageMetadata(
   "Cricket",
@@ -21,12 +22,7 @@ export default function CricketPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="font-heading text-4xl font-bold text-navy mb-2">
-        Cricket
-      </h1>
-      <p className="text-gray-500 mb-8">
-        County Championship, Test cricket, and international coverage.
-      </p>
+      <TranslatedHeading titleKey="cricket.title" subtitleKey="cricket.subtitle" />
 
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
         <div className="flex-1">

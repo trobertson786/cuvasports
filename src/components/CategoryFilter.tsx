@@ -2,16 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/lib/LanguageContext";
+import { TranslationKey } from "@/lib/translations";
 
-const categories = [
-  { href: "/blog", label: "All" },
-  { href: "/football", label: "Football" },
-  { href: "/cricket", label: "Cricket" },
-  { href: "/analysis", label: "Analysis" },
+const categories: { href: string; labelKey: TranslationKey }[] = [
+  { href: "/blog", labelKey: "category.all" },
+  { href: "/football", labelKey: "category.football" },
+  { href: "/cricket", labelKey: "category.cricket" },
+  { href: "/analysis", labelKey: "category.analysis" },
 ];
 
 export default function CategoryFilter() {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   return (
     <div className="flex gap-2">
@@ -27,7 +30,7 @@ export default function CategoryFilter() {
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >
-            {cat.label}
+            {t(cat.labelKey)}
           </Link>
         );
       })}

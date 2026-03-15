@@ -1,16 +1,34 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Article } from "@/lib/types";
+import { getImageForArticle } from "@/lib/gallery-images";
 
 export default function ArticleCard({ article }: { article: Article }) {
+  const imageSrc = getImageForArticle(article.slug, article.category, article.image);
+
   return (
-    <article className="bg-white rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
+    <article className="bg-white border-t-2 border-gold rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
+      <div className="relative aspect-[16/9] overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={article.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        {!article.image && (
+          <div className="absolute inset-0 bg-navy/30" />
+        )}
+      </div>
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-gold-dark bg-gold/10 px-2 py-0.5 rounded">
             {article.category}
           </span>
           {article.subcategory && (
-            <span className="text-xs text-gray-400">{article.subcategory}</span>
+            <span className="text-xs font-medium text-white bg-navy px-2 py-0.5 rounded">
+              {article.subcategory}
+            </span>
           )}
         </div>
         <h3 className="font-heading text-xl font-bold text-navy leading-snug mb-2 group-hover:text-navy-light transition-colors">
@@ -29,6 +47,12 @@ export default function ArticleCard({ article }: { article: Article }) {
           </time>
           <span>{article.readingTime}</span>
         </div>
+        <Link
+          href={`/blog/${article.slug}`}
+          className="inline-block mt-4 text-sm font-semibold text-gold-dark hover:text-gold transition-colors"
+        >
+          Read more &rarr;
+        </Link>
       </div>
     </article>
   );

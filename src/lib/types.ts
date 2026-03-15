@@ -6,6 +6,7 @@ export interface ArticleFrontmatter {
   excerpt: string;
   image?: string;
   featured?: boolean;
+  gameweek?: number;
   tags?: string[];
   author?: string;
 }

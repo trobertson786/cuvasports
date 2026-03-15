@@ -1,24 +1,37 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 import { Article } from "@/lib/types";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface HeroSectionProps {
   featuredArticle?: Article;
 }
 
 export default function HeroSection({ featuredArticle }: HeroSectionProps) {
+  const { t } = useLanguage();
+
   if (!featuredArticle) {
     return (
-      <section className="bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <section className="relative bg-navy text-white overflow-hidden">
+        <Image
+          src="/images/hero-default.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-navy/70" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-4">
-            Since 1987
+            {t("hero.since")}
           </p>
           <h1 className="font-heading text-4xl lg:text-5xl font-bold leading-tight mb-6">
-            Expert Football &amp; Cricket Journalism
+            {t("hero.headline")}
           </h1>
           <p className="text-silver-light text-lg leading-relaxed max-w-2xl mx-auto">
-            Authoritative match reports, tactical analysis, and insider
-            commentary from William Powell — FWA Life Member.
+            {t("hero.subheadline")}
           </p>
         </div>
       </section>
@@ -26,8 +39,16 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
   }
 
   return (
-    <section className="bg-navy text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
+    <section className="relative bg-navy text-white overflow-hidden">
+      <Image
+        src="/images/hero-default.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-navy/65" />
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
         <div className="mb-6">
           <span className="inline-block bg-gold/20 text-gold text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
             {featuredArticle.subcategory
@@ -59,7 +80,7 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
             href={`/blog/${featuredArticle.slug}`}
             className="inline-block bg-gold text-navy font-semibold px-8 py-3 rounded hover:bg-gold-light transition-colors"
           >
-            Read the full preview
+            {t("hero.cta")}
           </Link>
         </div>
       </div>

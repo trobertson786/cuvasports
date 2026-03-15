@@ -73,3 +73,13 @@ export function getAllTags(): string[] {
   const tags = articles.flatMap((a) => a.tags || []);
   return [...new Set(tags)];
 }
+
+export function getAllSubcategories(category?: string): string[] {
+  const articles = category
+    ? getArticlesByCategory(category)
+    : getAllArticles();
+  const subs = articles
+    .map((a) => a.subcategory)
+    .filter((s): s is string => !!s);
+  return [...new Set(subs)].sort();
+}

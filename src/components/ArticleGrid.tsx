@@ -1,5 +1,8 @@
+"use client";
+
 import { Article } from "@/lib/types";
 import ArticleCard from "./ArticleCard";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface ArticleGridProps {
   articles: Article[];
@@ -10,10 +13,12 @@ export default function ArticleGrid({
   articles,
   columns = 3,
 }: ArticleGridProps) {
+  const { t } = useLanguage();
+
   if (articles.length === 0) {
     return (
       <p className="text-center text-gray-500 py-12">
-        No articles found.
+        {t("blog.noArticles")}
       </p>
     );
   }
