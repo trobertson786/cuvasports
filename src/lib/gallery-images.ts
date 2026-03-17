@@ -23,9 +23,9 @@ export function getImageForArticle(
   slug: string,
   category: string,
   articleImage?: string
-): string {
+): string | null {
   if (articleImage) return articleImage;
-  return galleryImages[hashSlug(slug) % galleryImages.length];
+  return null;
 }
 
 export function getCategoryFallback(category: string): string {

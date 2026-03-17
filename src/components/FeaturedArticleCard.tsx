@@ -8,17 +8,19 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
 
   return (
     <article className="bg-white rounded-lg overflow-hidden border-l-4 border-gold hover:shadow-xl transition-shadow duration-300">
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[400px] overflow-hidden">
-          <Image
-            src={imageSrc}
-            alt={article.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
-        </div>
+      <div className={`grid grid-cols-1 ${imageSrc ? "lg:grid-cols-2" : ""}`}>
+        {imageSrc && (
+          <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[400px] overflow-hidden">
+            <Image
+              src={imageSrc}
+              alt={article.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+        )}
         <div className="p-8 lg:p-10 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs font-semibold uppercase tracking-wider text-gold-dark bg-gold/10 px-3 py-1 rounded">

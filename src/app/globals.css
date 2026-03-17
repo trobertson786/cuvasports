@@ -117,6 +117,40 @@ h2 {
   margin: 1.5rem 0;
 }
 
+.prose-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.prose-article thead {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.prose-article th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.prose-article td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.prose-article tbody tr:hover {
+  background: var(--color-gray-50);
+}
+
+.prose-article tbody tr:last-child td {
+  border-bottom: 2px solid var(--color-navy);
+}
+
 /* RTL support for Urdu */
 [dir="rtl"] body {
   font-family: var(--font-urdu), var(--font-body), system-ui, sans-serif;

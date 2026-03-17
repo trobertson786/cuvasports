@@ -8,18 +8,17 @@ export default function ArticleCard({ article }: { article: Article }) {
 
   return (
     <article className="bg-white border-t-2 border-gold rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
-      <div className="relative aspect-[16/9] overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={article.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-        {!article.image && (
-          <div className="absolute inset-0 bg-navy/30" />
-        )}
-      </div>
+      {imageSrc && (
+        <div className="relative aspect-[16/9] overflow-hidden">
+          <Image
+            src={imageSrc}
+            alt={article.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-gold-dark bg-gold/10 px-2 py-0.5 rounded">

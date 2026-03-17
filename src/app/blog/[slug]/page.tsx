@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import { generateArticleMetadata } from "@/lib/metadata";
@@ -121,7 +122,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {/* Article body */}
         <div className="prose-article mb-10">
-          <MDXRemote source={article.content} />
+          <MDXRemote source={article.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
 
         {/* Share */}
