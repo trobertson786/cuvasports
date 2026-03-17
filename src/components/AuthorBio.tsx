@@ -1,9 +1,15 @@
+import Image from "next/image";
+
 export default function AuthorBio() {
   return (
     <div className="bg-gray-50 rounded-lg p-6 flex flex-col sm:flex-row gap-5 items-start border border-gray-200">
-      <div className="w-20 h-20 rounded-full bg-navy flex-shrink-0 flex items-center justify-center">
-        <span className="text-gold font-heading text-2xl font-bold">WP</span>
-      </div>
+      <Image
+        src="/images/william-powell.jpg"
+        alt="William Powell"
+        width={80}
+        height={80}
+        className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+      />
       <div>
         <h3 className="font-heading text-lg font-bold text-navy">
           William Powell

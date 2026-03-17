@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 
@@ -30,9 +31,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="font-heading text-xl font-bold text-gold mb-3">
-              CUVA SPORTS
-            </h3>
+            <Image
+              src="/images/cuva-sports-logo.png"
+              alt="CUVA Sports"
+              width={160}
+              height={48}
+              className="h-10 w-auto mb-3"
+            />
             <p className="text-sm text-silver-dark leading-relaxed max-w-md">
               {t("footer.tagline")}
             </p>
