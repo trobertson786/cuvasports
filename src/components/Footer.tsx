@@ -32,9 +32,9 @@ export default function Footer() {
             <Image
               src="/images/cuva-sports-logo.png"
               alt="CUVA Sports"
-              width={160}
-              height={48}
-              className="h-10 w-auto mb-3 mix-blend-lighten"
+              width={200}
+              height={60}
+              className="h-12 w-auto mb-3 mix-blend-lighten"
             />
             <p className="text-sm text-silver-dark leading-relaxed max-w-md">
               {t("footer.tagline")}

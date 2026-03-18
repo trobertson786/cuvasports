@@ -32,7 +32,7 @@ export default function Navigation() {
   return (
     <header className={`bg-navy text-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-black/20" : ""}`}>
       {/* Ticker bar */}
-      <div className="bg-navy-dark py-1 overflow-hidden text-xs text-silver-light">
+      <div className="bg-navy-dark py-2 overflow-hidden text-sm text-silver-light">
         <div className="animate-ticker whitespace-nowrap inline-block">
           {matchday.ticker.map((item, i) => (
             <span key={i} className="mx-8">{item}</span>
@@ -44,15 +44,15 @@ export default function Navigation() {
       </div>
 
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/images/cuva-sports-logo.png"
               alt="CUVA Sports"
-              width={160}
-              height={48}
-              className="h-10 w-auto mix-blend-lighten"
+              width={220}
+              height={64}
+              className="h-14 w-auto mix-blend-lighten"
               priority
             />
           </Link>
