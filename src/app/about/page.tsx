@@ -31,6 +31,16 @@ export default function AboutPage() {
               priority
             />
           </div>
+          <div className="mt-4 rounded-lg overflow-hidden">
+            <Image
+              src="/images/william-powell-fwa.jpg"
+              alt="William Powell receiving the Ivan Sharpe award at the Football Writers' Association ceremony"
+              width={960}
+              height={720}
+              className="w-full h-auto object-contain rounded-lg"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </div>
           <div className="mt-4 space-y-2">
             <div className="bg-gold/10 rounded-lg px-4 py-3">
               <p className="text-sm font-semibold text-gold-dark">

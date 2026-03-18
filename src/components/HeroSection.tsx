@@ -41,7 +41,7 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
   return (
     <section className="relative bg-navy text-white overflow-hidden">
       <Image
-        src="/images/hero-default.jpg"
+        src={featuredArticle.image || "/images/hero-default.jpg"}
         alt=""
         fill
         className="object-cover"
