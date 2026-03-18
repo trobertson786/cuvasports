@@ -1,52 +1,63 @@
 {
   "results": [
     {
-      "home": "Chelsea",
-      "away": "PSG",
-      "homeScore": 0,
-      "awayScore": 3,
-      "competition": "Champions League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Man City",
-      "away": "Real Madrid",
-      "homeScore": 1,
+      "home": "Barcelona",
+      "away": "Newcastle",
+      "homeScore": 7,
       "awayScore": 2,
       "competition": "Champions League",
       "status": "Full Time"
     },
     {
-      "home": "Arsenal",
-      "away": "Leverkusen",
-      "homeScore": 2,
+      "home": "Liverpool",
+      "away": "Galatasaray",
+      "homeScore": 4,
       "awayScore": 0,
+      "competition": "Champions League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Bayern Munich",
+      "away": "Atalanta",
+      "homeScore": 4,
+      "awayScore": 1,
+      "competition": "Champions League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Tottenham",
+      "away": "Atletico Madrid",
+      "homeScore": 3,
+      "awayScore": 2,
       "competition": "Champions League",
       "status": "Full Time"
     }
   ],
   "fixtures": [
     {
-      "home": "Barcelona",
-      "away": "Newcastle",
-      "competition": "Champions League R16",
-      "dateLabel": "Wed 18 Mar — 5:45 PM"
+      "home": "Chelsea",
+      "away": "Port Vale",
+      "competition": "FA Cup QF",
+      "dateLabel": "Sat 5 Apr — TBC"
     },
     {
-      "home": "Liverpool",
-      "away": "Galatasaray",
-      "competition": "Champions League R16",
-      "dateLabel": "Wed 18 Mar — 8:00 PM"
+      "home": "Man City",
+      "away": "Liverpool",
+      "competition": "FA Cup QF",
+      "dateLabel": "Sat 5 Apr — TBC"
     }
   ],
   "ticker": [
+    "Barcelona 7-2 Newcastle (agg 8-3) — Raphinha and Lewandowski doubles as Barça rout Magpies at Camp Nou",
+    "Liverpool 4-0 Galatasaray (agg 4-1) — Salah scores 50th Champions League goal as Reds storm into QFs",
+    "Bayern Munich 4-1 Atalanta (agg 10-2) — Kane hits 50 CL goals as Bayern cruise through",
+    "Tottenham 3-2 Atletico Madrid (agg 5-7) — Simons brace gives Tudor first win but Spurs exit Europe",
+    "Liverpool to face PSG in Champions League quarter-finals — Atletico draw Barcelona",
     "Chelsea 0-3 PSG (agg 2-8) — Champions League holders cruise past Blues at Stamford Bridge",
     "Man City 1-2 Real Madrid (agg 1-5) — Vinícius Jr scores twice as City crash out",
     "Arsenal 2-0 Leverkusen (agg 3-1) — Gunners through to Champions League quarter-finals",
     "Sporting 5-0 Bodø/Glimt (agg 5-3) — Historic comeback as Sporting overturn three-goal deficit",
     "Arsenal top Premier League with 70 points from 31 games — nine clear of Man City",
-    "Chelsea fined £10.75m and handed suspended transfer ban over secret payments",
-    "India win T20 World Cup — beat New Zealand by 96 runs in Ahmedabad final",
     "IPL 2026 starts 28 March — defending champions RCB host Sunrisers Hyderabad",
     "FA Cup QF draw — Man City vs Liverpool, Chelsea vs Port Vale, Arsenal vs Southampton, West Ham vs Leeds"
   ]
