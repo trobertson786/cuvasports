@@ -38,7 +38,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-bold uppercase text-gray-400 hover:text-navy transition-colors border border-gray-200 px-3 py-1.5 rounded hover:border-navy"
+          className="text-xs font-bold uppercase text-gray-400 hover:text-navy transition-all duration-200 border border-transparent ring-1 ring-gray-200 hover:ring-navy px-3 py-1.5 rounded"
         >
           {link.label}
         </a>

@@ -48,7 +48,7 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
         priority
       />
       <div className="absolute inset-0 bg-navy/65" />
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center animate-fade-in-up">
         <div className="mb-6">
           <span className="inline-block bg-gold/20 text-gold text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
             {featuredArticle.subcategory
@@ -78,9 +78,9 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
         <div className="mt-8">
           <Link
             href={`/blog/${featuredArticle.slug}`}
-            className="inline-block bg-gold text-navy font-semibold px-8 py-3 rounded hover:bg-gold-light transition-colors"
+            className="group inline-block bg-gold text-navy font-semibold px-8 py-3 rounded hover:bg-gold-light hover:shadow-lg hover:scale-[1.03] transition-all duration-200"
           >
-            {t("hero.cta")}
+            {t("hero.cta")} <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
           </Link>
         </div>
       </div>

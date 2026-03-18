@@ -16,10 +16,8 @@ const footerLinks: { href: string; labelKey: TranslationKey }[] = [
 ];
 
 const socialLinks = [
-  { label: "Facebook", abbr: "FB", href: "#" },
   { label: "X", abbr: "X", href: "https://x.com/WillsSportMedia" },
-  { label: "LinkedIn", abbr: "LI", href: "#" },
-  { label: "Instagram", abbr: "IG", href: "#" },
+  { label: "RSS Feed", abbr: "RSS", href: "/feed.xml" },
 ];
 
 export default function Footer() {
@@ -36,7 +34,7 @@ export default function Footer() {
               alt="CUVA Sports"
               width={160}
               height={48}
-              className="h-10 w-auto mb-3"
+              className="h-10 w-auto mb-3 mix-blend-lighten"
             />
             <p className="text-sm text-silver-dark leading-relaxed max-w-md">
               {t("footer.tagline")}
@@ -54,7 +52,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-silver-dark hover:text-gold transition-colors"
+                      className="relative text-sm text-silver-dark hover:text-gold transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
                     >
                       {t(link.labelKey)}
                     </Link>
@@ -71,8 +69,8 @@ export default function Footer() {
                   <a
                     key={social.abbr}
                     href={social.href}
-                    target={social.href !== "#" ? "_blank" : undefined}
-                    rel={social.href !== "#" ? "noopener noreferrer" : undefined}
+                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     aria-label={social.label}
                     className="text-xs font-bold text-silver-dark hover:text-gold transition-colors uppercase bg-navy-light px-3 py-1.5 rounded-full"
                   >

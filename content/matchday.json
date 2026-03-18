@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "home": "Chelsea",
+      "away": "PSG",
+      "homeScore": 0,
+      "awayScore": 3,
+      "competition": "Champions League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Leicester",
+      "away": "QPR",
+      "homeScore": 1,
+      "awayScore": 3,
+      "competition": "Championship",
+      "status": "Full Time"
+    }
+  ],
+  "fixtures": [
+    {
+      "home": "Chelsea",
+      "away": "Port Vale",
+      "competition": "FA Cup QF",
+      "dateLabel": "Sat 22 Mar — 3:00 PM"
+    }
+  ],
+  "ticker": [
+    "Chelsea 0-3 PSG (agg 2-8) — Champions League holders cruise past Blues at Stamford Bridge",
+    "Leicester 1-3 QPR — R's strike back with stunning away win at the King Power",
+    "Arsenal lead Premier League with 67 points from 30 matches",
+    "Sheffield Wednesday relegated after 18-point deduction"
+  ]
+}

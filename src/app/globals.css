@@ -183,5 +183,29 @@ h2 {
 }
 
 .animate-ticker {
-  animation: ticker 30s linear infinite;
+  animation: ticker 30s cubic-bezier(0.25, 0, 0.75, 1) infinite;
+}
+
+/* Fade-in animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes growWidth {
+  from { width: 0; }
+  to { width: 4rem; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out both;
 }

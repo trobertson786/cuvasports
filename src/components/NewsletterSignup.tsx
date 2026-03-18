@@ -3,15 +3,45 @@
 import { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 
+const BUTTONDOWN_USERNAME = "cuvasports";
+
 export default function NewsletterSignup() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const { t } = useLanguage();
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: Connect to email service
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch(
+        `https://api.buttondown.com/v1/subscribers`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, tags: ["website"] }),
+        }
+      );
+
+      if (res.ok || res.status === 201) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json().catch(() => null);
+        if (res.status === 409) {
+          setSubmitted(true);
+        } else {
+          setError(data?.detail || "Something went wrong. Please try again.");
+        }
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -30,23 +60,33 @@ export default function NewsletterSignup() {
         ) : (
           <form
             onSubmit={handleSubmit}
+            action={`https://buttondown.com/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`}
+            method="post"
             className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
           >
             <input
               type="email"
+              name="email"
               required
               placeholder={t("newsletter.placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 px-4 py-3 rounded bg-navy-light border border-navy-light text-white placeholder-silver-dark focus:outline-none focus:border-gold"
             />
+            {error && (
+              <p className="text-red-400 text-sm sm:hidden">{error}</p>
+            )}
             <button
               type="submit"
-              className="bg-gold text-navy font-semibold px-6 py-3 rounded hover:bg-gold-light transition-colors"
+              disabled={submitting}
+              className="bg-gold text-navy font-semibold px-6 py-3 rounded hover:bg-gold-light transition-colors disabled:opacity-50"
             >
-              {t("newsletter.button")}
+              {submitting ? "..." : t("newsletter.button")}
             </button>
           </form>
+        )}
+        {error && !submitted && (
+          <p className="text-red-400 text-sm mt-2 hidden sm:block">{error}</p>
         )}
       </div>
     </section>

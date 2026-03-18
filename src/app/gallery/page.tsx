@@ -18,14 +18,15 @@ export default function GalleryPage() {
       <TranslatedHeading titleKey="gallery.title" />
       <div className="columns-2 md:columns-3 lg:columns-4 gap-4 mt-4">
         {images.map((img) => (
-          <div key={img.src} className="mb-4 break-inside-avoid">
+          <div key={img.src} className="mb-4 break-inside-avoid overflow-hidden rounded-lg relative group">
             <Image
               src={img.src}
               alt={img.alt}
               width={600}
               height={400}
-              className="w-full rounded-lg hover:shadow-lg transition-shadow duration-200"
+              className="w-full hover:scale-105 transition-transform duration-300"
             />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
           </div>
         ))}
       </div>

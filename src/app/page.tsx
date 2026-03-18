@@ -5,6 +5,23 @@ import ArticleGrid from "@/components/ArticleGrid";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TranslatedHeading from "@/components/TranslatedHeading";
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CUVA Sports",
+  url: "https://cuvasports.com",
+  description:
+    "Expert football and cricket journalism by William Powell, FWA Life Member and sports writer since 1987.",
+  publisher: {
+    "@type": "Organization",
+    name: "CUVA Sports",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://cuvasports.com/images/cuva-sports-logo.png",
+    },
+  },
+};
+
 export default function HomePage() {
   const allArticles = getAllArticles();
   const featured = getFeaturedArticles();
@@ -12,6 +29,10 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <MatchdayBar />
       <HeroSection featuredArticle={featured[0]} />
 

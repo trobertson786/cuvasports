@@ -2,13 +2,38 @@
 
 import { useState } from "react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpwzgkvl";
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: Connect to form handling service (Formspree, etc.)
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -100,11 +125,15 @@ export default function ContactPage() {
                   className="w-full px-4 py-2.5 rounded-lg border border-gray-200 focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy resize-none"
                 />
               </div>
+              {error && (
+                <p className="text-red-600 text-sm">{error}</p>
+              )}
               <button
                 type="submit"
-                className="bg-navy text-white font-semibold px-8 py-3 rounded-lg hover:bg-navy-light transition-colors"
+                disabled={submitting}
+                className="bg-navy text-white font-semibold px-8 py-3 rounded-lg hover:bg-navy-light transition-colors disabled:opacity-50"
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           )}
@@ -126,17 +155,14 @@ export default function ContactPage() {
               Connect
             </h3>
             <div className="space-y-2">
-              {["Facebook", "X (Twitter)", "LinkedIn", "Instagram"].map(
-                (platform) => (
-                  <a
-                    key={platform}
-                    href="#"
-                    className="block text-sm text-navy hover:text-gold transition-colors"
-                  >
-                    {platform} &rarr;
-                  </a>
-                )
-              )}
+              <a
+                href="https://x.com/WillsSportMedia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm text-navy hover:text-gold transition-colors"
+              >
+                X (Twitter) &rarr;
+              </a>
             </div>
           </div>
         </div>

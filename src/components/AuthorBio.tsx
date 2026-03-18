@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AuthorBio() {
   return (
-    <div className="bg-gray-50 rounded-lg p-6 flex flex-col sm:flex-row gap-5 items-start border border-gray-200">
+    <div className="bg-gray-50 rounded-lg p-6 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
       <Image
         src="/images/william-powell.jpg"
         alt="William Powell"

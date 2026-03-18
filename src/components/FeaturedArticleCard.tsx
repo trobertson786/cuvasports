@@ -7,7 +7,7 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
 
   return (
-    <article className="bg-white rounded-lg overflow-hidden border-l-4 border-gold hover:shadow-xl transition-shadow duration-300">
+    <article className="bg-white rounded-lg overflow-hidden border-l-4 border-gold hover:shadow-xl transition-shadow duration-300 group">
       <div className={`grid grid-cols-1 ${imageSrc ? "lg:grid-cols-2" : ""}`}>
         {imageSrc && (
           <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[400px] overflow-hidden">
@@ -15,7 +15,7 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
               src={imageSrc}
               alt={article.title}
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -55,9 +55,9 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
           </div>
           <Link
             href={`/blog/${article.slug}`}
-            className="inline-block bg-gold text-navy font-semibold px-6 py-3 rounded hover:bg-gold-light transition-colors self-start"
+            className="group/btn inline-block bg-gold text-navy font-semibold px-6 py-3 rounded hover:bg-gold-light hover:shadow-md hover:scale-[1.02] transition-all duration-200 self-start"
           >
-            Read full article &rarr;
+            Read full article <span className="inline-block transition-transform group-hover/btn:translate-x-1">&rarr;</span>
           </Link>
         </div>
       </div>

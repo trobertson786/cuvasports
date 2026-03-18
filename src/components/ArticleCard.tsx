@@ -7,14 +7,14 @@ export default function ArticleCard({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
 
   return (
-    <article className="bg-white border-t-2 border-gold rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group">
+    <article className="bg-white border-t-2 border-gold rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
       {imageSrc && (
         <div className="relative aspect-[16/9] overflow-hidden">
           <Image
             src={imageSrc}
             alt={article.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover group-hover:scale-105 group-hover:brightness-105 transition-all duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
@@ -50,7 +50,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           href={`/blog/${article.slug}`}
           className="inline-block mt-4 text-sm font-semibold text-gold-dark hover:text-gold transition-colors"
         >
-          Read more &rarr;
+          Read more <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
         </Link>
       </div>
     </article>

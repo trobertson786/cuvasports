@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { generatePageMetadata } from "@/lib/metadata";
 import { galleryImages } from "@/lib/gallery-images";
+import { getAllArticles } from "@/lib/articles";
 
 export const metadata = generatePageMetadata(
   "About",
@@ -8,6 +10,8 @@ export const metadata = generatePageMetadata(
 );
 
 export default function AboutPage() {
+  const latestArticle = getAllArticles()[0];
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="font-heading text-4xl font-bold text-navy mb-8">
@@ -77,14 +81,22 @@ export default function AboutPage() {
             </li>
           </ul>
 
-          <h2>Currently</h2>
-          <p>
-            I&apos;m covering QPR vs Leicester at Loftus Road today — a
-            Championship relegation six-pointer with huge implications for both
-            clubs. On Tuesday, I&apos;ll be at Stamford Bridge for Chelsea vs
-            PSG in the Champions League, where Chelsea need to overturn a 5-2
-            first-leg deficit against the defending champions.
-          </p>
+          <h2>Latest</h2>
+          {latestArticle && (
+            <p>
+              My most recent piece:{" "}
+              <Link href={`/blog/${latestArticle.slug}`} className="text-gold-dark hover:underline">
+                {latestArticle.title}
+              </Link>{" "}
+              — published{" "}
+              {new Date(latestArticle.date).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+              .
+            </p>
+          )}
 
           <h2>Why CUVA Sports?</h2>
           <p>

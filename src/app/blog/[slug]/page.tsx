@@ -46,6 +46,22 @@ export default async function ArticlePage({ params }: PageProps) {
       name: article.author || "William Powell",
     },
     description: article.excerpt,
+    image: article.image
+      ? `https://cuvasports.com${article.image}`
+      : "https://cuvasports.com/opengraph-image",
+    publisher: {
+      "@type": "Organization",
+      name: "CUVA Sports",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://cuvasports.com/images/cuva-sports-logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://cuvasports.com/blog/${article.slug}`,
+    },
+    wordCount: article.content.split(/\s+/).length,
   };
 
   return (

@@ -7,7 +7,7 @@ const siteName = "CUVA Sports";
 export function generateArticleMetadata(article: Article): Metadata {
   const ogImage = article.image
     ? `${siteUrl}${article.image}`
-    : `${siteUrl}/images/og-default.jpg`;
+    : `${siteUrl}/opengraph-image`;
 
   return {
     title: `${article.title} | ${siteName}`,
