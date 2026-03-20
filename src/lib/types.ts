@@ -1,7 +1,7 @@
 export interface ArticleFrontmatter {
   title: string;
   date: string;
-  category: "football" | "cricket" | "analysis";
+  category: "football" | "cricket";
   subcategory?: string;
   excerpt: string;
   image?: string;

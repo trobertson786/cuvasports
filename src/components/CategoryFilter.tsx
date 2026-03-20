@@ -9,7 +9,6 @@ const categories: { href: string; labelKey: TranslationKey }[] = [
   { href: "/blog", labelKey: "category.all" },
   { href: "/football", labelKey: "category.football" },
   { href: "/cricket", labelKey: "category.cricket" },
-  { href: "/analysis", labelKey: "category.analysis" },
 ];
 
 export default function CategoryFilter() {

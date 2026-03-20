@@ -8,7 +8,6 @@ const galleryImages = Array.from({ length: GALLERY_COUNT }, (_, i) => {
 const categoryFallbacks: Record<string, string> = {
   football: "/images/fallback-football.jpg",
   cricket: "/images/fallback-cricket.jpg",
-  analysis: "/images/fallback-analysis.jpg",
 };
 
 function hashSlug(slug: string): number {

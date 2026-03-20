@@ -9,7 +9,6 @@ const footerLinks: { href: string; labelKey: TranslationKey }[] = [
   { href: "/blog", labelKey: "nav.blog" },
   { href: "/football", labelKey: "nav.football" },
   { href: "/cricket", labelKey: "nav.cricket" },
-  { href: "/analysis", labelKey: "nav.analysis" },
   { href: "/gallery", labelKey: "nav.gallery" },
   { href: "/about", labelKey: "nav.about" },
   { href: "/contact", labelKey: "nav.contact" },
