@@ -31,14 +31,14 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm text-gray-500 font-medium">Share:</span>
+      <span className="font-ui text-sm text-on-surface-muted font-medium">Share:</span>
       {links.map((link) => (
         <a
           key={link.label}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs font-bold uppercase text-gray-400 hover:text-navy transition-all duration-200 border border-transparent ring-1 ring-gray-200 hover:ring-navy px-3 py-1.5 rounded"
+          className="font-ui text-xs font-bold uppercase text-on-surface-muted hover:text-apex transition-all duration-200 bg-surface-high px-3 py-1.5 rounded-lg"
         >
           {link.label}
         </a>

@@ -37,10 +37,10 @@ export default function MatchReportFilters({
           <button
             key={sub}
             onClick={() => setActiveSub(sub)}
-            className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`font-ui text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
               activeSub === sub
-                ? "bg-gold text-navy"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-apex text-surface"
+                : "bg-surface-high text-on-surface-muted hover:bg-surface-highest hover:text-on-surface"
             }`}
           >
             {sub === "All" ? t("category.all") : sub}
@@ -48,23 +48,23 @@ export default function MatchReportFilters({
         ))}
       </div>
       <div className="flex items-center gap-2 mb-8">
-        <span className="text-sm text-gray-500">{t("filter.sort")}</span>
+        <span className="font-ui text-sm text-on-surface-muted">{t("filter.sort")}</span>
         <button
           onClick={() => setSortOrder("newest")}
-          className={`text-sm px-3 py-1 rounded font-medium transition-colors ${
+          className={`font-ui text-sm px-3 py-1 rounded-lg font-medium transition-colors ${
             sortOrder === "newest"
-              ? "bg-navy text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              ? "bg-surface-highest text-on-surface"
+              : "bg-surface-high text-on-surface-muted hover:bg-surface-highest"
           }`}
         >
           {t("filter.newest")}
         </button>
         <button
           onClick={() => setSortOrder("oldest")}
-          className={`text-sm px-3 py-1 rounded font-medium transition-colors ${
+          className={`font-ui text-sm px-3 py-1 rounded-lg font-medium transition-colors ${
             sortOrder === "oldest"
-              ? "bg-navy text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              ? "bg-surface-highest text-on-surface"
+              : "bg-surface-high text-on-surface-muted hover:bg-surface-highest"
           }`}
         >
           {t("filter.oldest")}
@@ -72,7 +72,7 @@ export default function MatchReportFilters({
       </div>
 
       {filtered.length === 0 ? (
-        <p className="text-center text-gray-500 py-12">
+        <p className="text-center text-on-surface-muted py-12">
           {t("filter.noResults")}
         </p>
       ) : (

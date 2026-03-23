@@ -23,7 +23,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-navy text-silver-light">
+    <footer className="bg-surface-lowest text-on-surface-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Brand */}
@@ -35,7 +35,7 @@ export default function Footer() {
               height={60}
               className="h-12 w-auto mb-3 mix-blend-lighten"
             />
-            <p className="text-sm text-silver-dark leading-relaxed max-w-md">
+            <p className="text-sm text-on-surface-muted leading-relaxed max-w-md">
               {t("footer.tagline")}
             </p>
           </div>
@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Nav + Social */}
           <div className="flex flex-col sm:flex-row gap-8 md:justify-end">
             <div>
-              <h4 className="font-heading text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+              <h4 className="font-ui text-sm font-semibold text-on-surface mb-3 uppercase tracking-wider">
                 {t("footer.navigation")}
               </h4>
               <ul className="space-y-2">
@@ -51,7 +51,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="relative text-sm text-silver-dark hover:text-gold transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                      className="relative font-ui text-sm text-on-surface-muted hover:text-apex transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-apex after:transition-all after:duration-300 hover:after:w-full"
                     >
                       {t(link.labelKey)}
                     </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-heading text-sm font-semibold text-white mb-3 uppercase tracking-wider">
+              <h4 className="font-ui text-sm font-semibold text-on-surface mb-3 uppercase tracking-wider">
                 {t("footer.connect")}
               </h4>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -71,18 +71,18 @@ export default function Footer() {
                     target={social.href.startsWith("http") ? "_blank" : undefined}
                     rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     aria-label={social.label}
-                    className="text-xs font-bold text-silver-dark hover:text-gold transition-colors uppercase bg-navy-light px-3 py-1.5 rounded-full"
+                    className="font-ui text-xs font-bold text-on-surface-muted hover:text-apex transition-colors uppercase bg-surface-high px-3 py-1.5 rounded-full"
                   >
                     {social.abbr}
                   </a>
                 ))}
               </div>
-              <p className="text-sm text-silver-dark">
+              <p className="text-sm text-on-surface-muted">
                 {t("footer.press")}
                 <br />
                 <Link
                   href="/contact"
-                  className="text-gold hover:text-gold-light transition-colors"
+                  className="text-apex hover:text-gold-light transition-colors"
                 >
                   {t("footer.getInTouch")} &rarr;
                 </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-navy-light mt-8 pt-8 text-center text-xs text-silver-dark">
+        <div className="mt-8 pt-8 text-center text-xs text-on-surface-muted" style={{ borderTop: '1px solid rgba(183, 200, 225, 0.15)' }}>
           &copy; {new Date().getFullYear()} {t("footer.copyright")}
         </div>
       </div>

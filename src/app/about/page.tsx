@@ -14,7 +14,7 @@ export default function AboutPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="font-heading text-4xl font-bold text-navy mb-8">
+      <h1 className="font-heading text-4xl font-bold text-on-surface mb-8">
         About William Powell
       </h1>
 
@@ -42,13 +42,13 @@ export default function AboutPage() {
             />
           </div>
           <div className="mt-4 space-y-2">
-            <div className="bg-gold/10 rounded-lg px-4 py-3">
-              <p className="text-sm font-semibold text-gold-dark">
+            <div className="bg-apex/10 rounded-lg px-4 py-3">
+              <p className="font-ui text-sm font-semibold text-apex">
                 FWA Life Member
               </p>
             </div>
-            <div className="bg-navy/5 rounded-lg px-4 py-3">
-              <p className="text-sm font-semibold text-navy">Since 1987</p>
+            <div className="bg-surface-high rounded-lg px-4 py-3">
+              <p className="font-ui text-sm font-semibold text-on-surface">Since 1987</p>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
           {latestArticle && (
             <p>
               My most recent piece:{" "}
-              <Link href={`/blog/${latestArticle.slug}`} className="text-gold-dark hover:underline">
+              <Link href={`/blog/${latestArticle.slug}`} className="text-apex hover:underline">
                 {latestArticle.title}
               </Link>{" "}
               — published{" "}
@@ -128,12 +128,12 @@ export default function AboutPage() {
 
       {/* Gallery: From the Press Box */}
       <section className="mt-16">
-        <h2 className="font-heading text-2xl font-bold text-navy mb-6">
+        <h2 className="font-heading text-2xl font-bold text-on-surface mb-6">
           From the Press Box
         </h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {galleryImages.map((src, i) => (
-            <div key={i} className="aspect-square relative rounded overflow-hidden">
+            <div key={i} className="aspect-square relative rounded-lg overflow-hidden">
               <Image
                 src={src}
                 alt={`Press box photo ${i + 1}`}

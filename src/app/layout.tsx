@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Source_Sans_3, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -12,8 +12,14 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -58,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${sourceSans.variable} ${notoNastaliq.variable} antialiased`}
+        className={`${playfair.variable} ${jakarta.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
       >
         <LanguageProvider>
           <Navigation />

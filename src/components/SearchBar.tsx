@@ -43,20 +43,21 @@ export default function SearchBar({ items }: { items: SearchItem[] }) {
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
-        className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy"
+        className="w-full px-4 py-2.5 rounded-lg bg-surface-highest text-on-surface text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder-on-surface-muted"
+        style={{ border: '1px solid rgba(183, 200, 225, 0.15)' }}
       />
       {open && results.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-surface-high rounded-lg z-50 overflow-hidden">
           {results.map((item) => (
             <Link
               key={item.slug}
               href={`/blog/${item.slug}`}
-              className="block px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-0"
+              className="block px-4 py-3 hover:bg-surface-highest"
             >
-              <span className="text-xs font-semibold uppercase text-gold-dark">
+              <span className="font-ui text-xs font-semibold uppercase text-apex">
                 {item.category}
               </span>
-              <p className="text-sm font-medium text-navy">{item.title}</p>
+              <p className="text-sm font-medium text-on-surface">{item.title}</p>
             </Link>
           ))}
         </div>

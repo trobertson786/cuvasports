@@ -29,9 +29,9 @@ export default function Navigation() {
   }, []);
 
   return (
-    <header className={`bg-navy text-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-black/20" : ""}`}>
+    <header className={`glass text-on-surface sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-surface-lowest/90" : ""}`}>
       {/* Ticker bar */}
-      <div className="bg-navy-dark py-2 overflow-hidden text-sm text-silver-light">
+      <div className="bg-surface-lowest py-2 overflow-hidden text-sm text-on-surface-muted">
         <div className="animate-ticker whitespace-nowrap inline-block">
           {matchday.ticker.map((item, i) => (
             <span key={i} className="mx-8">{item}</span>
@@ -62,14 +62,14 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-silver-light hover:text-gold transition-colors"
+                className="font-ui text-sm font-medium text-on-surface-muted hover:text-apex transition-colors duration-200"
               >
                 {t(link.labelKey)}
               </Link>
             ))}
             <button
               onClick={() => setLang(lang === "en" ? "ur" : "en")}
-              className="text-sm text-silver-light hover:text-gold transition-colors"
+              className="font-ui text-sm text-on-surface-muted hover:text-apex transition-colors duration-200"
             >
               {lang === "en" ? "اردو" : "English"}
             </button>
@@ -77,7 +77,7 @@ export default function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-on-surface p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -107,10 +107,10 @@ export default function Navigation() {
         </div>
 
         {/* Mobile menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-96 pb-4 border-t border-navy-light" : "max-h-0"}`}>
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? "max-h-96 pb-4" : "max-h-0"}`}>
           <button
             onClick={() => setLang(lang === "en" ? "ur" : "en")}
-            className="block py-2 text-sm text-silver-light hover:text-gold transition-colors"
+            className="block py-2 font-ui text-sm text-on-surface-muted hover:text-apex transition-colors"
           >
             {lang === "en" ? "اردو" : "English"}
           </button>
@@ -118,7 +118,7 @@ export default function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="block py-2 text-sm text-silver-light hover:text-gold transition-colors"
+              className="block py-2 font-ui text-sm text-on-surface-muted hover:text-apex transition-colors"
               onClick={() => setMobileOpen(false)}
             >
               {t(link.labelKey)}

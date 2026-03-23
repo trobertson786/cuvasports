@@ -23,10 +23,10 @@ export default function CategoryFilter() {
           <Link
             key={cat.href}
             href={cat.href}
-            className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`font-ui text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
               isActive
-                ? "bg-navy text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-apex text-surface"
+                : "bg-surface-high text-on-surface-muted hover:bg-surface-highest hover:text-on-surface"
             }`}
           >
             {t(cat.labelKey)}

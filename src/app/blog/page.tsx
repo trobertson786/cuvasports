@@ -31,7 +31,7 @@ export default function BlogPage() {
       {featuredArticle && (
         <>
           <FeaturedArticleCard article={featuredArticle} />
-          <div className="border-t border-gold/30 my-10" />
+          <div className="my-10" />
         </>
       )}
 

@@ -7,7 +7,7 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
 
   return (
-    <article className="bg-white rounded-lg overflow-hidden border-l-4 border-gold hover:shadow-xl transition-shadow duration-300 group">
+    <article className="bg-surface-container rounded-tl-[1.5rem] rounded-br-[1.5rem] rounded-tr-[0.375rem] rounded-bl-[0.375rem] overflow-hidden transition-all duration-300 group">
       <div className={`grid grid-cols-1 ${imageSrc ? "lg:grid-cols-2" : ""}`}>
         {imageSrc && (
           <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[400px] overflow-hidden">
@@ -19,28 +19,29 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
+            <div className="absolute inset-0 bg-surface/20" />
           </div>
         )}
         <div className="p-8 lg:p-10 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gold-dark bg-gold/10 px-3 py-1 rounded">
+            <span className="font-ui text-xs font-semibold uppercase tracking-wider text-apex bg-apex/10 px-3 py-1 rounded-full">
               {article.category}
             </span>
             {article.subcategory && (
-              <span className="text-xs font-medium text-white bg-navy px-2 py-0.5 rounded">
+              <span className="font-ui text-xs font-medium text-on-surface bg-surface-highest px-2 py-0.5 rounded-full">
                 {article.subcategory}
               </span>
             )}
           </div>
-          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-navy leading-tight mb-4">
-            <Link href={`/blog/${article.slug}`} className="hover:text-navy-light transition-colors">
+          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-on-surface leading-tight mb-4">
+            <Link href={`/blog/${article.slug}`} className="hover:text-primary transition-colors">
               {article.title}
             </Link>
           </h2>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-on-surface-muted leading-relaxed mb-6">
             {article.excerpt}
           </p>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-on-surface-muted mb-6">
             <span>{article.author ?? "William Powell"}</span>
             <span>&middot;</span>
             <time dateTime={article.date}>
@@ -55,7 +56,7 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
           </div>
           <Link
             href={`/blog/${article.slug}`}
-            className="group/btn inline-block bg-gold text-navy font-semibold px-6 py-3 rounded hover:bg-gold-light hover:shadow-md hover:scale-[1.02] transition-all duration-200 self-start"
+            className="btn-gradient group/btn inline-block font-ui font-semibold px-6 py-3 rounded-lg self-start"
           >
             Read full article <span className="inline-block transition-transform group-hover/btn:translate-x-1">&rarr;</span>
           </Link>

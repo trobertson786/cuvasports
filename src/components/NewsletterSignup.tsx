@@ -45,16 +45,16 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <section className="bg-navy py-12">
+    <section className="bg-surface-low py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="font-heading text-2xl font-bold text-white mb-2">
+        <h2 className="font-heading text-2xl font-bold text-on-surface mb-2">
           {t("newsletter.title")}
         </h2>
-        <p className="text-silver mb-6">
+        <p className="text-on-surface-muted mb-6">
           {t("newsletter.subtitle")}
         </p>
         {submitted ? (
-          <p className="text-gold font-semibold">
+          <p className="text-apex font-semibold">
             {t("newsletter.thanks")}
           </p>
         ) : (
@@ -71,7 +71,8 @@ export default function NewsletterSignup() {
               placeholder={t("newsletter.placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-4 py-3 rounded bg-navy-light border border-navy-light text-white placeholder-silver-dark focus:outline-none focus:border-gold"
+              className="flex-1 px-4 py-3 rounded-lg bg-surface-highest text-on-surface placeholder-on-surface-muted focus:outline-none focus:ring-1 focus:ring-primary/50"
+              style={{ border: '1px solid rgba(183, 200, 225, 0.15)' }}
             />
             {error && (
               <p className="text-red-400 text-sm sm:hidden">{error}</p>
@@ -79,7 +80,7 @@ export default function NewsletterSignup() {
             <button
               type="submit"
               disabled={submitting}
-              className="bg-gold text-navy font-semibold px-6 py-3 rounded hover:bg-gold-light transition-colors disabled:opacity-50"
+              className="btn-gradient font-ui font-semibold px-6 py-3 rounded-lg disabled:opacity-50"
             >
               {submitting ? "..." : t("newsletter.button")}
             </button>

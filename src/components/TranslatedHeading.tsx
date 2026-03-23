@@ -18,12 +18,12 @@ export default function TranslatedHeading({
 
   return (
     <>
-      <Tag className={`font-heading font-bold text-navy mb-2 ${Tag === "h1" ? "text-5xl" : "text-3xl"}`}>
+      <Tag className={`font-heading font-bold text-on-surface mb-2 ${Tag === "h1" ? "text-5xl" : "text-3xl"}`}>
         {t(titleKey)}
       </Tag>
-      {Tag === "h1" && <div className="h-1 bg-gold mb-4 w-0 animate-[growWidth_0.6s_ease-out_forwards]" />}
+      {Tag === "h1" && <div className="h-1 bg-apex mb-4 w-0 animate-[growWidth_0.6s_ease-out_forwards]" />}
       {subtitleKey && (
-        <p className="text-gray-500 mb-8">{t(subtitleKey)}</p>
+        <p className="text-on-surface-muted mb-8">{t(subtitleKey)}</p>
       )}
     </>
   );

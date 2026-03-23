@@ -17,7 +17,7 @@ export default function ArticleGrid({
 
   if (articles.length === 0) {
     return (
-      <p className="text-center text-gray-500 py-12">
+      <p className="text-center text-on-surface-muted py-12">
         {t("blog.noArticles")}
       </p>
     );
@@ -25,7 +25,7 @@ export default function ArticleGrid({
 
   return (
     <div
-      className={`grid gap-6 ${
+      className={`grid gap-8 ${
         columns === 3
           ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           : "grid-cols-1 md:grid-cols-2"
