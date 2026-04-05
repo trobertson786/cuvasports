@@ -56,38 +56,50 @@ export default function AboutPage() {
         {/* Biography */}
         <div className="md:col-span-2 prose-article">
           <p>
-            I started CUVA Sports because, after nearly four decades in press
-            boxes and press rooms, I still believe that good sports writing
-            matters. Not hot takes or clickbait — proper journalism. The kind
-            that puts you in the ground, explains why a match unfolded the way
-            it did, and treats readers as the knowledgeable fans they are.
+            After nearly four decades in press boxes and press rooms, I still
+            believe that good sports writing matters. Not hot takes or clickbait,
+            just proper journalism. The kind that puts you in the ground,
+            explains why a match unfolded the way it did, and treats readers as
+            the knowledgeable fans they are - that&apos;s why I have established
+            CUVA Sports.
           </p>
 
           <p>
             My career has taken me from non-league grounds on wet Tuesday
             evenings to World Cup finals and Ashes series. Along the way,
             I&apos;ve been honoured with Life Membership of the Football
-            Writers&apos; Association — a recognition I&apos;m deeply proud of.
+            Writers&apos; Association - a recognition I&apos;m deeply proud of -
+            and am also a Full Member and Archivist of the Cricket Media Club
+            formerly the Cricket Writers&apos; Club since 1989. Member of BSJA,
+            AIPS, BAJ.
           </p>
 
           <h2>What I Cover</h2>
           <ul>
             <li>
-              <strong>Premier League</strong> — title races, relegation battles,
+              <strong>Premier League</strong> - title races, relegation battles,
               and everything in between
             </li>
             <li>
-              <strong>Championship</strong> — the most compelling division in
+              <strong>Championship</strong> - the most compelling division in
               English football
             </li>
             <li>
-              <strong>Champions League</strong> — European nights under the
-              lights
+              <strong>League 1 and 2</strong> - the most compelling divisions in
+              English football
             </li>
             <li>
-              <strong>English &amp; International Cricket</strong> — Test
-              matches, the County Championship, and England&apos;s campaigns
-              abroad
+              <strong>Champions League / Europa League / Europa Conference League</strong> -
+              European nights under the lights
+            </li>
+            <li>
+              <strong>Internationals</strong> - covered England, Wales, Northern
+              Ireland, Scotland and the Republic of Ireland
+            </li>
+            <li>
+              <strong>English &amp; International Cricket</strong> - Test
+              matches, the County Championship, One Day matches, T20 matches and
+              England&apos;s campaigns abroad
             </li>
           </ul>
 
@@ -98,7 +110,7 @@ export default function AboutPage() {
               <Link href={`/blog/${latestArticle.slug}`} className="text-apex hover:underline">
                 {latestArticle.title}
               </Link>{" "}
-              — published{" "}
+              - published{" "}
               {new Date(latestArticle.date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "long",
@@ -112,9 +124,9 @@ export default function AboutPage() {
           <p>
             After years writing for other publications, CUVA Sports gives me the
             freedom to cover the stories I care about, in my own voice, without
-            editorial interference. Every article is written by me — no
-            aggregation, no AI-generated content, no filler. Just honest sports
-            journalism shaped by decades of experience.
+            editorial interference. Every article is written by me and my
+            colleagues, no aggregation, no AI-generated content, no filler. Just
+            honest sports journalism shaped by decades of experience.
           </p>
 
           <h2>Get in Touch</h2>
