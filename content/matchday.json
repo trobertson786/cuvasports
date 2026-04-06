@@ -1,64 +1,68 @@
 {
   "results": [
     {
-      "home": "Barcelona",
-      "away": "Newcastle",
+      "home": "West Ham",
+      "away": "Leeds United",
+      "homeScore": 2,
+      "awayScore": 2,
+      "competition": "FA Cup QF",
+      "status": "Leeds win 4-2 pens"
+    },
+    {
+      "home": "Chelsea",
+      "away": "Port Vale",
       "homeScore": 7,
-      "awayScore": 2,
-      "competition": "Champions League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Liverpool",
-      "away": "Galatasaray",
-      "homeScore": 4,
       "awayScore": 0,
-      "competition": "Champions League",
+      "competition": "FA Cup QF",
       "status": "Full Time"
     },
     {
-      "home": "Bayern Munich",
-      "away": "Atalanta",
-      "homeScore": 4,
+      "home": "QPR",
+      "away": "Watford",
+      "homeScore": 2,
       "awayScore": 1,
-      "competition": "Champions League",
+      "competition": "Championship",
       "status": "Full Time"
     },
     {
-      "home": "Tottenham",
-      "away": "Atletico Madrid",
-      "homeScore": 3,
+      "home": "Barnet",
+      "away": "Cambridge Utd",
+      "homeScore": 1,
+      "awayScore": 0,
+      "competition": "League Two",
+      "status": "Full Time"
+    },
+    {
+      "home": "Arsenal",
+      "away": "Man City",
+      "homeScore": 0,
       "awayScore": 2,
-      "competition": "Champions League",
+      "competition": "League Cup Final",
       "status": "Full Time"
     }
   ],
   "fixtures": [
     {
-      "home": "Chelsea",
-      "away": "Port Vale",
-      "competition": "FA Cup QF",
-      "dateLabel": "Sat 5 Apr — TBC"
+      "home": "Leeds United",
+      "away": "Chelsea",
+      "competition": "FA Cup SF",
+      "dateLabel": "Sat 25 / Sun 26 Apr — Wembley"
     },
     {
       "home": "Man City",
-      "away": "Liverpool",
-      "competition": "FA Cup QF",
-      "dateLabel": "Sat 5 Apr — TBC"
+      "away": "Southampton",
+      "competition": "FA Cup SF",
+      "dateLabel": "Sat 25 / Sun 26 Apr — Wembley"
     }
   ],
   "ticker": [
-    "Barcelona 7-2 Newcastle (agg 8-3) — Raphinha and Lewandowski doubles as Barça rout Magpies at Camp Nou",
-    "Liverpool 4-0 Galatasaray (agg 4-1) — Salah scores 50th Champions League goal as Reds storm into QFs",
-    "Bayern Munich 4-1 Atalanta (agg 10-2) — Kane hits 50 CL goals as Bayern cruise through",
-    "Tottenham 3-2 Atletico Madrid (agg 5-7) — Simons brace gives Tudor first win but Spurs exit Europe",
-    "Liverpool to face PSG in Champions League quarter-finals — Atletico draw Barcelona",
-    "Chelsea 0-3 PSG (agg 2-8) — Champions League holders cruise past Blues at Stamford Bridge",
-    "Man City 1-2 Real Madrid (agg 1-5) — Vinícius Jr scores twice as City crash out",
-    "Arsenal 2-0 Leverkusen (agg 3-1) — Gunners through to Champions League quarter-finals",
-    "Sporting 5-0 Bodø/Glimt (agg 5-3) — Historic comeback as Sporting overturn three-goal deficit",
-    "Arsenal top Premier League with 70 points from 31 games — nine clear of Man City",
-    "IPL 2026 starts 28 March — defending champions RCB host Sunrisers Hyderabad",
-    "FA Cup QF draw — Man City vs Liverpool, Chelsea vs Port Vale, Arsenal vs Southampton, West Ham vs Leeds"
+    "West Ham 2-2 Leeds United (Leeds win 4-2 on pens) — Tanaka and Calvert-Lewin goals before dramatic added time comeback, Struijk scores decisive penalty",
+    "Chelsea 7-0 Port Vale — Hato, Joao Pedro, Tosin, Santos, Estevao and Garnacho all score as Blues demolish League 1 side",
+    "QPR 2-1 Watford — Kolli and Smyth seal Good Friday win for the Hoops at Matrade Loftus Road",
+    "Barnet 1-0 Cambridge United — Skipper Collinge heads winner as Bees move within two points of play offs",
+    "Arsenal 0-2 Manchester City — O'Reilly double wins ninth League Cup for City at Wembley",
+    "FA Cup Semi-Final draw — Leeds United vs Chelsea and Manchester City vs Southampton at Wembley 25/26 April",
+    "QPR end day in 10th on 56 points — Watford 9th with same tally after Good Friday defeat",
+    "Arsenal top Premier League with 70 points from 31 games — nine clear of Man City"
   ]
 }
