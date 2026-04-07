@@ -7,8 +7,8 @@ import CategoryFilter from "@/components/CategoryFilter";
 import TranslatedHeading from "@/components/TranslatedHeading";
 
 export const metadata = generatePageMetadata(
-  "Blog",
-  "All articles from William Powell — football, cricket, and analysis."
+  "Match Reports",
+  "Match reports and analysis from William Powell — football, cricket, and more."
 );
 
 export default function BlogPage() {

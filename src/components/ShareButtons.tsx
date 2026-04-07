@@ -6,7 +6,7 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
-  const url = `https://cuvasports.com/blog/${slug}`;
+  const url = `https://cuvasports.com/reports/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
 

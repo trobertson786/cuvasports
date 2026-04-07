@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Playfair_Display, Inter, Lora, Noto_Nastaliq_Urdu } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -12,8 +12,8 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
   display: "swap",
 });
@@ -37,7 +37,8 @@ export const metadata: Metadata = {
     "Expert football and cricket journalism by William Powell, FWA Life Member and sports writer since 1987. Match reports, analysis, and commentary.",
   metadataBase: new URL("https://cuvasports.com"),
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     siteName: "CUVA Sports",
@@ -64,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${jakarta.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
+        className={`${playfair.variable} ${lora.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
       >
         <LanguageProvider>
           <Navigation />

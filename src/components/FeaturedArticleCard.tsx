@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Article } from "@/lib/types";
 import { getImageForArticle } from "@/lib/gallery-images";
+import { formatCategoryLabel } from "@/lib/taxonomy";
+import FWABadge from "@/components/FWABadge";
 
 export default function FeaturedArticleCard({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
@@ -25,24 +27,20 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
         <div className="p-8 lg:p-10 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-4">
             <span className="font-ui text-xs font-semibold uppercase tracking-wider text-apex bg-apex/10 px-3 py-1 rounded-full">
-              {article.category}
+              {formatCategoryLabel(article.category, article.subcategory)}
             </span>
-            {article.subcategory && (
-              <span className="font-ui text-xs font-medium text-on-surface bg-surface-highest px-2 py-0.5 rounded-full">
-                {article.subcategory}
-              </span>
-            )}
           </div>
           <h2 className="font-heading text-3xl lg:text-4xl font-bold text-on-surface leading-tight mb-4">
-            <Link href={`/blog/${article.slug}`} className="hover:text-primary transition-colors">
+            <Link href={`/reports/${article.slug}`} className="hover:text-primary transition-colors">
               {article.title}
             </Link>
           </h2>
           <p className="text-on-surface-muted leading-relaxed mb-6">
-            {article.excerpt}
+            {article.standfirst || article.excerpt}
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm text-on-surface-muted mb-6">
             <span>{article.author ?? "William Powell"}</span>
+            <FWABadge size="sm" />
             <span>&middot;</span>
             <time dateTime={article.date}>
               {new Date(article.date).toLocaleDateString("en-GB", {
@@ -55,7 +53,7 @@ export default function FeaturedArticleCard({ article }: { article: Article }) {
             <span>{article.readingTime}</span>
           </div>
           <Link
-            href={`/blog/${article.slug}`}
+            href={`/reports/${article.slug}`}
             className="btn-gradient group/btn inline-block font-ui font-semibold px-6 py-3 rounded-lg self-start"
           >
             Read full article <span className="inline-block transition-transform group-hover/btn:translate-x-1">&rarr;</span>

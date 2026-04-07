@@ -1,7 +1,7 @@
 const translations = {
   en: {
     "nav.home": "Home",
-    "nav.blog": "Blog",
+    "nav.matchReports": "Match Reports",
     "nav.football": "Football",
     "nav.cricket": "Cricket",
     "nav.gallery": "Gallery",
@@ -14,8 +14,8 @@ const translations = {
       "Authoritative match reports, tactical analysis, and insider commentary from William Powell — FWA Life Member.",
     "hero.cta": "Read the full preview",
 
-    "blog.title": "Blog",
-    "blog.subtitle": "All articles by William Powell.",
+    "blog.title": "Match Reports",
+    "blog.subtitle": "All match reports and analysis by William Powell.",
     "blog.readMore": "Read full article",
     "blog.noArticles": "No articles found.",
     "blog.search": "Search articles...",
@@ -36,8 +36,8 @@ const translations = {
     "related": "Related Articles",
     "minRead": "min read",
 
-    "newsletter.title": "Stay in the Game",
-    "newsletter.subtitle": "Get William's latest articles delivered to your inbox.",
+    "newsletter.title": "Weekly from the Press Box",
+    "newsletter.subtitle": "Match reports, tactical analysis, and insider commentary from four decades in the press box. Delivered every Monday.",
     "newsletter.placeholder": "your@email.com",
     "newsletter.button": "Subscribe",
     "newsletter.thanks": "Thanks for subscribing!",
@@ -57,7 +57,7 @@ const translations = {
   },
   ur: {
     "nav.home": "ہوم",
-    "nav.blog": "بلاگ",
+    "nav.matchReports": "میچ رپورٹس",
     "nav.football": "فٹ بال",
     "nav.cricket": "کرکٹ",
     "nav.gallery": "گیلری",
@@ -70,8 +70,8 @@ const translations = {
       "ولیم پاول کی مستند میچ رپورٹس، تکنیکی تجزیہ، اور اندرونی تبصرہ — FWA لائف ممبر۔",
     "hero.cta": "مکمل پیش نظارہ پڑھیں",
 
-    "blog.title": "بلاگ",
-    "blog.subtitle": "ولیم پاول کے تمام مضامین۔",
+    "blog.title": "میچ رپورٹس",
+    "blog.subtitle": "ولیم پاول کی تمام میچ رپورٹس اور تجزیے۔",
     "blog.readMore": "مکمل مضمون پڑھیں",
     "blog.noArticles": "کوئی مضمون نہیں ملا۔",
     "blog.search": "مضامین تلاش کریں...",
@@ -92,8 +92,8 @@ const translations = {
     "related": "متعلقہ مضامین",
     "minRead": "منٹ پڑھیں",
 
-    "newsletter.title": "کھیل سے جڑے رہیں",
-    "newsletter.subtitle": "ولیم کے تازہ ترین مضامین اپنے ان باکس میں حاصل کریں۔",
+    "newsletter.title": "پریس باکس سے ہفتہ وار",
+    "newsletter.subtitle": "میچ رپورٹس، تکنیکی تجزیہ، اور پریس باکس میں چار دہائیوں کا تبصرہ۔ ہر پیر کو۔",
     "newsletter.placeholder": "آپ کی ای میل",
     "newsletter.button": "سبسکرائب کریں",
     "newsletter.thanks": "سبسکرائب کرنے کا شکریہ!",

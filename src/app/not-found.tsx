@@ -16,7 +16,7 @@ export default function NotFound() {
           Back to Home
         </Link>
         <Link
-          href="/blog"
+          href="/reports"
           className="font-ui font-semibold px-6 py-3 rounded-lg bg-surface-high text-on-surface hover:bg-surface-highest transition-colors"
         >
           Browse Articles

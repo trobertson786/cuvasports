@@ -107,7 +107,7 @@ export default function AboutPage() {
           {latestArticle && (
             <p>
               My most recent piece:{" "}
-              <Link href={`/blog/${latestArticle.slug}`} className="text-apex hover:underline">
+              <Link href={`/reports/${latestArticle.slug}`} className="text-apex hover:underline">
                 {latestArticle.title}
               </Link>{" "}
               - published{" "}

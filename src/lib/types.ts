@@ -3,7 +3,9 @@ export interface ArticleFrontmatter {
   date: string;
   category: "football" | "cricket";
   subcategory?: string;
+  standfirst?: string;
   excerpt: string;
+  format?: "Match Report" | "Preview" | "Analysis" | "Column" | "Predictions";
   image?: string;
   featured?: boolean;
   gameweek?: number;

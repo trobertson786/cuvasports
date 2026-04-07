@@ -8,6 +8,9 @@ import AuthorBio from "@/components/AuthorBio";
 import ShareButtons from "@/components/ShareButtons";
 import ArticleGrid from "@/components/ArticleGrid";
 import TranslatedHeading from "@/components/TranslatedHeading";
+import ScoreBox from "@/components/ScoreBox";
+import FWABadge from "@/components/FWABadge";
+import { formatCategoryLabel } from "@/lib/taxonomy";
 import Link from "next/link";
 
 interface PageProps {
@@ -59,7 +62,7 @@ export default async function ArticlePage({ params }: PageProps) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://cuvasports.com/blog/${article.slug}`,
+      "@id": `https://cuvasports.com/reports/${article.slug}`,
     },
     wordCount: article.content.split(/\s+/).length,
   };
@@ -81,8 +84,8 @@ export default async function ArticlePage({ params }: PageProps) {
                 Home
               </Link>
               <span className="mx-2">/</span>
-              <Link href="/blog" className="hover:text-primary transition-colors">
-                Blog
+              <Link href="/reports" className="hover:text-primary transition-colors">
+                Match Reports
               </Link>
               <span className="mx-2">/</span>
               <Link
@@ -113,13 +116,8 @@ export default async function ArticlePage({ params }: PageProps) {
             <header className="mb-10">
               <div className="flex items-center gap-3 mb-4">
                 <span className="font-ui text-xs font-semibold uppercase tracking-wider text-apex bg-apex/10 px-2 py-0.5 rounded-full">
-                  {article.category}
+                  {formatCategoryLabel(article.category, article.subcategory)}
                 </span>
-                {article.subcategory && (
-                  <span className="font-ui text-xs text-on-surface-muted">
-                    {article.subcategory}
-                  </span>
-                )}
               </div>
               <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-on-surface leading-tight mb-4">
                 {article.title}
@@ -136,8 +134,23 @@ export default async function ArticlePage({ params }: PageProps) {
                 <span>{article.readingTime}</span>
                 <span>&middot;</span>
                 <span>{article.author || "William Powell"}</span>
+                <span>&middot;</span>
+                <FWABadge />
               </div>
             </header>
+
+            {/* ScoreBox for match reports */}
+            {article.homeTeam && article.awayTeam && article.homeScore != null && article.awayScore != null && (
+              <ScoreBox
+                homeTeam={article.homeTeam}
+                awayTeam={article.awayTeam}
+                homeScore={article.homeScore}
+                awayScore={article.awayScore}
+                competition={article.competition}
+                venue={article.venue}
+                date={article.date}
+              />
+            )}
           </div>
         </div>
 

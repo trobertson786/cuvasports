@@ -47,12 +47,22 @@ export default function NewsletterSignup() {
   return (
     <section className="bg-surface-low py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p className="font-ui text-xs font-semibold uppercase tracking-widest text-apex mb-3">
+          The Press Box
+        </p>
         <h2 className="font-heading text-2xl font-bold text-on-surface mb-2">
           {t("newsletter.title")}
         </h2>
-        <p className="text-on-surface-muted mb-6">
+        <p className="text-on-surface-muted mb-4">
           {t("newsletter.subtitle")}
         </p>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm text-on-surface-muted mb-6">
+          <span>Exclusive match-day insights</span>
+          <span className="hidden sm:inline">&middot;</span>
+          <span>First access to long-form analysis</span>
+          <span className="hidden sm:inline">&middot;</span>
+          <span>Direct from William Powell, FWA Life Member</span>
+        </div>
         {submitted ? (
           <p className="text-apex font-semibold">
             {t("newsletter.thanks")}

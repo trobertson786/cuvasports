@@ -6,7 +6,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 
 const categories: { href: string; labelKey: TranslationKey }[] = [
-  { href: "/blog", labelKey: "category.all" },
+  { href: "/reports", labelKey: "category.all" },
   { href: "/football", labelKey: "category.football" },
   { href: "/cricket", labelKey: "category.cricket" },
 ];

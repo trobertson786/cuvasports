@@ -51,16 +51,14 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center animate-fade-in-up">
         <div className="mb-6">
           <span className="font-ui inline-block bg-apex/20 text-apex text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
-            {featuredArticle.subcategory
-              ? `${featuredArticle.category} — ${featuredArticle.subcategory}`
-              : featuredArticle.category}
+            {featuredArticle.subcategory?.toUpperCase() || featuredArticle.category.toUpperCase()}
           </span>
         </div>
         <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
           {featuredArticle.title}
         </h1>
         <p className="text-on-surface-muted text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
-          {featuredArticle.excerpt}
+          {featuredArticle.standfirst || featuredArticle.excerpt}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-silver">
           <span>{featuredArticle.author ?? "William Powell"}</span>
@@ -77,7 +75,7 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
         </div>
         <div className="mt-8">
           <Link
-            href={`/blog/${featuredArticle.slug}`}
+            href={`/reports/${featuredArticle.slug}`}
             className="btn-gradient group inline-block font-ui font-semibold px-8 py-3 rounded-lg"
           >
             {t("hero.cta")} <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>

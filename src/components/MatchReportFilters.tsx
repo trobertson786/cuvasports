@@ -8,13 +8,16 @@ import ArticleGrid from "./ArticleGrid";
 interface MatchReportFiltersProps {
   articles: Article[];
   subcategories: string[];
+  formats?: string[];
 }
 
 export default function MatchReportFilters({
   articles,
   subcategories,
+  formats = [],
 }: MatchReportFiltersProps) {
   const [activeSub, setActiveSub] = useState("All");
+  const [activeFormat, setActiveFormat] = useState("All");
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
   const { t } = useLanguage();
 
@@ -23,12 +26,16 @@ export default function MatchReportFilters({
       ? articles
       : articles.filter((a) => a.subcategory === activeSub);
 
+    if (activeFormat !== "All") {
+      result = result.filter((a) => a.format === activeFormat);
+    }
+
     if (sortOrder === "oldest") {
       result = [...result].reverse();
     }
 
     return result;
-  }, [articles, activeSub, sortOrder]);
+  }, [articles, activeSub, activeFormat, sortOrder]);
 
   return (
     <>
@@ -47,6 +54,23 @@ export default function MatchReportFilters({
           </button>
         ))}
       </div>
+      {formats.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          {["All", ...formats].map((fmt) => (
+            <button
+              key={fmt}
+              onClick={() => setActiveFormat(fmt)}
+              className={`font-ui text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+                activeFormat === fmt
+                  ? "bg-apex text-surface"
+                  : "bg-surface-high text-on-surface-muted hover:bg-surface-highest hover:text-on-surface"
+              }`}
+            >
+              {fmt}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="flex items-center gap-2 mb-8">
         <span className="font-ui text-sm text-on-surface-muted">{t("filter.sort")}</span>
         <button

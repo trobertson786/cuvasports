@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles();
 
   const articleUrls = articles.map((article) => ({
-    url: `${siteUrl}/blog/${article.slug}`,
+    url: `${siteUrl}/reports/${article.slug}`,
     lastModified: new Date(article.date),
     changeFrequency: "weekly" as const,
     priority: 0.8,
@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: siteUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
-    { url: `${siteUrl}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
+    { url: `${siteUrl}/reports`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${siteUrl}/football`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${siteUrl}/cricket`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${siteUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },

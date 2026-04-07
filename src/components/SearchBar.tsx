@@ -51,7 +51,7 @@ export default function SearchBar({ items }: { items: SearchItem[] }) {
           {results.map((item) => (
             <Link
               key={item.slug}
-              href={`/blog/${item.slug}`}
+              href={`/reports/${item.slug}`}
               className="block px-4 py-3 hover:bg-surface-highest"
             >
               <span className="font-ui text-xs font-semibold uppercase text-apex">

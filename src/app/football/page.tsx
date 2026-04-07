@@ -13,6 +13,7 @@ export const metadata = generatePageMetadata(
 export default function FootballPage() {
   const articles = getArticlesByCategory("football");
   const subcategories = getAllSubcategories("football");
+  const formats = [...new Set(articles.map((a) => a.format).filter(Boolean))] as string[];
   const searchItems = articles.map((a) => ({
     slug: a.slug,
     title: a.title,
@@ -32,7 +33,7 @@ export default function FootballPage() {
         <CategoryFilter />
       </div>
 
-      <MatchReportFilters articles={articles} subcategories={subcategories} />
+      <MatchReportFilters articles={articles} subcategories={subcategories} formats={formats} />
     </div>
   );
 }

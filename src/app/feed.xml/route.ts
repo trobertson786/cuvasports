@@ -9,11 +9,11 @@ export async function GET() {
       (article) => `
     <item>
       <title><![CDATA[${article.title}]]></title>
-      <link>${siteUrl}/blog/${article.slug}</link>
+      <link>${siteUrl}/reports/${article.slug}</link>
       <description><![CDATA[${article.excerpt}]]></description>
       <pubDate>${new Date(article.date).toUTCString()}</pubDate>
       <category>${article.category}</category>
-      <guid>${siteUrl}/blog/${article.slug}</guid>
+      <guid>${siteUrl}/reports/${article.slug}</guid>
     </item>`
     )
     .join("");
