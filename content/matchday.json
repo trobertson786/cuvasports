@@ -1,47 +1,37 @@
 {
   "results": [
     {
-      "home": "West Ham",
-      "away": "Leeds United",
+      "home": "Tottenham",
+      "away": "Brighton",
       "homeScore": 2,
       "awayScore": 2,
-      "competition": "FA Cup QF",
-      "status": "Leeds win 4-2 pens"
+      "competition": "Premier League",
+      "status": "Full Time"
     },
     {
       "home": "Chelsea",
-      "away": "Port Vale",
-      "homeScore": 7,
-      "awayScore": 0,
-      "competition": "FA Cup QF",
-      "status": "Full Time"
-    },
-    {
-      "home": "QPR",
-      "away": "Watford",
-      "homeScore": 2,
-      "awayScore": 1,
-      "competition": "Championship",
-      "status": "Full Time"
-    },
-    {
-      "home": "Barnet",
-      "away": "Cambridge Utd",
-      "homeScore": 1,
-      "awayScore": 0,
-      "competition": "League Two",
-      "status": "Full Time"
-    },
-    {
-      "home": "Arsenal",
-      "away": "Man City",
+      "away": "Man United",
       "homeScore": 0,
-      "awayScore": 2,
-      "competition": "League Cup Final",
+      "awayScore": 1,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Millwall",
+      "away": "QPR",
+      "homeScore": 2,
+      "awayScore": 0,
+      "competition": "Championship",
       "status": "Full Time"
     }
   ],
   "fixtures": [
+    {
+      "home": "Crystal Palace",
+      "away": "West Ham",
+      "competition": "Premier League",
+      "dateLabel": "Mon 20 Apr"
+    },
     {
       "home": "Leeds United",
       "away": "Chelsea",
@@ -56,13 +46,10 @@
     }
   ],
   "ticker": [
-    "West Ham 2-2 Leeds United (Leeds win 4-2 on pens) — Tanaka and Calvert-Lewin goals before dramatic added time comeback, Struijk scores decisive penalty",
-    "Chelsea 7-0 Port Vale — Hato, Joao Pedro, Tosin, Santos, Estevao and Garnacho all score as Blues demolish League 1 side",
-    "QPR 2-1 Watford — Kolli and Smyth seal Good Friday win for the Hoops at Matrade Loftus Road",
-    "Barnet 1-0 Cambridge United — Skipper Collinge heads winner as Bees move within two points of play offs",
-    "Arsenal 0-2 Manchester City — O'Reilly double wins ninth League Cup for City at Wembley",
-    "FA Cup Semi-Final draw — Leeds United vs Chelsea and Manchester City vs Southampton at Wembley 25/26 April",
-    "QPR end day in 10th on 56 points — Watford 9th with same tally after Good Friday defeat",
-    "Arsenal top Premier League with 70 points from 31 games — nine clear of Man City"
+    "Tottenham 2-2 Brighton — Rutter's 95th-minute equaliser breaks Spurs hearts, leaving them bottom three without a PL win in 2026",
+    "Chelsea 0-1 Manchester United — Matheus Cunha's 43rd-minute strike boosts United's top-four push at Stamford Bridge",
+    "Millwall 2-0 QPR — Mazou-Sacko and Neghli inside 17 minutes settle the London derby at The Den",
+    "Crystal Palace vs West Ham — Monday night Premier League, 20th April",
+    "FA Cup Semi-Finals — Leeds United vs Chelsea and Man City vs Southampton at Wembley, 25/26 April"
   ]
 }
