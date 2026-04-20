@@ -138,6 +138,31 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Editor & Developer */}
+      <section className="mt-16 border-t border-surface-high pt-12">
+        <h2 className="font-heading text-2xl font-bold text-on-surface mb-8">
+          Editor &amp; Developer
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="md:col-span-1">
+            <div className="bg-surface-high rounded-lg px-4 py-3">
+              <p className="font-ui text-sm font-semibold text-on-surface">Site Development</p>
+            </div>
+          </div>
+          <div className="md:col-span-2 prose-article">
+            <h3>Theodore Robertson</h3>
+            <p>
+              Theodore Robertson is the editor and developer behind CUVA Sports,
+              responsible for building and maintaining the platform that brings
+              William Powell&apos;s journalism to readers. Theodore designed and
+              developed the site to give William the freedom to publish honest,
+              unfiltered sports writing without the constraints of third-party
+              platforms.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Gallery: From the Press Box */}
       <section className="mt-16">
         <h2 className="font-heading text-2xl font-bold text-on-surface mb-6">
