@@ -10,21 +10,13 @@ const categoryFallbacks: Record<string, string> = {
   cricket: "/images/fallback-cricket.jpg",
 };
 
-function hashSlug(slug: string): number {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = (hash * 31 + slug.charCodeAt(i)) | 0;
-  }
-  return Math.abs(hash);
-}
-
 export function getImageForArticle(
   slug: string,
   category: string,
   articleImage?: string
-): string | null {
+): string {
   if (articleImage) return articleImage;
-  return null;
+  return getCategoryFallback(category);
 }
 
 export function getCategoryFallback(category: string): string {

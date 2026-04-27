@@ -1,6 +1,5 @@
 import { getAllArticles, getFeaturedArticles } from "@/lib/articles";
 import HeroSection from "@/components/HeroSection";
-import MatchdayBar from "@/components/MatchdayBar";
 import ArticleGrid from "@/components/ArticleGrid";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TranslatedHeading from "@/components/TranslatedHeading";
@@ -33,7 +32,6 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <MatchdayBar />
       <HeroSection featuredArticle={featured[0]} />
 
       {/* Latest Articles */}

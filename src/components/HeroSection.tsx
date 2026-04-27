@@ -9,6 +9,17 @@ interface HeroSectionProps {
   featuredArticle?: Article;
 }
 
+function getHeroCta(article: Article): string {
+  switch (article.format) {
+    case "Match Report": return "Read the match report";
+    case "Preview": return "Read the preview";
+    case "Analysis": return "Read the analysis";
+    case "Column": return "Read William's column";
+    case "Predictions": return "Read the predictions";
+    default: return "Read the article";
+  }
+}
+
 export default function HeroSection({ featuredArticle }: HeroSectionProps) {
   const { t } = useLanguage();
 
@@ -42,12 +53,12 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
     <section className="relative bg-surface text-on-surface overflow-hidden">
       <Image
         src={featuredArticle.image || "/images/hero-default.jpg"}
-        alt=""
+        alt={featuredArticle.title}
         fill
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-surface/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-surface/95 via-surface/80 to-surface/40" />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center animate-fade-in-up">
         <div className="mb-6">
           <span className="font-ui inline-block bg-apex/20 text-apex text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
@@ -78,7 +89,7 @@ export default function HeroSection({ featuredArticle }: HeroSectionProps) {
             href={`/reports/${featuredArticle.slug}`}
             className="btn-gradient group inline-block font-ui font-semibold px-8 py-3 rounded-lg"
           >
-            {t("hero.cta")} <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+            {getHeroCta(featuredArticle)} <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
           </Link>
         </div>
       </div>

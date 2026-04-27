@@ -9,18 +9,16 @@ export default function ArticleCard({ article }: { article: Article }) {
 
   return (
     <article className="bg-surface-container rounded-tl-[1.5rem] rounded-br-[1.5rem] rounded-tr-[0.375rem] rounded-bl-[0.375rem] overflow-hidden hover:-translate-y-1 transition-all duration-300 group">
-      {imageSrc && (
-        <div className="relative aspect-[16/9] overflow-hidden">
-          <Image
-            src={imageSrc}
-            alt={article.title}
-            fill
-            className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-300"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-surface/20" />
-        </div>
-      )}
+      <div className="relative aspect-[16/9] overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={article.title}
+          fill
+          className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-300"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-surface/20" />
+      </div>
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
           <span className="font-ui text-xs font-semibold uppercase tracking-wider text-apex bg-apex/10 px-2 py-0.5 rounded-full">

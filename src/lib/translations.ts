@@ -12,7 +12,7 @@ const translations = {
     "hero.headline": "Expert Football & Cricket Journalism",
     "hero.subheadline":
       "Authoritative match reports, tactical analysis, and insider commentary from William Powell — FWA Life Member.",
-    "hero.cta": "Read the full preview",
+    "hero.cta": "Read the full report",
 
     "blog.title": "Match Reports",
     "blog.subtitle": "All match reports and analysis by William Powell.",

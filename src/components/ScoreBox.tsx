@@ -6,6 +6,8 @@ interface ScoreBoxProps {
   competition?: string;
   venue?: string;
   date: string;
+  homeScorers?: string[];
+  awayScorers?: string[];
 }
 
 export default function ScoreBox({
@@ -16,6 +18,8 @@ export default function ScoreBox({
   competition,
   venue,
   date,
+  homeScorers,
+  awayScorers,
 }: ScoreBoxProps) {
   return (
     <div className="bg-surface-container rounded-lg overflow-hidden mb-8">
@@ -25,6 +29,13 @@ export default function ScoreBox({
             <span className="font-heading text-lg sm:text-xl font-bold text-on-surface">
               {homeTeam}
             </span>
+            {homeScorers?.length ? (
+              <div className="mt-1">
+                {homeScorers.map((scorer) => (
+                  <div key={scorer} className="text-xs text-on-surface-muted">{scorer}</div>
+                ))}
+              </div>
+            ) : null}
           </div>
           <div className="flex items-center gap-3">
             <span className="font-heading text-3xl sm:text-4xl font-bold text-apex">
@@ -39,6 +50,13 @@ export default function ScoreBox({
             <span className="font-heading text-lg sm:text-xl font-bold text-on-surface">
               {awayTeam}
             </span>
+            {awayScorers?.length ? (
+              <div className="mt-1">
+                {awayScorers.map((scorer) => (
+                  <div key={scorer} className="text-xs text-on-surface-muted">{scorer}</div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

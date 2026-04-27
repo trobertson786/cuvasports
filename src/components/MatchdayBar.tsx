@@ -1,4 +1,4 @@
-import matchday from "../../content/matchday.json";
+import { matchdayResults, matchdayFixtures } from "@/lib/matchday";
 
 export default function MatchdayBar() {
   return (
@@ -10,7 +10,7 @@ export default function MatchdayBar() {
           </span>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8">
-          {matchday.results.map((r, i) => (
+          {matchdayResults.map((r, i) => (
             <div key={`r-${i}`} className="flex items-center gap-3">
               <span className="font-ui bg-surface-highest text-on-surface text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap">
                 {r.status}
@@ -28,7 +28,7 @@ export default function MatchdayBar() {
             </div>
           ))}
 
-          {matchday.fixtures.map((f, i) => (
+          {matchdayFixtures.map((f, i) => (
             <div key={`f-${i}`} className="flex items-center gap-3">
               <span className="font-ui bg-apex text-surface text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap">
                 {f.dateLabel}

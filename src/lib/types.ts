@@ -15,6 +15,8 @@ export interface ArticleFrontmatter {
   awayTeam?: string;
   homeScore?: number;
   awayScore?: number;
+  homeScorers?: string[];
+  awayScorers?: string[];
   competition?: string;
   venue?: string;
 }

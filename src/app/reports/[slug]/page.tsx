@@ -35,9 +35,21 @@ export default async function ArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const allArticles = getAllArticles();
+  const articleTags = new Set(article.tags ?? []);
   const related = allArticles
-    .filter((a) => a.category === article.category && a.slug !== article.slug)
-    .slice(0, 3);
+    .filter((candidate) => candidate.slug !== article.slug)
+    .map((candidate) => {
+      const candidateTags = candidate.tags ?? [];
+      const overlap = candidateTags.filter((tag) => articleTags.has(tag)).length;
+      const sameSubcategory =
+        candidate.subcategory && candidate.subcategory === article.subcategory ? 1 : 0;
+      const sameCategory = candidate.category === article.category ? 0.5 : 0;
+      return { article: candidate, score: overlap * 3 + sameSubcategory + sameCategory };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((item) => item.article);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -149,6 +161,8 @@ export default async function ArticlePage({ params }: PageProps) {
                 competition={article.competition}
                 venue={article.venue}
                 date={article.date}
+                homeScorers={article.homeScorers}
+                awayScorers={article.awayScorers}
               />
             )}
           </div>

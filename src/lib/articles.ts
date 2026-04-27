@@ -60,7 +60,10 @@ export function getArticlesByCategory(category: string): Article[] {
 }
 
 export function getFeaturedArticles(): Article[] {
-  return getAllArticles().filter((a) => a.featured);
+  return getAllArticles()
+    .filter((a) => a.featured)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 1);
 }
 
 export function getAllCategories(): string[] {

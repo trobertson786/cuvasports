@@ -57,13 +57,13 @@ const subcategory =
   teamSubcategory[awayTeam.toLowerCase()] ||
   "Premier League";
 
-const title = `${homeTeam} ${score} ${awayTeam}: Match Report`;
-const slug = `${homeTeam}-${score.replace(/[^0-9]/g, "-")}-${awayTeam}`
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, "-")
-  .replace(/^-|-$/g, "");
+const [homeScore, awayScore] = score.split("-").map((s) => s.trim());
+
+const teamSlug = (t: string) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 const today = new Date().toISOString().split("T")[0];
+const slug = `${today}-${teamSlug(homeTeam)}-vs-${teamSlug(awayTeam)}`;
 const filename = `${slug}.mdx`;
 const filepath = path.join(process.cwd(), "content/articles", filename);
 
@@ -72,43 +72,65 @@ if (fs.existsSync(filepath)) {
   process.exit(1);
 }
 
+const title = `${homeTeam} ${homeScore}-${awayScore} ${awayTeam}: [HEADLINE]`;
+
 const template = `---
 title: "${title}"
 date: "${today}"
 category: "football"
 subcategory: "${subcategory}"
-excerpt: "${homeTeam} ${score.split("-")[0]?.trim()}-${score.split("-")[1]?.trim()} ${awayTeam} — match report from [VENUE]."
+format: "Match Report"
+homeTeam: "${homeTeam}"
+awayTeam: "${awayTeam}"
+homeScore: ${homeScore}
+awayScore: ${awayScore}
+competition: "${subcategory}"
+venue: "[VENUE]"
+excerpt: "${homeTeam} ${homeScore}-${awayScore} ${awayTeam} — match report from [VENUE]."
 featured: false
 tags: ["${homeTeam}", "${awayTeam}", "${subcategory}", "Match Report"]
 author: "William Powell"
 ---
 
-**${homeTeam} ${score} ${awayTeam}**
-${subcategory} | ${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })} | [VENUE]
+## Match Details
 
----
+- **Competition:** ${subcategory}
+- **Date:** ${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+- **Venue:** [VENUE]
+- **Final Score:** ${homeTeam} ${homeScore} - ${awayScore} ${awayTeam}
+- **Half Time:** ${homeTeam} [HT-HOME] - [HT-AWAY] ${awayTeam}
+- **Attendance:** [ATTENDANCE]
+- **Referee:** [REFEREE]
 
-## First Half
+## Match Stats & Key Metrics
 
-How did the match begin? Who controlled the opening exchanges? Describe the key moments and goals in the first 45 minutes.
+|  | ${homeTeam} | ${awayTeam} |
+|---|---|---|
+| **Score** | ${homeScore} | ${awayScore} |
+| **Half Time** | [HT-HOME] | [HT-AWAY] |
+| **Goalscorers** | [SCORERS] | [SCORERS] |
+| **Formation** | [FORMATION] | [FORMATION] |
+| **Yellow Cards** | [CARDS] | [CARDS] |
+| **Red Cards** | [CARDS] | [CARDS] |
+| **Substitutions** | [SUBS] | [SUBS] |
 
-## Second Half
+## Lineups
 
-What changed after the break? Substitutions, tactical shifts, and the decisive moments.
+**${homeTeam} ([FORMATION]):** [STARTING XI]. *Subs unused:* [SUBS].
 
-## Key Moments
+**${awayTeam} ([FORMATION]):** [STARTING XI]. *Subs unused:* [SUBS].
 
-- **[TIME]'** — [DESCRIPTION]
-- **[TIME]'** — [DESCRIPTION]
-- **[TIME]'** — [DESCRIPTION]
+## The Story of the Match
 
-## Man of the Match
+[NARRATIVE]
 
-**[PLAYER NAME]** — Why they stood out.
+## Timeline of Key Events
 
-## What This Means
+- **[TIME]'** — [EVENT]
 
-Where does this result leave both sides in the table? What are the implications for the weeks ahead?
+## Author's Standout Players
+
+- **[PLAYER]** ([TEAM]) — [WHY]
 `;
 
 fs.mkdirSync(path.dirname(filepath), { recursive: true });
