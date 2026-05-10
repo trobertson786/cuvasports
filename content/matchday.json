@@ -1,55 +1,87 @@
 {
   "results": [
     {
-      "home": "Tottenham",
-      "away": "Brighton",
-      "homeScore": 2,
-      "awayScore": 2,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Chelsea",
-      "away": "Man United",
+      "home": "Fulham",
+      "away": "AFC Bournemouth",
       "homeScore": 0,
       "awayScore": 1,
       "competition": "Premier League",
       "status": "Full Time"
     },
     {
-      "home": "Millwall",
-      "away": "QPR",
-      "homeScore": 2,
+      "home": "Man City",
+      "away": "Brentford",
+      "homeScore": 3,
       "awayScore": 0,
-      "competition": "Championship",
+      "competition": "Premier League",
       "status": "Full Time"
+    },
+    {
+      "home": "Liverpool",
+      "away": "Chelsea",
+      "homeScore": 1,
+      "awayScore": 1,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Sunderland",
+      "away": "Man United",
+      "homeScore": 0,
+      "awayScore": 0,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Brighton",
+      "away": "Wolves",
+      "homeScore": 3,
+      "awayScore": 0,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Spalding United",
+      "away": "Real Bedford",
+      "homeScore": 4,
+      "awayScore": 2,
+      "competition": "Southern League Play-Off Final",
+      "status": "Full Time (AET)"
     }
   ],
   "fixtures": [
     {
-      "home": "Crystal Palace",
-      "away": "West Ham",
+      "home": "Burnley",
+      "away": "Aston Villa",
       "competition": "Premier League",
-      "dateLabel": "Mon 20 Apr"
+      "dateLabel": "Today — Live"
     },
     {
-      "home": "Leeds United",
-      "away": "Chelsea",
-      "competition": "FA Cup SF",
-      "dateLabel": "Sat 25 / Sun 26 Apr — Wembley"
+      "home": "Crystal Palace",
+      "away": "Everton",
+      "competition": "Premier League",
+      "dateLabel": "Today — Live"
     },
     {
-      "home": "Man City",
-      "away": "Southampton",
-      "competition": "FA Cup SF",
-      "dateLabel": "Sat 25 / Sun 26 Apr — Wembley"
+      "home": "Nottingham Forest",
+      "away": "Newcastle United",
+      "competition": "Premier League",
+      "dateLabel": "Today — Live"
+    },
+    {
+      "home": "West Ham",
+      "away": "Arsenal",
+      "competition": "Premier League",
+      "dateLabel": "Today — 16:30"
     }
   ],
   "ticker": [
-    "Tottenham 2-2 Brighton — Rutter's 95th-minute equaliser breaks Spurs hearts, leaving them bottom three without a PL win in 2026",
-    "Chelsea 0-1 Manchester United — Matheus Cunha's 43rd-minute strike boosts United's top-four push at Stamford Bridge",
-    "Millwall 2-0 QPR — Mazou-Sacko and Neghli inside 17 minutes settle the London derby at The Den",
-    "Crystal Palace vs West Ham — Monday night Premier League, 20th April",
-    "FA Cup Semi-Finals — Leeds United vs Chelsea and Man City vs Southampton at Wembley, 25/26 April"
+    "Fulham 0-1 AFC Bournemouth — Rayan fires the Cherries into 6th, Europa League in their sights with two games to play",
+    "Man City 3-0 Brentford — Haaland, Doku and Marmoush seal it as City cut Arsenal's lead to two points",
+    "Liverpool 1-1 Chelsea — Gravenberch and Fernandez share the spoils at Anfield in a flat MD36 encounter",
+    "Sunderland 0-0 Man United — Black Cats and Red Devils cancel each other out at the Stadium of Light",
+    "Brighton 3-0 Wolves — Hinshelwood, Dunk and Minteh put gloss on the score against already-relegated Wanderers",
+    "Spalding United 4-2 Real Bedford (AET) — The Tulips seal historic promotion to National League North for the first time",
+    "Arsenal vs Man City — Title race goes to the wire, Arsenal lead by 2 pts with West Ham vs Arsenal live today at 16:30"
   ]
 }
