@@ -49,6 +49,21 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Form */}
         <div className="md:col-span-2">
+          {/* Press-priority banner */}
+          <div className="bg-surface border-l-4 border-primary p-4 mb-6 rounded-r-lg">
+            <p className="font-ui text-sm text-on-surface leading-relaxed">
+              For urgent press box access, PR pitches, embargoed releases, or syndication
+              inquiries, please email William directly at{" "}
+              <a
+                href="mailto:wjspowell@aol.com"
+                className="text-primary hover:text-apex transition-colors font-semibold"
+              >
+                wjspowell@aol.com
+              </a>{" "}
+              or use the secure priority form below.
+            </p>
+          </div>
+
           {submitted ? (
             <div className="bg-surface-high rounded-lg p-8 text-center">
               <h2 className="font-heading text-2xl font-bold text-on-surface mb-2">

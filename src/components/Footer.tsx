@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
+import FWABadge from "@/components/FWABadge";
 import { TranslationKey } from "@/lib/translations";
 
 const footerLinks: { href: string; labelKey: TranslationKey }[] = [
@@ -91,6 +92,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 text-center text-xs text-on-surface-muted" style={{ borderTop: '1px solid rgba(183, 200, 225, 0.15)' }}>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <FWABadge size="sm" />
+            <span className="text-on-surface-muted">Accredited Football Writers&apos; Association Journalism</span>
+          </div>
           &copy; {new Date().getFullYear()} {t("footer.copyright")}
         </div>
       </div>

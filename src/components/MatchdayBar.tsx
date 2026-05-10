@@ -5,6 +5,13 @@ export default function MatchdayBar() {
     <section className="bg-surface-low">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center space-x-2 mr-6 border-r border-gray-700 pr-4">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+            <span className="text-sm font-bold text-on-surface uppercase tracking-wider">Matchday Live</span>
+          </div>
           <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.15em] text-on-surface-muted">
             Results &amp; Fixtures
           </span>
@@ -15,11 +22,11 @@ export default function MatchdayBar() {
               <span className="font-ui bg-surface-highest text-on-surface text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap">
                 {r.status}
               </span>
-              <span className="font-ui text-on-surface font-bold text-sm">
+              <span className={`font-ui text-on-surface font-bold text-sm${r.status === "LIVE" ? " animate-pulse" : ""}`}>
                 {r.home} {r.homeScore}
               </span>
               <span className="text-on-surface-muted text-xs">-</span>
-              <span className="font-ui text-on-surface font-bold text-sm">
+              <span className={`font-ui text-on-surface font-bold text-sm${r.status === "LIVE" ? " animate-pulse" : ""}`}>
                 {r.awayScore} {r.away}
               </span>
               <span className="font-ui text-[10px] uppercase tracking-[0.12em] text-on-surface-muted">

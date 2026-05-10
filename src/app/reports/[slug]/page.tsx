@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import { generateArticleMetadata } from "@/lib/metadata";
 import AuthorBio from "@/components/AuthorBio";
+import ArticleByline from "@/components/ArticleByline";
 import ShareButtons from "@/components/ShareButtons";
 import ArticleGrid from "@/components/ArticleGrid";
 import TranslatedHeading from "@/components/TranslatedHeading";
@@ -171,6 +172,9 @@ export default async function ArticlePage({ params }: PageProps) {
         {/* Hybrid lighter reading surface for article body */}
         <div className="bg-reading-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            {/* Byline */}
+            <ArticleByline author={article.author || "William Powell"} />
+
             {/* Article body */}
             <div className="prose-article mb-10">
               <MDXRemote source={article.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
