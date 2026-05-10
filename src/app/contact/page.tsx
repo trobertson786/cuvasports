@@ -180,7 +180,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="block font-ui text-sm text-primary hover:text-apex transition-colors"
               >
-                X (Twitter) &rarr;
+                @WillsSportMedia &rarr;
               </a>
             </div>
           </div>
