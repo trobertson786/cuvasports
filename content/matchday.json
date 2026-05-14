@@ -1,6 +1,46 @@
 {
   "results": [
     {
+      "home": "West Ham",
+      "away": "Arsenal",
+      "homeScore": 0,
+      "awayScore": 1,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Tottenham Hotspur",
+      "away": "Leeds United",
+      "homeScore": 1,
+      "awayScore": 1,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Burnley",
+      "away": "Aston Villa",
+      "homeScore": 2,
+      "awayScore": 2,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Crystal Palace",
+      "away": "Everton",
+      "homeScore": 2,
+      "awayScore": 2,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
+      "home": "Nottingham Forest",
+      "away": "Newcastle United",
+      "homeScore": 1,
+      "awayScore": 1,
+      "competition": "Premier League",
+      "status": "Full Time"
+    },
+    {
       "home": "Fulham",
       "away": "AFC Bournemouth",
       "homeScore": 0,
@@ -41,6 +81,62 @@
       "status": "Full Time"
     },
     {
+      "home": "Millwall",
+      "away": "Hull City",
+      "homeScore": 0,
+      "awayScore": 0,
+      "competition": "Championship Play-Off Semi-Final (1st Leg)",
+      "status": "Full Time"
+    },
+    {
+      "home": "Middlesbrough",
+      "away": "Southampton",
+      "homeScore": 0,
+      "awayScore": 0,
+      "competition": "Championship Play-Off Semi-Final (1st Leg)",
+      "status": "Full Time"
+    },
+    {
+      "home": "Stevenage",
+      "away": "Stockport County",
+      "homeScore": 0,
+      "awayScore": 1,
+      "competition": "League One Play-Off Semi-Final (1st Leg)",
+      "status": "Full Time"
+    },
+    {
+      "home": "Bolton Wanderers",
+      "away": "Bradford City",
+      "homeScore": 1,
+      "awayScore": 0,
+      "competition": "League One Play-Off Semi-Final (1st Leg)",
+      "status": "Full Time"
+    },
+    {
+      "home": "Grimsby Town",
+      "away": "Salford City",
+      "homeScore": 1,
+      "awayScore": 2,
+      "competition": "League Two Play-Off Semi-Final (1st Leg)",
+      "status": "Full Time"
+    },
+    {
+      "home": "Chesterfield",
+      "away": "Notts County",
+      "homeScore": 0,
+      "awayScore": 1,
+      "competition": "League Two Play-Off Semi-Final (1st Leg)",
+      "status": "Full Time"
+    },
+    {
+      "home": "Boreham Wood",
+      "away": "Rochdale",
+      "homeScore": 2,
+      "awayScore": 2,
+      "competition": "National League Play-Off Final",
+      "status": "Full Time (AET) - Rochdale win 3-1 on pens"
+    },
+    {
       "home": "Spalding United",
       "away": "Real Bedford",
       "homeScore": 4,
@@ -51,37 +147,57 @@
   ],
   "fixtures": [
     {
-      "home": "Burnley",
-      "away": "Aston Villa",
-      "competition": "Premier League",
-      "dateLabel": "Today — Live"
+      "home": "Hull City",
+      "away": "Millwall",
+      "competition": "Championship Play-Off Semi-Final (2nd Leg)",
+      "dateLabel": "14 May"
     },
     {
-      "home": "Crystal Palace",
-      "away": "Everton",
-      "competition": "Premier League",
-      "dateLabel": "Today — Live"
+      "home": "Southampton",
+      "away": "Middlesbrough",
+      "competition": "Championship Play-Off Semi-Final (2nd Leg)",
+      "dateLabel": "15 May"
     },
     {
-      "home": "Nottingham Forest",
-      "away": "Newcastle United",
-      "competition": "Premier League",
-      "dateLabel": "Today — Live"
+      "home": "Stockport County",
+      "away": "Stevenage",
+      "competition": "League One Play-Off Semi-Final (2nd Leg)",
+      "dateLabel": "13 May"
     },
     {
-      "home": "West Ham",
-      "away": "Arsenal",
-      "competition": "Premier League",
-      "dateLabel": "Today — 16:30"
+      "home": "Bradford City",
+      "away": "Bolton Wanderers",
+      "competition": "League One Play-Off Semi-Final (2nd Leg)",
+      "dateLabel": "14 May"
+    },
+    {
+      "home": "Salford City",
+      "away": "Grimsby Town",
+      "competition": "League Two Play-Off Semi-Final (2nd Leg)",
+      "dateLabel": "13 May"
+    },
+    {
+      "home": "Notts County",
+      "away": "Chesterfield",
+      "competition": "League Two Play-Off Semi-Final (2nd Leg)",
+      "dateLabel": "14 May"
     }
   ],
   "ticker": [
-    "Fulham 0-1 AFC Bournemouth — Rayan fires the Cherries into 6th, Europa League in their sights with two games to play",
+    "West Ham 0-1 Arsenal — Gunners grind out a vital away win at the London Stadium to keep title hopes alive",
+    "Tottenham 1-1 Leeds — Tel fires Spurs ahead but Calvert-Lewin's penalty denies them in a nervy draw at the Tottenham Hotspur Stadium",
+    "Burnley 2-2 Aston Villa — Four-goal thriller at Turf Moor ends all square in a result that suits neither side",
+    "Crystal Palace 2-2 Everton — Selhurst Park shares the spoils in an entertaining end-of-season draw",
+    "Nottingham Forest 1-1 Newcastle — Even contest at the City Ground as both sides cancel each other out",
+    "Fulham 0-1 AFC Bournemouth — Rayan fires the Cherries into 6th as Europa League football edges into view",
     "Man City 3-0 Brentford — Haaland, Doku and Marmoush seal it as City cut Arsenal's lead to two points",
     "Liverpool 1-1 Chelsea — Gravenberch and Fernandez share the spoils at Anfield in a flat MD36 encounter",
     "Sunderland 0-0 Man United — Black Cats and Red Devils cancel each other out at the Stadium of Light",
     "Brighton 3-0 Wolves — Hinshelwood, Dunk and Minteh put gloss on the score against already-relegated Wanderers",
-    "Spalding United 4-2 Real Bedford (AET) — The Tulips seal historic promotion to National League North for the first time",
-    "Arsenal vs Man City — Title race goes to the wire, Arsenal lead by 2 pts with West Ham vs Arsenal live today at 16:30"
+    "EFL Play-Offs — Both Championship first legs end 0-0 as Millwall vs Hull and Middlesbrough vs Southampton leave everything to play for",
+    "Rochdale promoted — Dieseruvwe's 97th-minute equaliser forces extra time before Rochdale win the National League play-off final on penalties against Boreham Wood",
+    "League One Play-Offs — Stockport lead Stevenage 1-0, Bolton lead Bradford 1-0 heading into second legs",
+    "League Two Play-Offs — Salford and Notts County hold first-leg advantages over Grimsby and Chesterfield respectively",
+    "Spalding United 4-2 Real Bedford (AET) — The Tulips seal historic promotion to National League North for the first time"
   ]
 }
