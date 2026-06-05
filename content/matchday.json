@@ -1,203 +1,62 @@
 {
   "results": [
     {
-      "home": "West Ham",
-      "away": "Arsenal",
-      "homeScore": 0,
-      "awayScore": 1,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Tottenham Hotspur",
-      "away": "Leeds United",
+      "home": "Hull City",
+      "away": "Middlesbrough",
       "homeScore": 1,
-      "awayScore": 1,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Burnley",
-      "away": "Aston Villa",
-      "homeScore": 2,
-      "awayScore": 2,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Crystal Palace",
-      "away": "Everton",
-      "homeScore": 2,
-      "awayScore": 2,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Nottingham Forest",
-      "away": "Newcastle United",
-      "homeScore": 1,
-      "awayScore": 1,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Fulham",
-      "away": "AFC Bournemouth",
-      "homeScore": 0,
-      "awayScore": 1,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Man City",
-      "away": "Brentford",
-      "homeScore": 3,
       "awayScore": 0,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Liverpool",
-      "away": "Chelsea",
-      "homeScore": 1,
-      "awayScore": 1,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Sunderland",
-      "away": "Man United",
-      "homeScore": 0,
-      "awayScore": 0,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Brighton",
-      "away": "Wolves",
-      "homeScore": 3,
-      "awayScore": 0,
-      "competition": "Premier League",
-      "status": "Full Time"
-    },
-    {
-      "home": "Millwall",
-      "away": "Hull City",
-      "homeScore": 0,
-      "awayScore": 0,
-      "competition": "Championship Play-Off Semi-Final (1st Leg)",
-      "status": "Full Time"
-    },
-    {
-      "home": "Middlesbrough",
-      "away": "Southampton",
-      "homeScore": 0,
-      "awayScore": 0,
-      "competition": "Championship Play-Off Semi-Final (1st Leg)",
-      "status": "Full Time"
-    },
-    {
-      "home": "Stevenage",
-      "away": "Stockport County",
-      "homeScore": 0,
-      "awayScore": 1,
-      "competition": "League One Play-Off Semi-Final (1st Leg)",
+      "competition": "Championship Play-Off Final",
       "status": "Full Time"
     },
     {
       "home": "Bolton Wanderers",
-      "away": "Bradford City",
-      "homeScore": 1,
-      "awayScore": 0,
-      "competition": "League One Play-Off Semi-Final (1st Leg)",
-      "status": "Full Time"
-    },
-    {
-      "home": "Grimsby Town",
-      "away": "Salford City",
-      "homeScore": 1,
-      "awayScore": 2,
-      "competition": "League Two Play-Off Semi-Final (1st Leg)",
-      "status": "Full Time"
-    },
-    {
-      "home": "Chesterfield",
-      "away": "Notts County",
-      "homeScore": 0,
-      "awayScore": 1,
-      "competition": "League Two Play-Off Semi-Final (1st Leg)",
-      "status": "Full Time"
-    },
-    {
-      "home": "Boreham Wood",
-      "away": "Rochdale",
-      "homeScore": 2,
-      "awayScore": 2,
-      "competition": "National League Play-Off Final",
-      "status": "Full Time (AET) - Rochdale win 3-1 on pens"
-    },
-    {
-      "home": "Spalding United",
-      "away": "Real Bedford",
+      "away": "Stockport County",
       "homeScore": 4,
-      "awayScore": 2,
-      "competition": "Southern League Play-Off Final",
-      "status": "Full Time (AET)"
+      "awayScore": 1,
+      "competition": "League One Play-Off Final",
+      "status": "Full Time"
+    },
+    {
+      "home": "Notts County",
+      "away": "Salford City",
+      "homeScore": 3,
+      "awayScore": 0,
+      "competition": "League Two Play-Off Final",
+      "status": "Full Time"
+    },
+    {
+      "home": "England",
+      "away": "New Zealand",
+      "homeScore": 0,
+      "awayScore": 0,
+      "competition": "Rothesay 1st Test, Lord's — Eng 140 & 226ao, NZ 113ao & 36/3",
+      "status": "Day 3 in progress"
     }
   ],
   "fixtures": [
     {
-      "home": "Hull City",
-      "away": "Millwall",
-      "competition": "Championship Play-Off Semi-Final (2nd Leg)",
-      "dateLabel": "14 May"
+      "home": "England",
+      "away": "New Zealand",
+      "competition": "Rothesay 2nd Test, KIA Oval",
+      "dateLabel": "13 Jun"
     },
     {
-      "home": "Southampton",
-      "away": "Middlesbrough",
-      "competition": "Championship Play-Off Semi-Final (2nd Leg)",
-      "dateLabel": "15 May"
-    },
-    {
-      "home": "Stockport County",
-      "away": "Stevenage",
-      "competition": "League One Play-Off Semi-Final (2nd Leg)",
-      "dateLabel": "13 May"
-    },
-    {
-      "home": "Bradford City",
-      "away": "Bolton Wanderers",
-      "competition": "League One Play-Off Semi-Final (2nd Leg)",
-      "dateLabel": "14 May"
-    },
-    {
-      "home": "Salford City",
-      "away": "Grimsby Town",
-      "competition": "League Two Play-Off Semi-Final (2nd Leg)",
-      "dateLabel": "13 May"
-    },
-    {
-      "home": "Notts County",
-      "away": "Chesterfield",
-      "competition": "League Two Play-Off Semi-Final (2nd Leg)",
-      "dateLabel": "14 May"
+      "home": "England",
+      "away": "New Zealand",
+      "competition": "Rothesay 3rd Test, Trent Bridge",
+      "dateLabel": "26 Jun"
     }
   ],
   "ticker": [
-    "West Ham 0-1 Arsenal — Gunners grind out a vital away win at the London Stadium to keep title hopes alive",
-    "Tottenham 1-1 Leeds — Tel fires Spurs ahead but Calvert-Lewin's penalty denies them in a nervy draw at the Tottenham Hotspur Stadium",
-    "Burnley 2-2 Aston Villa — Four-goal thriller at Turf Moor ends all square in a result that suits neither side",
-    "Crystal Palace 2-2 Everton — Selhurst Park shares the spoils in an entertaining end-of-season draw",
-    "Nottingham Forest 1-1 Newcastle — Even contest at the City Ground as both sides cancel each other out",
-    "Fulham 0-1 AFC Bournemouth — Rayan fires the Cherries into 6th as Europa League football edges into view",
-    "Man City 3-0 Brentford — Haaland, Doku and Marmoush seal it as City cut Arsenal's lead to two points",
-    "Liverpool 1-1 Chelsea — Gravenberch and Fernandez share the spoils at Anfield in a flat MD36 encounter",
-    "Sunderland 0-0 Man United — Black Cats and Red Devils cancel each other out at the Stadium of Light",
-    "Brighton 3-0 Wolves — Hinshelwood, Dunk and Minteh put gloss on the score against already-relegated Wanderers",
-    "EFL Play-Offs — Both Championship first legs end 0-0 as Millwall vs Hull and Middlesbrough vs Southampton leave everything to play for",
-    "Rochdale promoted — Dieseruvwe's 97th-minute equaliser forces extra time before Rochdale win the National League play-off final on penalties against Boreham Wood",
-    "League One Play-Offs — Stockport lead Stevenage 1-0, Bolton lead Bradford 1-0 heading into second legs",
-    "League Two Play-Offs — Salford and Notts County hold first-leg advantages over Grimsby and Chesterfield respectively",
-    "Spalding United 4-2 Real Bedford (AET) — The Tulips seal historic promotion to National League North for the first time"
+    "Hull City promoted to Premier League — McBurnie's 90+5 header seals 1-0 Championship Play-Off Final win over Middlesbrough at Wembley",
+    "Bolton Wanderers back in the Championship — Rodrigues brace and Dalby scissor kick deliver 4-1 League One Play-Off Final win over Stockport County",
+    "Notts County end 11-year League One exile — Jodi Jones magnificent as Magpies beat Salford City 3-0 in League Two Play-Off Final",
+    "England name 26-man World Cup 2026 squad — Harry Kane leads attack; Cole Palmer, Phil Foden and Trent Alexander-Arnold among notable omissions",
+    "Rothesay 1st Test, Lord's — England set New Zealand 253 to win; New Zealand resume Day 3 on 36 for 3, needing 217 more",
+    "Middlesex 4th in County Championship Division 2 after six matches — Ryan Higgins leads with 28 wickets at 20.35 average",
+    "Rochdale promoted to the National League — Dieseruvwe's 97th-minute equaliser forces extra time before Rochdale win play-off final on penalties against Boreham Wood",
+    "FIFA World Cup 2026 — England drawn in group with [TBC]; tournament kicks off this month across United States, Canada and Mexico",
+    "Rothesay 2nd Test — England vs New Zealand, KIA Oval, 13-17 June",
+    "Rothesay 3rd Test — England vs New Zealand, Trent Bridge, 26-30 June"
   ]
 }
