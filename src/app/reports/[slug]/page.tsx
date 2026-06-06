@@ -152,8 +152,8 @@ export default async function ArticlePage({ params }: PageProps) {
               </div>
             </header>
 
-            {/* ScoreBox for match reports */}
-            {article.homeTeam && article.awayTeam && article.homeScore != null && article.awayScore != null && (
+            {/* ScoreBox for football match reports only */}
+            {article.category !== 'cricket' && article.homeTeam && article.awayTeam && article.homeScore != null && article.awayScore != null && (
               <ScoreBox
                 homeTeam={article.homeTeam}
                 awayTeam={article.awayTeam}
