@@ -43,3 +43,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 IMAGES FROM WHATSAPP/
+
+# Local debug screenshots
+cuva-*-screenshot.png
+cuva-local-screenshot.png

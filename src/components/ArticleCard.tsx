@@ -8,45 +8,36 @@ export default function ArticleCard({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
 
   return (
-    <article className="bg-surface-container rounded-tl-[1.5rem] rounded-br-[1.5rem] rounded-tr-[0.375rem] rounded-bl-[0.375rem] overflow-hidden hover:-translate-y-1 transition-all duration-300 group">
+    <article className="bg-surface-container rounded overflow-hidden border border-surface-high hover:border-amber/40 hover:-translate-y-0.5 transition-all duration-200 group">
       <div className="relative aspect-[16/9] overflow-hidden">
         <Image
           src={imageSrc}
           alt={article.title}
           fill
-          className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover group-hover:scale-[1.03] transition-transform duration-400"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
-        <div className="absolute inset-0 bg-surface/20" />
       </div>
-      <div className="p-6">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="font-ui text-xs font-semibold uppercase tracking-wider text-apex bg-apex/10 px-2 py-0.5 rounded-full">
-            {formatCategoryLabel(article.category, article.subcategory)}
-          </span>
-        </div>
-        <h3 className="font-heading text-xl font-bold text-on-surface leading-snug mb-2 group-hover:text-primary transition-colors">
+      <div className="p-4">
+        <span className="kicker mb-1.5 block">
+          {formatCategoryLabel(article.category, article.subcategory)}
+        </span>
+        <h3 className="font-heading text-base font-bold text-ink leading-snug mb-1.5 group-hover:text-amber transition-colors">
           <Link href={`/reports/${article.slug}`}>{article.title}</Link>
         </h3>
-        <p className="font-body text-sm text-on-surface-muted leading-relaxed mb-4 line-clamp-2">
-          {article.standfirst || article.excerpt}
-        </p>
-        <div className="flex items-center justify-between text-xs text-on-surface-muted">
+        <div className="flex items-center justify-between text-[10px] font-ui text-ink-faint mt-2">
           <time dateTime={article.date}>
             {new Date(article.date).toLocaleDateString("en-GB", {
               day: "numeric",
-              month: "long",
+              month: "short",
               year: "numeric",
             })}
           </time>
-          <span>{article.readingTime}</span>
+          <span className="flex items-center gap-1">
+            <span>{article.readingTime}</span>
+            <span className="fwa-micro">FWA</span>
+          </span>
         </div>
-        <Link
-          href={`/reports/${article.slug}`}
-          className="inline-block mt-4 font-ui text-sm font-semibold text-apex hover:text-gold-light transition-colors"
-        >
-          Read more <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
-        </Link>
       </div>
     </article>
   );

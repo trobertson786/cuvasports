@@ -22,38 +22,38 @@ export default function ScoreBox({
   awayScorers,
 }: ScoreBoxProps) {
   return (
-    <div className="bg-surface-container rounded-lg overflow-hidden mb-8">
+    <div className="bg-ink rounded overflow-hidden mb-8">
       <div className="px-6 py-5">
         <div className="flex items-center justify-center gap-6 sm:gap-10">
           <div className="text-right flex-1">
-            <span className="font-heading text-lg sm:text-xl font-bold text-on-surface">
+            <span className="font-heading text-lg sm:text-xl font-bold text-on-ink">
               {homeTeam}
             </span>
             {homeScorers?.length ? (
               <div className="mt-1">
                 {homeScorers.map((scorer) => (
-                  <div key={scorer} className="text-xs text-on-surface-muted">{scorer}</div>
+                  <div key={scorer} className="text-xs text-on-ink/50">{scorer}</div>
                 ))}
               </div>
             ) : null}
           </div>
           <div className="flex items-center gap-3">
-            <span className="font-heading text-3xl sm:text-4xl font-bold text-apex">
+            <span className="font-heading text-3xl sm:text-4xl font-bold text-amber tabular-nums">
               {homeScore}
             </span>
-            <span className="text-on-surface-muted text-lg">-</span>
-            <span className="font-heading text-3xl sm:text-4xl font-bold text-apex">
+            <span className="text-on-ink/30 text-lg">–</span>
+            <span className="font-heading text-3xl sm:text-4xl font-bold text-amber tabular-nums">
               {awayScore}
             </span>
           </div>
           <div className="text-left flex-1">
-            <span className="font-heading text-lg sm:text-xl font-bold text-on-surface">
+            <span className="font-heading text-lg sm:text-xl font-bold text-on-ink">
               {awayTeam}
             </span>
             {awayScorers?.length ? (
               <div className="mt-1">
                 {awayScorers.map((scorer) => (
-                  <div key={scorer} className="text-xs text-on-surface-muted">{scorer}</div>
+                  <div key={scorer} className="text-xs text-on-ink/50">{scorer}</div>
                 ))}
               </div>
             ) : null}
@@ -61,8 +61,8 @@ export default function ScoreBox({
         </div>
       </div>
       {(competition || venue) && (
-        <div className="px-6 py-3 border-t border-surface-high">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-ui text-on-surface-muted">
+        <div className="px-6 py-3 border-t border-white/10">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-ui text-on-ink/50">
             {competition && <span className="uppercase tracking-wider font-semibold">{competition}</span>}
             {venue && (
               <>
