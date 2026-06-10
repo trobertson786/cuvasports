@@ -6,7 +6,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
-import { matchdayTicker } from "@/lib/matchday";
 
 const navLinks: { href: string; labelKey: TranslationKey }[] = [
   { href: "/",        labelKey: "nav.home" },
@@ -28,18 +27,6 @@ export default function Navigation() {
 
   return (
     <header className="bg-surface-lowest text-on-primary sticky top-0 z-50">
-      {/* Scrolling ticker */}
-      <div className="border-b border-white/10 py-1.5 overflow-hidden text-xs text-on-primary/60">
-        <div className="animate-ticker whitespace-nowrap inline-block">
-          {matchdayTicker.map((item, i) => (
-            <span key={i} className="mx-8">{item}</span>
-          ))}
-          {matchdayTicker.slice(0, 3).map((item, i) => (
-            <span key={`dup-${i}`} className="mx-8">{item}</span>
-          ))}
-        </div>
-      </div>
-
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
