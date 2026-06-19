@@ -29,17 +29,11 @@
       "away": "New Zealand",
       "homeScore": 0,
       "awayScore": 0,
-      "competition": "Rothesay 1st Test, Lord's — Eng 140 & 226ao, NZ 113ao & 36/3",
-      "status": "Day 3 in progress"
+      "competition": "Rothesay 2nd Test, KIA Oval — NZ 391ao, Eng 222/6 (trail by 169)",
+      "status": "Day 2 stumps"
     }
   ],
   "fixtures": [
-    {
-      "home": "England",
-      "away": "New Zealand",
-      "competition": "Rothesay 2nd Test, KIA Oval",
-      "dateLabel": "13 Jun"
-    },
     {
       "home": "England",
       "away": "New Zealand",
@@ -52,11 +46,11 @@
     "Bolton Wanderers back in the Championship — Rodrigues brace and Dalby scissor kick deliver 4-1 League One Play-Off Final win over Stockport County",
     "Notts County end 11-year League One exile — Jodi Jones magnificent as Magpies beat Salford City 3-0 in League Two Play-Off Final",
     "England name 26-man World Cup 2026 squad — Harry Kane leads attack; Cole Palmer, Phil Foden and Trent Alexander-Arnold among notable omissions",
-    "Rothesay 1st Test, Lord's — England set New Zealand 253 to win; New Zealand resume Day 3 on 36 for 3, needing 217 more",
+    "Rothesay 2nd Test, KIA Oval — New Zealand in control on 391 all out as Glenn Phillips makes maiden Test hundred; England close Day 2 on 222 for 6, trailing by 169",
+    "Rothesay 2nd Test — Jacob Bethell takes 3 for 26 with his left-arm spin as three England debutants Sonny Baker, Jordan Cox and James Rew feature at the Oval",
     "Middlesex 4th in County Championship Division 2 after six matches — Ryan Higgins leads with 28 wickets at 20.35 average",
     "Rochdale promoted to the National League — Dieseruvwe's 97th-minute equaliser forces extra time before Rochdale win play-off final on penalties against Boreham Wood",
     "FIFA World Cup 2026 — England drawn in group with [TBC]; tournament kicks off this month across United States, Canada and Mexico",
-    "Rothesay 2nd Test — England vs New Zealand, KIA Oval, 13-17 June",
     "Rothesay 3rd Test — England vs New Zealand, Trent Bridge, 26-30 June"
   ]
 }
