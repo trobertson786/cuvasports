@@ -13,6 +13,7 @@ export const TAXONOMY = {
       "FA Cup",
       "Champions League",
       "Europa League",
+      "World Cup",
       "International",
     ],
   },
