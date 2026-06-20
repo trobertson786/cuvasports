@@ -1,3 +1,4 @@
+import EnglandWorldCup from "@/components/EnglandWorldCup";
 import LeagueTable from "@/components/LeagueTable";
 import RecentScores from "@/components/RecentScores";
 import UpcomingFixtures from "@/components/UpcomingFixtures";
@@ -5,6 +6,9 @@ import UpcomingFixtures from "@/components/UpcomingFixtures";
 export default function DataRail() {
   return (
     <aside className="bg-ink text-on-ink rounded-lg overflow-hidden">
+      {/* England at the World Cup (self-hides when no live WC data) */}
+      <EnglandWorldCup />
+
       {/* League Table */}
       <div className="p-4 border-b border-white/10">
         <h2 className="font-ui text-xs font-bold uppercase tracking-widest text-on-ink opacity-60 mb-3">
