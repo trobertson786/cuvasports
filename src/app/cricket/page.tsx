@@ -1,6 +1,6 @@
-import { getArticlesByCategory } from "@/lib/articles";
+import { getArticlesByCategory, getAllSubcategories } from "@/lib/articles";
 import { generatePageMetadata } from "@/lib/metadata";
-import ArticleGrid from "@/components/ArticleGrid";
+import MatchReportFilters from "@/components/MatchReportFilters";
 import CategoryFilter from "@/components/CategoryFilter";
 import SearchBar from "@/components/SearchBar";
 import TranslatedHeading from "@/components/TranslatedHeading";
@@ -12,6 +12,8 @@ export const metadata = generatePageMetadata(
 
 export default function CricketPage() {
   const articles = getArticlesByCategory("cricket");
+  const subcategories = getAllSubcategories("cricket");
+  const formats = [...new Set(articles.map((a) => a.format).filter(Boolean))] as string[];
   const searchItems = articles.map((a) => ({
     slug: a.slug,
     title: a.title,
@@ -31,7 +33,7 @@ export default function CricketPage() {
         <CategoryFilter />
       </div>
 
-      <ArticleGrid articles={articles} />
+      <MatchReportFilters articles={articles} subcategories={subcategories} formats={formats} />
     </div>
   );
 }
