@@ -148,15 +148,12 @@ export default function AboutPage() {
             <div className="relative rounded-lg overflow-hidden">
               <Image
                 src="/images/theodore-robertson.jpg"
-                alt="Theodore Robertson (left)"
-                width={960}
-                height={1280}
+                alt="Theodore Robertson"
+                width={243}
+                height={360}
                 className="w-full h-auto object-cover rounded-lg"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="mt-2 flex gap-4 text-xs font-ui text-on-surface/60">
-                <span>Theo (left)</span>
-              </div>
             </div>
           </div>
           <div className="md:col-span-2 prose-article">
