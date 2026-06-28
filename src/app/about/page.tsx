@@ -149,8 +149,8 @@ export default function AboutPage() {
               <Image
                 src="/images/theodore-robertson.jpg"
                 alt="Theodore Robertson"
-                width={243}
-                height={360}
+                width={1130}
+                height={1154}
                 className="w-full h-auto object-cover rounded-lg"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
