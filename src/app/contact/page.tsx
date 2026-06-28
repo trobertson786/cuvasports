@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpwzgkvl";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+// Web3Forms access keys are public by design (domain-locked + rate-limited, not a secret)
+const WEB3FORMS_ACCESS_KEY = "4fe43e0f-af3a-41b3-a80a-e8b031ecc682";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -17,14 +19,22 @@ export default function ContactPage() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    data.append("access_key", WEB3FORMS_ACCESS_KEY);
+    data.append("from_name", "CUVA Sports Contact Form");
+    data.append(
+      "subject",
+      `CUVA Sports - ${data.get("subject") || "Enquiry"} from ${data.get("name") || "a visitor"}`
+    );
+
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
       });
+      const result = await res.json();
 
-      if (res.ok) {
+      if (res.ok && result.success) {
         setSubmitted(true);
       } else {
         setError("Something went wrong. Please try again.");
@@ -76,6 +86,15 @@ export default function ContactPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Honeypot field for spam protection - hidden from real users */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
               <div>
                 <label
                   htmlFor="name"
