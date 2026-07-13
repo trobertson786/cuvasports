@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 74 115" width="740" height="1150">
+  <defs>
+    <style>
+      .player-label {
+        font-family: DejaVu Sans Condensed Bold, Verdana, sans-serif;
+        font-size: 2.4px;
+        font-style: normal;
+        font-weight: normal;
+        fill: #000000;
+        fill-opacity: 1;
+        text-anchor: middle;
+      }
+    </style>
+    <clipPath id="penaltyArcClipTop">
+      <rect x="0" y="21.56" width="74" height="93.44"/>
+    </clipPath>
+    <clipPath id="penaltyArcClipBottom">
+      <rect x="0" y="0" width="74" height="93.44"/>
+    </clipPath>
+
+
+    <!-- Home team outfield kit -->
+    <symbol id="homeOutfieldKit" overflow="visible">
+      <g style="fill:#FF0000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0927;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+                <path d="M-2.5955 -1.2514 l1.2977 -0.9270 h0.4635 l0.8343 0.9270 0.8343 -0.9270 h0.4635 l1.2977 0.9270 -0.4635 0.8343 -0.8343 -0.4635 v3.0590 h-2.5955 v-3.0590 l-0.8343 0.4635 z"/>
+                <path d="M-0.8343 -2.1784 l0.8343 0.1854 0.8343 -0.1854"/>
+            </g>
+    </symbol>
+
+    <!-- Home team goalkeeper kit -->
+    <symbol id="homeGKKit" overflow="visible">
+      <g style="fill:#008844;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0927;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+                <path d="M-2.5955 -1.2514 l1.2977 -0.9270 h0.4635 l0.8343 0.9270 0.8343 -0.9270 h0.4635 l1.2977 0.9270 -0.4635 0.8343 -0.8343 -0.4635 v3.0590 h-2.5955 v-3.0590 l-0.8343 0.4635 z"/>
+                <path d="M-0.8343 -2.1784 l0.8343 0.1854 0.8343 -0.1854"/>
+            </g>
+    </symbol>
+
+    <!-- Away team outfield kit -->
+    <symbol id="awayOutfieldKit" overflow="visible">
+      <g style="fill:#FFFFFF;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0927;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+                <path d="M-2.5955 -1.2514 l1.2977 -0.9270 h0.4635 l0.8343 0.9270 0.8343 -0.9270 h0.4635 l1.2977 0.9270 -0.4635 0.8343 -0.8343 -0.4635 v3.0590 h-2.5955 v-3.0590 l-0.8343 0.4635 z"/>
+                <path d="M-0.8343 -2.1784 l0.8343 0.1854 0.8343 -0.1854"/>
+            </g>
+    </symbol>
+
+    <!-- Away team goalkeeper kit -->
+    <symbol id="awayGKKit" overflow="visible">
+      <g style="fill:#FFBB00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0927;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+                <path d="M-2.5955 -1.2514 l1.2977 -0.9270 h0.4635 l0.8343 0.9270 0.8343 -0.9270 h0.4635 l1.2977 0.9270 -0.4635 0.8343 -0.8343 -0.4635 v3.0590 h-2.5955 v-3.0590 l-0.8343 0.4635 z"/>
+                <path d="M-0.8343 -2.1784 l0.8343 0.1854 0.8343 -0.1854"/>
+            </g>
+    </symbol>
+  </defs>
+
+  <!-- Pitch background -->
+  <rect x="0" y="0" width="74" height="115" fill="#009d00" fill-opacity="0.5"/>
+  <g stroke="#ffffff" stroke-width="0.24" fill="none" opacity="0.627">
+    <rect x="3.06" y="5.06" width="67.88" height="104.88"/>
+    <line x1="3.12" y1="57.5" x2="70.88" y2="57.5"/>
+    <circle cx="37" cy="57.5" r="9.15"/>
+    <path d="M 27.90 5.06 L 27.90 10.56 L 46.10 10.56 L 46.10 5.06"/>
+    <path d="M 16.90 5.06 L 16.90 21.56 L 57.10 21.56 L 57.10 5.06"/>
+    <circle cx="37" cy="16.12" r="9.15" clip-path="url(#penaltyArcClipTop)"/>
+    <path d="M 33.28 5.06 L 33.28 3.06 L 40.72 3.06 L 40.72 5.06"/>
+    <path d="M 3.06 6.06 A 1 1 0 0 0 4.06 5.06"/>
+    <path d="M 69.94 5.06 A 1 1 0 0 0 70.94 6.06"/>
+    <path d="M 27.90 109.94 L 27.90 104.44 L 46.10 104.44 L 46.10 109.94"/>
+    <path d="M 16.90 109.94 L 16.90 93.44 L 57.10 93.44 L 57.10 109.94"/>
+    <circle cx="37" cy="98.88" r="9.15" clip-path="url(#penaltyArcClipBottom)"/>
+    <path d="M 33.28 109.94 L 33.28 111.94 L 40.72 111.94 L 40.72 109.94"/>
+    <path d="M 4.06 109.94 A 1 1 0 0 0 3.06 108.94"/>
+    <path d="M 70.94 108.94 A 1 1 0 0 0 69.94 109.94"/>
+  </g>
+  <g fill="#ffffff" opacity="0.627" stroke="none">
+    <circle cx="37" cy="57.5" r="0.24"/>
+    <circle cx="37" cy="16.12" r="0.2"/>
+    <circle cx="37" cy="98.88" r="0.2"/>
+  </g>
+
+  <!-- Away team (top half) -->
+  <g id="awayTeamLineup">
+    <g transform="translate(37.00, 6.11)">
+      <use href="#awayGKKit" xlink:href="#awayGKKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg23-ru" systemLanguage="ru"><tspan id="trsvg1-ru">&#x41F;&#x438;&#x43A;&#x444;&#x43E;&#x440;&#x434;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg23-ar" systemLanguage="ar"><tspan id="trsvg1-ar">&#x628;&#x64A;&#x643;&#x641;&#x648;&#x631;&#x62F;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg23"><tspan id="trsvg1">Pickford</tspan></text></switch>
+    </g>
+    <g transform="translate(9.85, 20.79)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg24-ru" systemLanguage="ru"><tspan id="trsvg2-ru">&#x41A;&#x43E;&#x43D;&#x441;&#x430;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg24-ar" systemLanguage="ar"><tspan id="trsvg2-ar">&#x643;&#x648;&#x646;&#x633;&#x627;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg24"><tspan id="trsvg2">Konsa</tspan></text></switch>
+    </g>
+    <g transform="translate(27.95, 18.17)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg25-ru" systemLanguage="ru"><tspan id="trsvg3-ru">&#x421;&#x442;&#x43E;&#x443;&#x43D;&#x437;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg25-ar" systemLanguage="ar"><tspan id="trsvg3-ar">&#x633;&#x62A;&#x648;&#x646;&#x632;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg25"><tspan id="trsvg3">Stones</tspan></text></switch>
+    </g>
+    <g transform="translate(46.05, 18.17)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg26-ru" systemLanguage="ru"><tspan id="trsvg4-ru">&#x413;&#x435;&#x445;&#x438;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg26-ar" systemLanguage="ar"><tspan id="trsvg4-ar">&#x63A;&#x64A;&#x647;&#x64A;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg26"><tspan id="trsvg4">Gu&#xE9;hi</tspan></text></switch>
+    </g>
+    <g transform="translate(64.15, 20.79)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg27-ru" systemLanguage="ru"><tspan id="trsvg5-ru">&#x41E;&#x2019;&#x420;&#x430;&#x439;&#x43B;&#x438;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg27-ar" systemLanguage="ar"><tspan id="trsvg5-ar">&#x623;&#x648;&#x631;&#x64A;&#x644;&#x64A;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg27"><tspan id="trsvg5">O'Reilly</tspan></text></switch>
+    </g>
+    <g transform="translate(27.95, 29.53)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg28-ru" systemLanguage="ru"><tspan id="trsvg6-ru">&#x410;&#x43D;&#x434;&#x435;&#x440;&#x441;&#x43E;&#x43D;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg28-ar" systemLanguage="ar"><tspan id="trsvg6-ar">&#x623;&#x646;&#x62F;&#x631;&#x633;&#x648;&#x646;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg28"><tspan id="trsvg6">Anderson</tspan></text></switch>
+    </g>
+    <g transform="translate(46.05, 29.53)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg29-ru" systemLanguage="ru"><tspan id="trsvg7-ru">&#x420;&#x430;&#x439;&#x441;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg29-ar" systemLanguage="ar"><tspan id="trsvg7-ar">&#x631;&#x627;&#x64A;&#x633;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg29"><tspan id="trsvg7">Rice</tspan></text></switch>
+    </g>
+    <g transform="translate(20.03, 40.89)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg30-ru" systemLanguage="ru"><tspan id="trsvg8-ru">&#x41C;&#x430;&#x434;&#x443;&#x44D;&#x43A;&#x435;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg30-ar" systemLanguage="ar"><tspan id="trsvg8-ar">&#x645;&#x627;&#x62F;&#x648;&#x64A;&#x643;&#x64A;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg30"><tspan id="trsvg8">Madueke</tspan></text></switch>
+    </g>
+    <g transform="translate(37.00, 40.89)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg31-ru" systemLanguage="ru"><tspan id="trsvg9-ru">&#x411;&#x435;&#x43B;&#x43B;&#x438;&#x43D;&#x433;&#x435;&#x43C;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg31-ar" systemLanguage="ar"><tspan id="trsvg9-ar">&#x628;&#x64A;&#x644;&#x64A;&#x646;&#x63A;&#x647;&#x627;&#x645;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg31"><tspan id="trsvg9">Bellingham</tspan></text></switch>
+    </g>
+    <g transform="translate(53.97, 40.89)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg32-ru" systemLanguage="ru"><tspan id="trsvg10-ru">&#x413;&#x43E;&#x440;&#x434;&#x43E;&#x43D;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg32-ar" systemLanguage="ar"><tspan id="trsvg10-ar">&#x63A;&#x648;&#x631;&#x62F;&#x648;&#x646;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg32"><tspan id="trsvg10">Gordon</tspan></text></switch>
+    </g>
+    <g transform="translate(37.00, 52.26)">
+      <use href="#awayOutfieldKit" xlink:href="#awayOutfieldKit"/>
+      <switch><text x="0" y="-3.0784" class="player-label" id="trsvg33-ru" systemLanguage="ru"><tspan id="trsvg11-ru">&#x41A;&#x435;&#x439;&#x43D;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg33-ar" systemLanguage="ar"><tspan id="trsvg11-ar">&#x643;&#x64A;&#x646;</tspan></text><text x="0" y="-3.0784" class="player-label" id="trsvg33"><tspan id="trsvg11">Kane</tspan></text></switch>
+    </g>
+  </g>
+
+  <!-- Home team (bottom half) -->
+  <g id="homeTeamLineup">
+    <g transform="translate(37.00, 108.89)">
+      <use href="#homeGKKit" xlink:href="#homeGKKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg34-ru" systemLanguage="ru"><tspan id="trsvg12-ru">&#x41D;&#x44E;&#x43B;&#x430;&#x43D;&#x43D;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg34-ar" systemLanguage="ar"><tspan id="trsvg12-ar">&#x646;&#x64A;&#x644;&#x627;&#x646;&#x62F;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg34"><tspan id="trsvg12">Nyland</tspan></text></switch>
+    </g>
+    <g transform="translate(64.15, 94.21)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg35-ru" systemLanguage="ru"><tspan id="trsvg13-ru">&#x420;&#x44E;&#x44D;&#x440;&#x441;&#x43E;&#x43D;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg35-ar" systemLanguage="ar"><tspan id="trsvg13-ar">&#x631;&#x627;&#x64A;&#x631;&#x633;&#x648;&#x646;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg35"><tspan id="trsvg13">Ryerson</tspan></text></switch>
+    </g>
+    <g transform="translate(46.05, 96.83)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg36-ru" systemLanguage="ru"><tspan id="trsvg14-ru">&#x410;&#x439;&#x435;&#x440;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg36-ar" systemLanguage="ar"><tspan id="trsvg14-ar">&#x627;&#x64A;&#x64A;&#x631;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg36"><tspan id="trsvg14">Ajer</tspan></text></switch>
+    </g>
+    <g transform="translate(27.95, 96.83)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg37-ru" systemLanguage="ru"><tspan id="trsvg15-ru">&#x425;&#x435;&#x433;&#x433;&#x435;&#x43C;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg37-ar" systemLanguage="ar"><tspan id="trsvg15-ar">&#x647;&#x64A;&#x63A;&#x645;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg37"><tspan id="trsvg15">Heggem</tspan></text></switch>
+    </g>
+    <g transform="translate(9.85, 94.21)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg38-ru" systemLanguage="ru"><tspan id="trsvg16-ru">&#x41C;&#x451;&#x43B;&#x43B;&#x435;&#x440; &#x412;&#x43E;&#x43B;&#x444;&#x435;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg38-ar" systemLanguage="ar"><tspan id="trsvg16-ar">&#x645;&#x648;&#x644;&#x631; &#x648;&#x644;&#x641;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg38"><tspan id="trsvg16">M&#xF8;ller Wolfe</tspan></text></switch>
+    </g>
+    <g transform="translate(37.00, 81.36)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg39-ru" systemLanguage="ru"><tspan id="trsvg17-ru">&#x411;&#x435;&#x440;&#x433;&#x435;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg39-ar" systemLanguage="ar"><tspan id="trsvg17-ar">&#x633;&#x627;&#x646;&#x62F;&#x64A;&#x631; &#x628;&#x64A;&#x631;&#x62C;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg39"><tspan id="trsvg17">Berge</tspan></text></switch>
+    </g>
+    <g transform="translate(52.27, 78.21)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg40-ru" systemLanguage="ru"><tspan id="trsvg18-ru">&#x42D;&#x434;&#x435;&#x433;&#x43E;&#x440;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg40-ar" systemLanguage="ar"><tspan id="trsvg18-ar">&#x623;&#x648;&#x62F;&#x64A;&#x63A;&#x627;&#x631;&#x62F;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg40"><tspan id="trsvg18">&#xD8;degaard</tspan></text></switch>
+    </g>
+    <g transform="translate(21.73, 78.21)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg41-ru" systemLanguage="ru"><tspan id="trsvg19-ru">&#x411;&#x435;&#x440;&#x433;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg41-ar" systemLanguage="ar"><tspan id="trsvg19-ar">&#x628;&#x627;&#x62A;&#x631;&#x64A;&#x643; &#x628;&#x64A;&#x631;&#x62C;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg41"><tspan id="trsvg19">Berg</tspan></text></switch>
+    </g>
+    <g transform="translate(53.97, 62.74)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg42-ru" systemLanguage="ru"><tspan id="trsvg20-ru">&#x421;&#x451;&#x440;&#x43B;&#x43E;&#x442;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg42-ar" systemLanguage="ar"><tspan id="trsvg20-ar">&#x633;&#x648;&#x631;&#x644;&#x648;&#x62B;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg42"><tspan id="trsvg20">S&#xF8;rloth</tspan></text></switch>
+    </g>
+    <g transform="translate(37.00, 62.74)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg43-ru" systemLanguage="ru"><tspan id="trsvg21-ru">&#x425;&#x43E;&#x43B;&#x430;&#x43D;&#x43D;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg43-ar" systemLanguage="ar"><tspan id="trsvg21-ar">&#x647;&#x627;&#x644;&#x627;&#x646;&#x62F;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg43"><tspan id="trsvg21">Haaland</tspan></text></switch>
+    </g>
+    <g transform="translate(20.03, 62.74)">
+      <use href="#homeOutfieldKit" xlink:href="#homeOutfieldKit"/>
+      <switch><text x="0" y="4.8304" class="player-label" id="trsvg44-ru" systemLanguage="ru"><tspan id="trsvg22-ru">&#x428;&#x435;&#x43B;&#x44C;&#x434;&#x435;&#x440;&#x443;&#x43F;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg44-ar" systemLanguage="ar"><tspan id="trsvg22-ar">&#x634;&#x64A;&#x644;&#x62F;&#x631;&#x648;&#x628;</tspan></text><text x="0" y="4.8304" class="player-label" id="trsvg44"><tspan id="trsvg22">Schjelderup</tspan></text></switch>
+    </g>
+  </g>
+</svg>
