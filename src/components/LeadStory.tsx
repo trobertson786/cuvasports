@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Article } from "@/lib/types";
 import { getImageForArticle } from "@/lib/gallery-images";
 import { formatCategoryLabel } from "@/lib/taxonomy";
+import MatchCardImage from "@/components/MatchCardImage";
 
 function getHeroCta(article: Article): string {
   switch (article.format) {
@@ -44,18 +44,15 @@ export default function LeadStory({ article }: { article: Article }) {
         <span>{article.readingTime}</span>
       </div>
 
-      {imageSrc && (
-        <div className="relative aspect-[16/9] overflow-hidden rounded-sm mb-4 group">
-          <Image
-            src={imageSrc}
-            alt={article.title}
-            fill
-            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-            sizes="(max-width: 1024px) 100vw, 45vw"
-            priority
-          />
-        </div>
-      )}
+      <div className="relative aspect-[16/9] overflow-hidden rounded-sm mb-4 group">
+        <MatchCardImage
+          src={imageSrc}
+          alt={article.title}
+          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+          sizes="(max-width: 1024px) 100vw, 45vw"
+          priority
+        />
+      </div>
 
       <p className="font-body text-base text-ink leading-relaxed mb-5">
         {article.standfirst || article.excerpt}

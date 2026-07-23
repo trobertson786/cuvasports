@@ -10,13 +10,17 @@ const categoryFallbacks: Record<string, string> = {
   cricket: "/images/fallback-cricket.jpg",
 };
 
+/**
+ * Returns the article's own image, or `undefined` when it has none. Cards pass
+ * the result to <MatchCardImage/>, which renders the branded
+ * <MatchReportFallback/> UI in place of a stock/Lincoln fallback photo.
+ */
 export function getImageForArticle(
   slug: string,
   category: string,
   articleImage?: string
-): string {
-  if (articleImage) return articleImage;
-  return getCategoryFallback(category);
+): string | undefined {
+  return articleImage || undefined;
 }
 
 export function getCategoryFallback(category: string): string {

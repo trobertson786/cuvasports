@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Article } from "@/lib/types";
 import { getImageForArticle } from "@/lib/gallery-images";
 import { formatCategoryLabel } from "@/lib/taxonomy";
+import MatchCardImage from "@/components/MatchCardImage";
 
 export default function ArticleCard({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
@@ -10,10 +10,9 @@ export default function ArticleCard({ article }: { article: Article }) {
   return (
     <article className="bg-surface-container rounded overflow-hidden border border-surface-high hover:border-amber/40 hover:-translate-y-0.5 transition-all duration-200 group">
       <div className="relative aspect-[16/9] overflow-hidden">
-        <Image
+        <MatchCardImage
           src={imageSrc}
           alt={article.title}
-          fill
           className="object-cover group-hover:scale-[1.03] transition-transform duration-400"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
