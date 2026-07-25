@@ -1,4 +1,4 @@
-# CUVA Sports - Project Notes for Claude
+# CUVA Sports - Project Notes for Codex
 
 ## Name and Live Site
 

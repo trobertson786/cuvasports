@@ -33,8 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# source images
-/CuvaSports\ images/
+# local working media (photo libraries, raw sends from William)
+/assets/
+
+# PAI session records
+/MEMORY/
 
 # vercel
 .vercel
@@ -42,8 +45,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-IMAGES FROM WHATSAPP/
 
 # Local debug screenshots
 cuva-*-screenshot.png
-cuva-local-screenshot.png

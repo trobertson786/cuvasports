@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#F9F7F2;color:#0B1A2B;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+*{box-sizing:border-box}
+a{color:#23507F;text-decoration:none}
+a:hover{color:#0B1A2B;text-decoration:underline;text-underline-offset:3px}
+h1,h2,h3,h4,p,ul,ol,figure,table,dl,dd,dt{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:2px solid #23507F;outline-offset:3px}
+input:focus-visible{outline:2px solid #23507F;outline-offset:1px}
+</style>
+</helmet>
+
+<div style="background:#F9F7F2">
+
+<div style="position:fixed;top:0;left:0;right:0;height:3px;background:rgba(217,222,227,.6);z-index:20">
+  <div style="height:3px;background:#7A2E1E;width:{{ progress }}"></div>
+</div>
+
+<div style="border-bottom:1px solid #D9DEE3">
+  <div style="max-width:1320px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:40px;font-size:12px;color:#5C6672">
+    <span>Saturday, 25 July 2026 <span style="color:#D9DEE3">·</span> London Edition</span>
+    <div style="display:flex;align-items:center;gap:24px">
+      <a href="#" style="color:#23507F;font-weight:500;min-height:44px;display:inline-flex;align-items:center">RSS</a>
+      <a href="#" style="color:#23507F;font-weight:500;min-height:44px;display:inline-flex;align-items:center">Contact the desk</a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div style="max-width:1320px;margin:0 auto;padding:26px 32px 22px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px">
+    <a href="CUVA Homepage.dc.html" aria-label="CUVA Sports, home" style="display:block"><img src="assets/logo-primary-t.png" alt="CUVA Sports" style="display:block;height:64px;width:auto"></a>
+    <p style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;font-style:italic;color:#5C6672;border-left:1px solid #D9DEE3;padding-left:24px">Football and cricket journalism, written from the press box.</p>
+    <form style="display:flex;align-items:stretch;height:44px" onSubmit="{{ noop }}">
+      <label for="rp-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search CUVA Sports</label>
+      <input id="rp-search" type="search" placeholder="Search reports and archive" style="width:246px;height:44px;border:1px solid #D9DEE3;border-right:none;background:#FFFFFF;padding:0 14px;font-size:14px;color:#0B1A2B;border-radius:0">
+      <button type="submit" style="height:44px;min-width:88px;border:1px solid #14273D;background:#14273D;color:#FFFFFF;font-size:14px;font-weight:600;cursor:pointer;border-radius:0" style-hover="background:#0B1A2B;border-color:#0B1A2B">Search</button>
+    </form>
+  </div>
+</header>
+
+<nav style="background:#14273D">
+  <div style="max-width:1320px;margin:0 auto;padding:0 32px;display:flex;align-items:stretch;gap:2px">
+    <a href="CUVA Homepage.dc.html" style="display:flex;align-items:center;height:52px;padding:0 18px;color:#FFFFFF;font-size:15px;font-weight:500;border-bottom:3px solid transparent;text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">Home</a>
+    <a href="#" style="display:flex;align-items:center;height:52px;padding:0 18px;color:#FFFFFF;font-size:15px;font-weight:600;border-bottom:3px solid #D4A843;text-decoration:none" style-hover="text-decoration:none;background:#1C3550">Match Reports</a>
+    <a href="#" style="display:flex;align-items:center;height:52px;padding:0 18px;color:#FFFFFF;font-size:15px;font-weight:500;border-bottom:3px solid transparent;text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">Football</a>
+    <a href="#" style="display:flex;align-items:center;height:52px;padding:0 18px;color:#FFFFFF;font-size:15px;font-weight:500;border-bottom:3px solid transparent;text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">Cricket</a>
+    <a href="#" style="display:flex;align-items:center;height:52px;padding:0 18px;color:#FFFFFF;font-size:15px;font-weight:500;border-bottom:3px solid transparent;text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">About</a>
+    <a href="#" style="display:flex;align-items:center;height:52px;padding:0 18px;color:#FFFFFF;font-size:15px;font-weight:500;border-bottom:3px solid transparent;text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">Contact</a>
+  </div>
+</nav>
+
+<div style="max-width:1320px;margin:0 auto;padding:18px 32px 0">
+  <nav aria-label="Breadcrumb" style="font-size:13px;color:#5C6672;display:flex;align-items:center;gap:10px">
+    <a href="CUVA Homepage.dc.html" style="color:#23507F;min-height:44px;display:inline-flex;align-items:center">Home</a><span style="color:#D9DEE3">/</span>
+    <a href="#" style="color:#23507F;min-height:44px;display:inline-flex;align-items:center">Match Reports</a><span style="color:#D9DEE3">/</span>
+    <a href="#" style="color:#23507F;min-height:44px;display:inline-flex;align-items:center">Football</a><span style="color:#D9DEE3">/</span>
+    <span aria-current="page">World Cup</span>
+  </nav>
+</div>
+
+<main data-screen-label="Match report" style="max-width:1320px;margin:0 auto;padding:0 32px 8px;display:grid;grid-template-columns:{{ mainColumns }};gap:64px;justify-content:center;align-items:start">
+
+  <article style="min-width:0;display:flex;flex-direction:column;gap:26px;padding:28px 0 0">
+
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">Football <span style="color:#D9DEE3">/</span> FIFA World Cup 2026, Final</span>
+      <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:52px;line-height:1.06;letter-spacing:-0.015em;font-weight:700;margin-right:-56px">Spain 1-0 Argentina AET: Ferran Torres Wins the World Cup for Spain</h1>
+      <p style="font-family:'Source Serif 4',Georgia,serif;font-size:21px;line-height:1.5;color:#14273D">Ferran Torres came off the bench to score the only goal in extra time as Spain overcame ten-man Argentina 1-0 to lift the World Cup for the second time, despite a record ten-save display from Emiliano Martinez at MetLife Stadium.</p>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:13px;color:#5C6672;border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3;padding:12px 0">
+        <span style="font-weight:600;color:#0B1A2B">William Powell</span>
+        <span style="color:#D9DEE3">·</span>
+        <span style="font-family:'IBM Plex Mono',monospace">19 JULY 2026</span>
+        <span style="color:#D9DEE3">·</span>
+        <span>4 min read</span>
+        <span style="color:#D9DEE3">·</span>
+        <span style="color:#8A6410;font-weight:700;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">Reported from the ground</span>
+      </div>
+    </div>
+
+    <div style="background:#14273D;color:#FFFFFF">
+      <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Spain 1, Argentina 0, after extra time. Scorer: Torres, 106 minutes.</p>
+      <div aria-hidden="true" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:26px 30px">
+        <div style="text-align:right">
+          <p style="font-family:'Source Serif 4',Georgia,serif;font-size:28px;font-weight:700;line-height:1.1">Spain</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.7);padding-top:6px">Torres 106&#39;</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:40px;font-weight:600;color:#D4A843;letter-spacing:0.06em">1-0</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#D4A843;border:1px solid rgba(212,168,67,.5);padding:3px 8px">AET</p>
+        </div>
+        <div>
+          <p style="font-family:'Source Serif 4',Georgia,serif;font-size:28px;font-weight:700;line-height:1.1;color:rgba(255,255,255,.85)">Argentina</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.7);padding-top:6px">Fernandez sent off 90+3&#39;</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(217,222,227,.2);padding:12px 30px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:rgba(255,255,255,.75)">
+        <span style="font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em">HT 0-0</span><span style="color:rgba(255,255,255,.3)">·</span>
+        <span style="font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em">90 MIN 0-0</span><span style="color:rgba(255,255,255,.3)">·</span>
+        <span>MetLife Stadium, East Rutherford, New Jersey</span><span style="color:rgba(255,255,255,.3)">·</span>
+        <span>Sunday, 19 July 2026</span>
+      </div>
+    </div>
+
+    <figure style="display:flex;flex-direction:column;gap:10px">
+      <div style="position:relative;height:430px;border-top:3px solid #7A2E1E"><image-slot id="rp-hero" shape="rect" radius="0" placeholder="Hero photograph - Spain lift the World Cup, MetLife Stadium"></image-slot></div>
+      <figcaption style="font-size:13px;line-height:1.5;color:#14273D">Spain celebrate at the final whistle at MetLife Stadium. <span style="color:#5C6672">Photograph: William Powell</span></figcaption>
+    </figure>
+
+    <sc-if value="{{ showUpdated }}" hint-placeholder-val="{{ true }}">
+      <p style="display:flex;align-items:center;gap:10px;font-size:13px;color:#5C6672;border-left:3px solid #D9DEE3;padding:8px 0 8px 12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#14273D">UPDATED</span> 20 July 2026, 09:14 BST. Match statistics confirmed against the official team sheet.</p>
+    </sc-if>
+    <sc-if value="{{ showCorrection }}" hint-placeholder-val="{{ false }}">
+      <div role="note" style="border-left:3px solid #B3261E;background:#FFFFFF;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#B3261E;font-weight:600">CORRECTION &middot; 20 JULY 2026, 09:14 BST</p>
+        <p style="font-size:14px;line-height:1.55;color:#14273D">An earlier version of this report gave Emiliano Martinez eleven saves. He made ten. The figure has been corrected in the statistics table and in the standfirst.</p>
+      </div>
+    </sc-if>
+
+    <div style="display:flex;flex-direction:column;gap:22px;font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.65;color:#0B1A2B">
+      <p><span style="font-size:22px;font-weight:700;letter-spacing:0.04em">SPAIN</span> are champions of the world for the second time after Ferran Torres struck in extra time to defeat ten-man Argentina 1-0 in a tense and dramatic final at MetLife Stadium, ending the reign of Lionel Messi and his side as world champions.</p>
+      <p>Spain dominated the contest from the first whistle, keeping the ball with their trademark patience and pressing Argentina back for long periods. Argentina, so often dangerous on the counter, did not register a shot before the interval and went in level only because of their goalkeeper.</p>
+      <p>Martinez began his heroics in the twenty-second minute with the first of a series of important saves, and by the time Lamine Yamal struck a 25-yard free-kick in the seventy-fifth minute the Argentina goalkeeper was the reason the final was still goalless. That save, low and to his right, was the best of the ten he made.</p>
+      <p>The balance of the night changed three minutes into stoppage time at the end of normal time, when Enzo Fernandez was sent off for a second bookable offence. Argentina went to extra time with ten men and 0-0 on the board.</p>
+      <p>The goal came in the 106th minute. Nico Williams headed the ball back across the six-yard box and Torres, on as a substitute, finished from close range. A second Torres goal was ruled out four minutes later for an offside in the build-up, and Spain settled for one.</p>
+      <p>Argentina, down to ten men and finally beaten, could not respond, and Spain saw out the closing stages to be crowned champions of the world once more. Torres became just the second substitute to score the winning goal in a World Cup final, and Spain, so impressive throughout the tournament, were worthy winners.</p>
+      <p>For Messi and Argentina, the defence of their crown ended in heartbreak, but Emiliano Martinez left the field with his reputation only enhanced after a truly remarkable individual performance.</p>
+    </div>
+
+    <div style="border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3;padding:16px 0;display:flex;gap:14px;align-items:flex-start">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#8A6410;font-weight:600;white-space:nowrap;padding-top:2px">HOW THIS REPORT WAS MADE</span>
+      <p style="font-size:14px;line-height:1.6;color:#14273D">William Powell attended this match and filed from the press box at MetLife Stadium. The photographs are his own. No part of this report was written from television coverage.</p>
+    </div>
+
+    <section style="display:flex;flex-direction:column;gap:14px">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;border-bottom:2px solid #0B1A2B;padding-bottom:8px">Match details</h2>
+      <dl style="display:grid;grid-template-columns:170px minmax(0,1fr);row-gap:0;column-gap:20px;font-size:15px">
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Competition</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B">FIFA World Cup 2026, Final</dd>
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Date</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B">Sunday, 19 July 2026</dd>
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Venue</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B">MetLife Stadium, East Rutherford, New Jersey</dd>
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Score</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B;font-family:'IBM Plex Mono',monospace">Spain 1-0 Argentina, after extra time <span style="color:#5C6672;font-size:13px">(HT 0-0, 90 min 0-0)</span></dd>
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Goalscorer</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B">Torres 106&#39; (Spain)</dd>
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Sent off</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B">Enzo Fernandez 90+3&#39; (Argentina)</dd>
+        <dt style="padding:11px 0;border-bottom:1px solid #D9DEE3;font-weight:600;color:#5C6672">Referee</dt>
+        <dd style="padding:11px 0;border-bottom:1px solid #D9DEE3;color:#0B1A2B">Slavko Vincic (Slovenia)</dd>
+      </dl>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:14px">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;border-bottom:2px solid #0B1A2B;padding-bottom:8px">Match statistics</h2>
+      <table style="width:100%;border-collapse:collapse">
+        <caption style="text-align:left;font-size:13px;color:#5C6672;padding-bottom:10px">Spain and Argentina compared. Figures recorded in the press box and checked against the official post-match team sheet.</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="text-align:left;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5C6672;padding:0 0 10px">Metric</th>
+            <th scope="col" style="text-align:right;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A2E1E;padding:0 0 10px 16px;width:130px">Spain</th>
+            <th scope="col" style="text-align:right;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#14273D;padding:0 0 10px 16px;width:130px">Argentina</th>
+          </tr>
+        </thead>
+        <tbody style="font-family:'IBM Plex Mono',monospace;font-size:15px">
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3">Possession</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">65%</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">35%</td></tr>
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3">Shots</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">20</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">2</td></tr>
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3">Shots on target</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">12</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">0</td></tr>
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3">Expected goals</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">2.29</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">0.22</td></tr>
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3">Pass accuracy</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">89%</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">77%</td></tr>
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3">Goalkeeper saves</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3">0</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3;font-weight:600">10</td></tr>
+          <tr><th scope="row" style="text-align:left;font-family:Inter,sans-serif;font-size:15px;font-weight:600;padding:11px 0;border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3">Fouls conceded</th><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3">21</td><td style="text-align:right;padding:11px 0 11px 16px;border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3">25</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;line-height:1.5;color:#5C6672;display:flex;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#14273D;white-space:nowrap">SOURCE</span> Possession, shots, passing and fouls: official match data issued in the press box. Expected goals: third party provider, as published. Saves counted at the ground and verified against the team sheet.</p>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:14px">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700;border-bottom:2px solid #0B1A2B;padding-bottom:8px">Timeline of key events</h2>
+      <ol style="display:flex;flex-direction:column">
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:12px 0;border-bottom:1px solid #D9DEE3;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5C6672">22&#39;</span>
+          <span style="font-size:16px;line-height:1.55">Martinez begins his heroics with the first of a series of important saves.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:12px 0;border-bottom:1px solid #D9DEE3;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5C6672">45&#39;</span>
+          <span style="font-size:16px;line-height:1.55">The sides go in goalless, Argentina yet to register a shot.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:12px 0;border-bottom:1px solid #D9DEE3;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5C6672">75&#39;</span>
+          <span style="font-size:16px;line-height:1.55">Yamal&#39;s 25-yard free-kick is somehow kept out by an inspired Martinez.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:14px 0;border-bottom:1px solid #D9DEE3;border-left:3px solid #B3261E;padding-left:14px;background:#FFFFFF;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#B3261E">90+3&#39;</span>
+          <span style="font-size:16px;line-height:1.55"><strong style="font-weight:700;color:#B3261E">Red card.</strong> Enzo Fernandez is sent off for a second bookable offence, reducing Argentina to ten men.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:12px 0;border-bottom:1px solid #D9DEE3;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5C6672">90&#39;</span>
+          <span style="font-size:16px;line-height:1.55">The final goes to extra time at 0-0.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid #D9DEE3;border-left:3px solid #7A2E1E;padding-left:14px;background:#F3F1EC;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;color:#7A2E1E">106&#39;</span>
+          <span style="font-size:18px;line-height:1.5"><strong style="font-weight:700;color:#7A2E1E">Goal, Spain.</strong> Nico Williams heads the ball back and Torres finishes for 1-0.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:12px 0;border-bottom:1px solid #D9DEE3;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5C6672">110&#39;</span>
+          <span style="font-size:16px;line-height:1.55">A second Torres goal is ruled out for offside in the build-up.</span>
+        </li>
+        <li style="display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;padding:12px 0;border-bottom:1px solid #D9DEE3;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5C6672">120+&#39;</span>
+          <span style="font-size:16px;line-height:1.55">Spain hold on to win the World Cup for the second time.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section style="background:#F3F1EC;border-left:3px solid #14273D;padding:24px 26px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#14273D">EDITORIAL JUDGEMENT, NOT A STATISTIC</span>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700">William Powell&#39;s standout players</h2>
+      </div>
+      <ul style="display:flex;flex-direction:column;gap:0">
+        <li style="padding:12px 0;border-top:1px solid #D9DEE3;font-size:16px;line-height:1.55"><strong style="font-weight:600">Ferran Torres (Spain)</strong> Came off the bench to score the goal that won the World Cup, only the second substitute ever to net the winner in a final.</li>
+        <li style="padding:12px 0;border-top:1px solid #D9DEE3;font-size:16px;line-height:1.55"><strong style="font-weight:600">Lamine Yamal (Spain)</strong> A constant threat and desperately unlucky not to win it with a stunning free-kick.</li>
+        <li style="padding:12px 0;border-top:1px solid #D9DEE3;font-size:16px;line-height:1.55"><strong style="font-weight:600">Nico Williams (Spain)</strong> Provided the assist for the decisive goal.</li>
+        <li style="padding:12px 0;border-top:1px solid #D9DEE3;font-size:16px;line-height:1.55"><strong style="font-weight:600">Emiliano Martinez (Argentina)</strong> Magnificent in defeat with a record ten saves to keep Argentina in the contest almost to the end.</li>
+        <li style="padding:12px 0;border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3;font-size:16px;line-height:1.55"><strong style="font-weight:600">Pau Cubarsi (Spain)</strong> Composed at the back as Spain kept Argentina without a first-half shot.</li>
+      </ul>
+      <p style="font-size:13px;color:#5C6672">Selected by William Powell at the ground.</p>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-top:4px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">TAGS</span>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D" style-hover="border-color:#7A2E1E;color:#7A2E1E;text-decoration:none">World Cup 2026</a>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D" style-hover="border-color:#7A2E1E;color:#7A2E1E;text-decoration:none">Spain</a>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D" style-hover="border-color:#7A2E1E;color:#7A2E1E;text-decoration:none">Argentina</a>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D" style-hover="border-color:#7A2E1E;color:#7A2E1E;text-decoration:none">Ferran Torres</a>
+      <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D" style-hover="border-color:#7A2E1E;color:#7A2E1E;text-decoration:none">MetLife Stadium</a>
+    </div>
+
+    <section style="background:#14273D;color:#FFFFFF;padding:28px 30px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:26px;align-items:start">
+      <div style="position:relative;height:150px;border-top:3px solid #D4A843"><image-slot id="rp-portrait" shape="rect" radius="0" placeholder="Portrait"></image-slot></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:#D4A843">WHO WROTE THIS REPORT</span>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:700">William Powell</h2>
+        <p style="font-size:15px;line-height:1.6;color:rgba(255,255,255,.82)">Sports journalist since 1987, reporting from non-league grounds through to World Cup finals and Ashes series. All photography on CUVA Sports is his own.</p>
+        <ul style="display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:rgba(255,255,255,.85)">
+          <li>Life Member, Football Writers&#39; Association</li>
+          <li>Full Member and Archivist, Cricket Media Club, since 1989</li>
+          <li>Member, BSJA</li>
+          <li>Member, AIPS</li>
+          <li>Member, BAJ</li>
+        </ul>
+        <div style="display:flex;gap:12px;padding-top:4px">
+          <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 18px;background:#D4A843;color:#0B1A2B;font-size:14px;font-weight:600" style-hover="background:#FFFFFF;text-decoration:none">More about William</a>
+          <a href="#" style="min-height:44px;display:inline-flex;align-items:center;padding:0 18px;border:1px solid rgba(255,255,255,.4);color:#FFFFFF;font-size:14px;font-weight:600" style-hover="border-color:#FFFFFF;background:rgba(255,255,255,.08);text-decoration:none">All his reports</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-direction:column;gap:14px">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;border-bottom:2px solid #0B1A2B;padding-bottom:8px">Related reporting</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+        <a href="#" style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9DEE3;padding-top:12px;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Semi-Final</span>
+          <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">France 0-2 Spain: Oyarzabal and Porro Send Spain into the World Cup Final</span>
+          <span style="font-size:12px;color:#5C6672;font-family:'IBM Plex Mono',monospace">14 JUL 2026</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9DEE3;padding-top:12px;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Semi-Final</span>
+          <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">England 1-2 Argentina: Late Argentina Double Breaks English Hearts in Atlanta</span>
+          <span style="font-size:12px;color:#5C6672;font-family:'IBM Plex Mono',monospace">15 JUL 2026</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #D9DEE3;padding-top:12px;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Third Place</span>
+          <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">France 4-6 England: Saka Hat-Trick Seals Bronze in Ten-Goal Miami Thriller</span>
+          <span style="font-size:12px;color:#5C6672;font-family:'IBM Plex Mono',monospace">18 JUL 2026</span>
+        </a>
+      </div>
+    </section>
+
+    <section style="background:#F3F1EC;border-top:3px solid #14273D;padding:24px 26px;display:flex;flex-direction:column;gap:14px;margin-bottom:40px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8A6410">NEWSLETTER</span>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700">Weekly from the Press Box</h2>
+        <p style="font-size:15px;line-height:1.55;color:#14273D">One email every Monday morning: the week&#39;s reports and what did not make the copy.</p>
+      </div>
+      <form onSubmit="{{ onSubscribe }}" style="display:flex;flex-direction:column;gap:10px">
+        <label for="rp-nl" style="font-size:13px;font-weight:600">Email address</label>
+        <div style="display:flex">
+          <input id="rp-nl" type="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmail }}" aria-describedby="rp-nl-help" style="flex:1;height:48px;border:1px solid #D9DEE3;border-right:none;background:#FFFFFF;padding:0 14px;font-size:15px;color:#0B1A2B;border-radius:0">
+          <button type="submit" style="height:48px;min-width:132px;border:1px solid #14273D;background:#14273D;color:#FFFFFF;font-size:15px;font-weight:600;cursor:pointer;border-radius:0" style-hover="background:#0B1A2B;border-color:#0B1A2B">Subscribe</button>
+        </div>
+        <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+          <p role="alert" style="font-size:13px;font-weight:500;color:#B3261E;border-left:3px solid #B3261E;padding-left:10px">{{ error }}</p>
+        </sc-if>
+        <sc-if value="{{ success }}" hint-placeholder-val="{{ false }}">
+          <p role="status" style="font-size:13px;font-weight:500;color:#1E5741;border-left:3px solid #1E5741;padding-left:10px">{{ success }}</p>
+        </sc-if>
+        <p id="rp-nl-help" style="font-size:13px;color:#5C6672">Sent every Monday. No advertising, no sharing of your address, unsubscribe in one click. <a href="#" style="font-weight:600">RSS instead</a>.</p>
+      </form>
+    </section>
+  </article>
+
+  <sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+  <aside style="min-width:0;position:sticky;top:24px;padding:28px 0 0;display:flex;flex-direction:column;gap:24px;border-left:1px solid #D9DEE3;padding-left:28px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#5C6672">READING</span>
+      <span style="height:2px;background:#D9DEE3;display:block"><span style="display:block;height:2px;background:#7A2E1E;width:{{ progress }}"></span></span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#5C6672">AT A GLANCE</span>
+      <div style="background:#14273D;color:#FFFFFF;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#D4A843">WORLD CUP FINAL &middot; AET</p>
+        <p style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:15px;font-weight:600">Spain <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:#D4A843">1</span></p>
+        <p style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:15px;color:rgba(255,255,255,.8)">Argentina <span style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:rgba(255,255,255,.8)">0</span></p>
+        <p style="font-size:12px;color:rgba(255,255,255,.7);border-top:1px solid rgba(217,222,227,.2);padding-top:8px">Torres 106&#39;. Fernandez sent off 90+3&#39;.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#5C6672">SHARE</span>
+      <div style="display:flex;flex-direction:column">
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:14px;color:#23507F;border-top:1px solid #D9DEE3" style-hover="color:#0B1A2B;background:#F3F1EC;text-decoration:none">Copy link</a>
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:14px;color:#23507F;border-top:1px solid #D9DEE3" style-hover="color:#0B1A2B;background:#F3F1EC;text-decoration:none">Share on X</a>
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:14px;color:#23507F;border-top:1px solid #D9DEE3" style-hover="color:#0B1A2B;background:#F3F1EC;text-decoration:none">Email this report</a>
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:14px;color:#23507F;border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3" style-hover="color:#0B1A2B;background:#F3F1EC;text-decoration:none">Report a correction</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#5C6672">IN THIS REPORT</span>
+      <div style="display:flex;flex-direction:column">
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:13px;color:#14273D" style-hover="color:#7A2E1E;text-decoration:none">Match details</a>
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:13px;color:#14273D" style-hover="color:#7A2E1E;text-decoration:none">Match statistics</a>
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:13px;color:#14273D" style-hover="color:#7A2E1E;text-decoration:none">Timeline of key events</a>
+        <a href="#" style="min-height:44px;display:flex;align-items:center;font-size:13px;color:#14273D" style-hover="color:#7A2E1E;text-decoration:none">Standout players</a>
+      </div>
+    </div>
+  </aside>
+  </sc-if>
+</main>
+
+<footer style="background:#071320;color:rgba(255,255,255,.8)">
+  <div style="max-width:1320px;margin:0 auto;padding:40px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <img src="assets/logo-reversed-t.png" alt="CUVA Sports" style="display:block;height:52px;width:auto">
+    <p style="font-size:13px;line-height:1.6;color:rgba(255,255,255,.7);max-width:52ch">Corrections are published on the report they affect. Press enquiries, syndication and corrections go through the <a href="#" style="color:#FFFFFF;font-weight:500">contact form</a>.</p>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.55)">FWA LIFE MEMBER &middot; EST. 1987</span>
+  </div>
+</footer>
+
+<sc-if value="{{ showAppendix }}" hint-placeholder-val="{{ true }}">
+<div style="background:#0B1A2B;padding:56px 0 72px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;align-items:baseline;gap:16px;border-bottom:1px solid rgba(217,222,227,.25);padding-bottom:14px">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700;color:#FFFFFF">Variants and states</h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.6)">Not part of the page. Tweaks: rail on or off, corrections notice state.</p>
+    </div>
+
+    <div style="background:#F9F7F2;padding:32px;display:flex;flex-direction:column;gap:20px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;display:flex;align-items:baseline;gap:14px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">Layout, with and without the rail</h3>
+        <p style="font-size:13px;color:#5C6672">Measure stays at 720px either way. The <strong style="font-weight:600">showRail</strong> tweak switches the live page.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7A2E1E">WITH RAIL &middot; 720 + 64 + 300, CENTRED</p>
+          <div style="border:1px solid #D9DEE3;background:#FFFFFF;padding:16px;display:grid;grid-template-columns:1fr 40px;gap:12px">
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <span style="height:10px;background:#0B1A2B;display:block;width:80%"></span>
+              <span style="height:5px;background:#D9DEE3;display:block"></span>
+              <span style="height:5px;background:#D9DEE3;display:block;width:92%"></span>
+              <span style="height:34px;background:#14273D;display:block;margin:5px 0"></span>
+              <span style="height:60px;background:#F3F1EC;border:1px solid #D9DEE3;display:block"></span>
+              <span style="height:5px;background:#D9DEE3;display:block"></span>
+              <span style="height:5px;background:#D9DEE3;display:block;width:96%"></span>
+              <span style="height:5px;background:#D9DEE3;display:block;width:88%"></span>
+            </div>
+            <div style="border-left:1px solid #D9DEE3;padding-left:8px;display:flex;flex-direction:column;gap:6px">
+              <span style="height:2px;background:#7A2E1E;display:block"></span>
+              <span style="height:34px;background:#14273D;display:block"></span>
+              <span style="height:4px;background:#D9DEE3;display:block"></span>
+              <span style="height:4px;background:#D9DEE3;display:block"></span>
+              <span style="height:4px;background:#D9DEE3;display:block"></span>
+            </div>
+          </div>
+          <p style="font-size:13px;line-height:1.5;color:#5C6672">Progress, share and the at a glance score stay reachable while reading. Costs 364px of the canvas, so the story sits left of centre.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">WITHOUT RAIL &middot; 720, CENTRED</p>
+          <div style="border:1px solid #D9DEE3;background:#FFFFFF;padding:16px;display:flex;justify-content:center">
+            <div style="display:flex;flex-direction:column;gap:7px;width:78%">
+              <span style="height:10px;background:#0B1A2B;display:block;width:82%"></span>
+              <span style="height:5px;background:#D9DEE3;display:block"></span>
+              <span style="height:5px;background:#D9DEE3;display:block;width:92%"></span>
+              <span style="height:34px;background:#14273D;display:block;margin:5px 0"></span>
+              <span style="height:60px;background:#F3F1EC;border:1px solid #D9DEE3;display:block"></span>
+              <span style="height:5px;background:#D9DEE3;display:block"></span>
+              <span style="height:5px;background:#D9DEE3;display:block;width:96%"></span>
+              <span style="height:5px;background:#D9DEE3;display:block;width:88%"></span>
+            </div>
+          </div>
+          <p style="font-size:13px;line-height:1.5;color:#5C6672">Story dead centre, nothing competing. Progress falls back to the 3px bar at the top of the window; share moves to the end of the article.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#F9F7F2;padding:32px;display:flex;flex-direction:column;gap:20px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">Cricket scorecard variant</h3>
+      </div>
+      <p style="font-size:14px;color:#5C6672">No teams-and-score fields. Innings totals, result sentence and series state, with the cricket section colour.</p>
+      <div style="background:#14273D;color:#FFFFFF">
+        <div style="padding:24px 28px;display:flex;flex-direction:column;gap:14px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#D4A843">THIRD ONE-DAY INTERNATIONAL &middot; LORD&#39;S</p>
+          <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">England beat India by 27 runs. England 342 for 7 in 50 overs. India 315 all out in 48.2 overs. Series won 2-1.</p>
+          <div aria-hidden="true" style="display:flex;flex-direction:column;gap:10px">
+            <p style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:700">England <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#D4A843">342-7 <span style="font-size:13px;color:rgba(255,255,255,.7)">(50 ov)</span></span></p>
+            <p style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:700;color:rgba(255,255,255,.85)">India <span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:rgba(255,255,255,.85)">315 <span style="font-size:13px;color:rgba(255,255,255,.7)">(48.2 ov)</span></span></p>
+          </div>
+          <p style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;color:#FFFFFF;border-top:1px solid rgba(217,222,227,.2);padding-top:12px">England beat India by 27 runs. <span style="color:rgba(255,255,255,.75)">Series won 2-1.</span></p>
+        </div>
+        <div style="border-top:3px solid #1E5741;padding:10px 28px;font-size:12px;color:rgba(255,255,255,.7);display:flex;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em">CRICKET</span><span style="color:rgba(255,255,255,.3)">·</span><span>Sunday, 19 July 2026</span></div>
+      </div>
+    </div>
+
+    <div style="background:#F9F7F2;padding:32px;display:flex;flex-direction:column;gap:22px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">States</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">CORRECTIONS NOTICE, BOTH STATES</p>
+          <p style="display:flex;align-items:center;gap:10px;font-size:13px;color:#5C6672;border-left:3px solid #D9DEE3;padding:8px 0 8px 12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#14273D">UPDATED</span> 20 July 2026, 09:14 BST. Match statistics confirmed against the official team sheet.</p>
+          <div style="border-left:3px solid #B3261E;background:#FFFFFF;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#B3261E;font-weight:600">CORRECTION &middot; 20 JULY 2026, 09:14 BST</p>
+            <p style="font-size:14px;line-height:1.55;color:#14273D">An earlier version of this report gave Emiliano Martinez eleven saves. He made ten.</p>
+          </div>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672;padding-top:8px">NO HERO PHOTOGRAPH</p>
+          <div style="border-top:3px solid #7A2E1E;background:#F3F1EC;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700">Spain 1-0 Argentina AET</p>
+            <p style="font-size:13px;color:#5C6672">Where a report has no photograph, the scorecard carries the top of the page and the body copy starts immediately. No placeholder image, no grey box.</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">INTERACTIVE STATES</p>
+          <span style="height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D">Tag - default</span>
+          <span style="height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #7A2E1E;background:#FFFFFF;font-size:13px;font-weight:500;color:#7A2E1E">Tag - hover</span>
+          <span style="height:44px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid #D9DEE3;background:#FFFFFF;font-size:13px;font-weight:500;color:#14273D;outline:2px solid #23507F;outline-offset:3px">Tag - keyboard focus</span>
+          <span style="height:44px;display:flex;align-items:center;font-size:14px;color:#23507F;border-top:1px solid #D9DEE3">Copy link - default</span>
+          <span style="height:44px;display:flex;align-items:center;font-size:14px;color:#0B1A2B;background:#F3F1EC;border-top:1px solid #D9DEE3;text-decoration:underline;text-underline-offset:3px">Copy link - hover</span>
+          <span style="height:44px;display:flex;align-items:center;font-size:14px;color:#23507F;border-top:1px solid #D9DEE3;outline:2px solid #23507F;outline-offset:3px">Copy link - keyboard focus</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;correctionState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;none&quot;,&quot;updated&quot;,&quot;correction&quot;],&quot;default&quot;:&quot;updated&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Trust components&quot;},&quot;showAppendix&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Presentation&quot;}}">
+class Component extends DCLogic {
+  state = { email: "", error: "", success: "", pct: 0 };
+  componentDidMount() {
+    this.onScroll = () => {
+      const el = document.documentElement;
+      const max = el.scrollHeight - el.clientHeight;
+      const pct = max > 0 ? Math.min(100, Math.round((el.scrollTop / max) * 100)) : 0;
+      if (pct !== this.state.pct) this.setState({ pct });
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener("scroll", this.onScroll); }
+  renderVals() {
+    const rail = this.props.showRail ?? true;
+    const c = this.props.correctionState ?? "updated";
+    return {
+      showRail: rail,
+      mainColumns: rail ? "minmax(0,720px) 300px" : "minmax(0,720px)",
+      progress: this.state.pct + "%",
+      showUpdated: c === "updated",
+      showCorrection: c === "correction",
+      showAppendix: this.props.showAppendix ?? true,
+      email: this.state.email,
+      error: this.state.error,
+      success: this.state.success,
+      noop: (e) => e.preventDefault(),
+      onEmail: (e) => this.setState({ email: e.target.value, error: "", success: "" }),
+      onSubscribe: (e) => {
+        e.preventDefault();
+        const v = this.state.email.trim();
+        if (!v) return this.setState({ error: "Enter your email address to subscribe.", success: "" });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return this.setState({ error: "Enter an email address in the form name@domain.com.", success: "" });
+        this.setState({ error: "", success: "Thank you. Check your inbox to confirm; the first email arrives on Monday." });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
