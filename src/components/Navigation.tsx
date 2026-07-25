@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import CuvaLogo from "@/components/brand/CuvaLogo";
 import { useLanguage } from "@/lib/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 
@@ -30,16 +30,14 @@ export default function Navigation() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
-            <Image
-              src="/images/cuva-sports-logo.png"
-              alt="CUVA Sports"
-              width={180}
-              height={52}
-              className="h-11 w-auto"
-              priority
-            />
+          {/* Logo — reversed lockup, sized down on narrow viewports */}
+          <Link href="/" className="flex items-center shrink-0" aria-label="CUVA Sports home">
+            <span className="hidden sm:block">
+              <CuvaLogo variant="horizontal" tone="white" size={40} />
+            </span>
+            <span className="sm:hidden">
+              <CuvaLogo variant="horizontal" tone="white" size={30} />
+            </span>
           </Link>
 
           {/* Desktop nav links */}

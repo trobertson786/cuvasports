@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
+import CuvaLogo from "@/components/brand/CuvaLogo";
 import FWABadge from "@/components/FWABadge";
 import { TranslationKey } from "@/lib/translations";
 
@@ -29,13 +29,9 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="md:col-span-1">
-            <Image
-              src="/images/cuva-sports-logo.png"
-              alt="CUVA Sports"
-              width={160}
-              height={48}
-              className="h-10 w-auto mb-3"
-            />
+            <div className="mb-4">
+              <CuvaLogo variant="stacked" tone="white" size={48} />
+            </div>
             <p className="text-sm text-on-primary/60 leading-relaxed max-w-xs mb-4">
               {t("footer.tagline")}
             </p>

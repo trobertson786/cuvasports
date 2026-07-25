@@ -70,7 +70,9 @@ export default async function ArticlePage({ params }: PageProps) {
       name: "CUVA Sports",
       logo: {
         "@type": "ImageObject",
-        url: "https://cuvasports.com/images/cuva-sports-logo.png",
+        url: "https://cuvasports.com/brand/cuva-logo-schema.png",
+        width: 512,
+        height: 512,
       },
     },
     mainEntityOfPage: {

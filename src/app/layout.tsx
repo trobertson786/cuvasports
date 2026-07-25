@@ -37,7 +37,11 @@ export const metadata: Metadata = {
     "Expert football and cricket journalism by William Powell, FWA Life Member and sports writer since 1987. Match reports, analysis, and commentary.",
   metadataBase: new URL("https://cuvasports.com"),
   icons: {
-    icon: "/icon.png",
+    // SVG first for browsers that support it, PNG as the universal fallback.
+    icon: [
+      { url: "/brand/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
     apple: "/apple-icon.png",
   },
   openGraph: {

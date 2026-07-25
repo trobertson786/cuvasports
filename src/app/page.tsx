@@ -19,7 +19,9 @@ const websiteJsonLd = {
     name: "CUVA Sports",
     logo: {
       "@type": "ImageObject",
-      url: "https://cuvasports.com/images/cuva-sports-logo.png",
+      url: "https://cuvasports.com/brand/cuva-logo-schema.png",
+      width: 512,
+      height: 512,
     },
   },
 };

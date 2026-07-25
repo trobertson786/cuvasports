@@ -1,8 +1,12 @@
 import Link from "next/link";
+import CuvaLogo from "@/components/brand/CuvaLogo";
 
 export default function NotFound() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-24 text-center">
+      <div className="flex justify-center mb-10">
+        <CuvaLogo variant="compact" tone="navy" size={40} />
+      </div>
       <h1 className="font-heading text-6xl font-bold text-on-surface mb-4">404</h1>
       <p className="text-xl text-on-surface-muted mb-8">
         Page not found. The article you&apos;re looking for may have been moved

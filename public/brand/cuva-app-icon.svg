@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" width="216" height="216">
+  <mask id="cuva-slot">
+    <rect x="0" y="0" width="216" height="216" fill="#fff"/>
+    <path d="M32 30 H83 V65 H114 V77 H83 V132 H32 Z" transform="translate(62.4 43.2) scale(0.8)" fill="#000"/>
+  </mask>
+  <rect x="0" y="0" width="216" height="216" rx="48" fill="#0B1A2B"/>
+  <g mask="url(#cuva-slot)">
+    <rect x="0" y="0" width="114" height="162" transform="translate(62.4 43.2) scale(0.8)" fill="#FFFFFF"/>
+  </g>
+</svg>
