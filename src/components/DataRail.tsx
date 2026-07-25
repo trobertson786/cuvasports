@@ -22,8 +22,9 @@ export default function DataRail() {
         <RecentScores />
       </div>
 
-      {/* Upcoming Fixtures */}
-      <div className="p-4">
+      {/* Upcoming Fixtures — empty:hidden so the padding collapses out of the
+          rail when there are no fixtures left to show (e.g. end of season). */}
+      <div className="p-4 empty:hidden">
         <UpcomingFixtures />
       </div>
     </aside>

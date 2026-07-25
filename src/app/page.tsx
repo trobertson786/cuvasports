@@ -69,10 +69,12 @@ export default function HomePage() {
         {/* Mobile: desk briefs and data rail stack below lead */}
         <div className="lg:hidden mt-8 space-y-8">
           <DeskBriefs articles={deskArticles} />
-          <details className="group">
-            <summary className="font-ui text-sm font-bold uppercase tracking-widest text-ink cursor-pointer list-none flex items-center justify-between py-3 border-t border-b border-surface-high">
-              <span>League Table &amp; Scores</span>
-              <span className="transition-transform group-open:rotate-180 text-amber">▾</span>
+          {/* Open by default: the results panel is the reason to scroll here, and
+              a closed accordion at the foot of the page hid it completely. */}
+          <details className="group" open>
+            <summary className="font-ui text-sm font-bold uppercase tracking-widest text-ink cursor-pointer list-none flex items-center justify-between gap-3 py-3 border-t border-b border-surface-high">
+              <span>Results &amp; Tables</span>
+              <span className="transition-transform group-open:rotate-180 text-amber shrink-0">▾</span>
             </summary>
             <div className="mt-4">
               <DataRail />

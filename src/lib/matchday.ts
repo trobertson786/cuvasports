@@ -19,9 +19,19 @@ function parseDateLabel(label: string): Date | null {
   return date;
 }
 
+// Typed explicitly: when matchday.json has an empty fixtures list (a normal
+// off-season state) TypeScript infers never[] from the JSON import and the
+// field accesses below stop compiling.
+interface MatchdayFixture {
+  home: string;
+  away: string;
+  competition: string;
+  dateLabel?: string;
+}
+
 export const matchdayResults = matchday.results ?? [];
 
-export const matchdayFixtures = (matchday.fixtures ?? []).filter((fixture) => {
+export const matchdayFixtures = ((matchday.fixtures ?? []) as MatchdayFixture[]).filter((fixture) => {
   const date = parseDateLabel(fixture.dateLabel ?? "");
   if (!date) return true;
   return date >= today;

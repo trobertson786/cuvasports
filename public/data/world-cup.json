@@ -1,0 +1,122 @@
+{
+  "available": true,
+  "lastUpdated": "2026-07-25",
+  "complete": true,
+  "group": "Group L",
+  "table": [
+    {
+      "pos": 1,
+      "club": "England",
+      "played": 3,
+      "gd": 4,
+      "pts": 7
+    },
+    {
+      "pos": 2,
+      "club": "Croatia",
+      "played": 3,
+      "gd": 0,
+      "pts": 6
+    },
+    {
+      "pos": 3,
+      "club": "Ghana",
+      "played": 3,
+      "gd": 0,
+      "pts": 4
+    },
+    {
+      "pos": 4,
+      "club": "Panama",
+      "played": 3,
+      "gd": -4,
+      "pts": 0
+    }
+  ],
+  "matches": [
+    {
+      "date": "2026-06-17",
+      "opponent": "Croatia",
+      "homeAway": "H",
+      "us": 4,
+      "them": 2,
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE"
+    },
+    {
+      "date": "2026-06-23",
+      "opponent": "Ghana",
+      "homeAway": "H",
+      "us": 0,
+      "them": 0,
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE"
+    },
+    {
+      "date": "2026-06-27",
+      "opponent": "Panama",
+      "homeAway": "A",
+      "us": 2,
+      "them": 0,
+      "status": "FINISHED",
+      "stage": "GROUP_STAGE"
+    },
+    {
+      "date": "2026-07-01",
+      "opponent": "Congo DR",
+      "homeAway": "H",
+      "us": 2,
+      "them": 1,
+      "status": "FINISHED",
+      "stage": "LAST_32"
+    },
+    {
+      "date": "2026-07-06",
+      "opponent": "Mexico",
+      "homeAway": "A",
+      "us": 3,
+      "them": 2,
+      "status": "FINISHED",
+      "stage": "LAST_16"
+    },
+    {
+      "date": "2026-07-11",
+      "opponent": "Norway",
+      "homeAway": "A",
+      "us": 2,
+      "them": 1,
+      "status": "FINISHED",
+      "stage": "QUARTER_FINALS"
+    },
+    {
+      "date": "2026-07-15",
+      "opponent": "Argentina",
+      "homeAway": "H",
+      "us": 1,
+      "them": 2,
+      "status": "FINISHED",
+      "stage": "SEMI_FINALS"
+    },
+    {
+      "date": "2026-07-18",
+      "opponent": "France",
+      "homeAway": "A",
+      "us": 6,
+      "them": 4,
+      "status": "FINISHED",
+      "stage": "THIRD_PLACE"
+    }
+  ],
+  "final": {
+    "date": "2026-07-19",
+    "home": "Spain",
+    "away": "Argentina",
+    "homeScore": 1,
+    "awayScore": 0,
+    "note": "AET",
+    "venue": "MetLife Stadium",
+    "slug": "2026-07-19-spain-vs-argentina"
+  },
+  "champion": "Spain",
+  "englandFinish": "Third place"
+}

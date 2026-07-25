@@ -14,6 +14,13 @@ const COMPETITION_MAP: Record<string, string> = {
   UEL:          "EL",
 };
 
+// football-data.org's free tier returns 403 for these competitions, and the tier
+// only allows 10 requests/minute in total. Requesting them burned three of that
+// budget on guaranteed failures and pushed /api/wc-england into 429s. They are
+// skipped here and served from the bundled snapshot instead. Set
+// FOOTBALL_DATA_PAID_TIER=1 once the plan covers them.
+const FREE_TIER_UNAVAILABLE = new Set(["L1", "L2", "UEL"]);
+
 const ZONE_CONFIG: Record<string, {
   promotionZone?: number;
   europaZone?: number;
@@ -181,9 +188,15 @@ export async function GET() {
   }
 
   try {
-    // 1. Fetch all competitions in parallel
+    // 1. Fetch the competitions this tier can actually serve, in parallel.
+    //    Skipped competitions fall through to the bundled snapshot in step 3.
+    const paidTier = process.env.FOOTBALL_DATA_PAID_TIER === "1";
+    const fetchable = Object.entries(COMPETITION_MAP).filter(
+      ([key]) => paidTier || !FREE_TIER_UNAVAILABLE.has(key)
+    );
+
     const fetchResults = await Promise.allSettled(
-      Object.entries(COMPETITION_MAP).map(async ([key, code]) => {
+      fetchable.map(async ([key, code]) => {
         const rows = await fetchRawTable(footballKey, code);
         return [key, rows] as const;
       })
@@ -194,7 +207,7 @@ export async function GET() {
 
     for (let i = 0; i < fetchResults.length; i++) {
       const result = fetchResults[i];
-      const key = Object.keys(COMPETITION_MAP)[i];
+      const key = fetchable[i][0];
       if (result.status === "fulfilled") {
         rawByKey[key] = result.value[1];
       } else {
@@ -205,7 +218,13 @@ export async function GET() {
     // 2. Normalize — single Haiku call if key present, inline otherwise
     let normalizedByKey: Record<string, NormalizedRow[]>;
 
-    if (process.env.ANTHROPIC_API_KEY && Object.keys(rawByKey).length > 0) {
+    // Haiku tidying is opt-in: the inline normalizer produces the same shape
+    // deterministically and for free, and an unfunded key made every request pay
+    // for a failed round trip before falling back here anyway.
+    const useHaiku =
+      process.env.STANDINGS_USE_HAIKU === "1" && !!process.env.ANTHROPIC_API_KEY;
+
+    if (useHaiku && Object.keys(rawByKey).length > 0) {
       try {
         normalizedByKey = await normalizeAllWithHaiku(rawByKey);
       } catch (err) {

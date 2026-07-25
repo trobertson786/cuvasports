@@ -1,56 +1,47 @@
 {
   "results": [
     {
-      "home": "Hull City",
-      "away": "Middlesbrough",
+      "home": "Spain",
+      "away": "Argentina",
       "homeScore": 1,
       "awayScore": 0,
-      "competition": "Championship Play-Off Final",
+      "competition": "FIFA World Cup 2026 Final, MetLife Stadium - Spain win after extra time",
       "status": "Full Time"
     },
     {
-      "home": "Bolton Wanderers",
-      "away": "Stockport County",
+      "home": "France",
+      "away": "England",
       "homeScore": 4,
-      "awayScore": 1,
-      "competition": "League One Play-Off Final",
-      "status": "Full Time"
-    },
-    {
-      "home": "Notts County",
-      "away": "Salford City",
-      "homeScore": 3,
-      "awayScore": 0,
-      "competition": "League Two Play-Off Final",
+      "awayScore": 6,
+      "competition": "FIFA World Cup 2026 Third-Place Play-Off, Miami",
       "status": "Full Time"
     },
     {
       "home": "England",
-      "away": "New Zealand",
+      "away": "Argentina",
+      "homeScore": 1,
+      "awayScore": 2,
+      "competition": "FIFA World Cup 2026 Semi-Final, Atlanta",
+      "status": "Full Time"
+    },
+    {
+      "home": "France",
+      "away": "Spain",
       "homeScore": 0,
-      "awayScore": 0,
-      "competition": "Rothesay 2nd Test, KIA Oval — New Zealand won by 253 runs (series level 1-1)",
+      "awayScore": 2,
+      "competition": "FIFA World Cup 2026 Semi-Final, Arlington",
       "status": "Full Time"
     }
   ],
-  "fixtures": [
-    {
-      "home": "England",
-      "away": "New Zealand",
-      "competition": "Rothesay 3rd Test, Trent Bridge",
-      "dateLabel": "26 Jun"
-    }
-  ],
+  "fixtures": [],
   "ticker": [
-    "Hull City promoted to Premier League — McBurnie's 90+5 header seals 1-0 Championship Play-Off Final win over Middlesbrough at Wembley",
-    "Bolton Wanderers back in the Championship — Rodrigues brace and Dalby scissor kick deliver 4-1 League One Play-Off Final win over Stockport County",
-    "Notts County end 11-year League One exile — Jodi Jones magnificent as Magpies beat Salford City 3-0 in League Two Play-Off Final",
-    "England name 26-man World Cup 2026 squad — Harry Kane leads attack; Cole Palmer, Phil Foden and Trent Alexander-Arnold among notable omissions",
-    "Rothesay 2nd Test — New Zealand win by 253 runs at the KIA Oval; Matt Henry takes 11 for 109 in the match to level the series at 1-1",
-    "England recall Ben Stokes and Gus Atkinson for the 3rd Rothesay Test at Trent Bridge (26 Jun) after the ECB disciplinary hearing concludes",
-    "Middlesex 4th in County Championship Division 2 after six matches — Ryan Higgins leads with 28 wickets at 20.35 average",
-    "Rochdale promoted to the National League — Dieseruvwe's 97th-minute equaliser forces extra time before Rochdale win play-off final on penalties against Boreham Wood",
-    "FIFA World Cup 2026 — England top Group L after opening with a 4-2 win over Croatia; Ghana (23 Jun) and Panama (27 Jun) to come",
-    "Rothesay 3rd Test — England vs New Zealand, Trent Bridge, 26-30 June"
+    "Spain are world champions - Ferran Torres strikes in extra time as Spain beat ten-man Argentina 1-0 in the World Cup Final at MetLife Stadium",
+    "Emiliano Martinez produces a record ten saves in a losing cause as Argentina fall short in the 2026 World Cup Final",
+    "England finish third at the World Cup - Bukayo Saka hat-trick seals a 6-4 win over France in a ten-goal Miami thriller",
+    "England 1-2 Argentina - a late Argentina double in Atlanta ends English hopes of a first World Cup final since 1966",
+    "England top Group L and reach the semi-finals, beating Congo DR, Mexico and Norway on the way",
+    "Ben Duckett hits 141, the highest individual ODI innings at Lord's, as England win by 27 runs to take the ODI series against India 2-1",
+    "India suffer a record T20 International defeat as England win by 125 runs at Trent Bridge",
+    "Australia lift a seventh ICC Women's T20 World Cup, beating England by 7 wickets at Lord's"
   ]
 }

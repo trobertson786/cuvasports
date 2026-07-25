@@ -30,7 +30,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   ];
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
       <span className="font-ui text-sm text-on-surface-muted font-medium">Share:</span>
       {links.map((link) => (
         <a

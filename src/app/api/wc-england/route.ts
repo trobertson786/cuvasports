@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
+// Imported (not readFileSync) so the JSON is bundled into the serverless
+// function. public/ assets are NOT reliably present on Vercel's lambda fs.
+import staticWorldCup from "../../../../public/data/world-cup.json";
 
 // ── England-at-the-World-Cup endpoint ────────────────────────────────────────
 // Scoped deliberately to England: their group table + their fixtures/results,
 // pulled live from football-data.org. Mirrors the get-standings pattern
-// (parallel fetch, graceful fallback, CDN cache). Returns { available: false }
-// rather than an error so the UI can simply hide when data is absent.
+// (parallel fetch, graceful fallback, CDN cache).
+//
+// The free football-data.org tier allows 10 requests/minute and /api/get-standings
+// already spends six of those, so this endpoint gets rate limited (429) in normal
+// use. It therefore falls back to the bundled snapshot rather than returning
+// { available: false }, which used to blank the panel entirely.
 
 const TEAM = "England";
 const BASE = "https://api.football-data.org/v4/competitions/WC";
@@ -36,16 +43,18 @@ async function fetchJson(path: string, key: string) {
   return res.json();
 }
 
-function unavailable(maxAge: number) {
-  return NextResponse.json(
-    { available: false },
-    { status: 200, headers: { "Cache-Control": `public, s-maxage=${maxAge}` } }
-  );
+// Serve the bundled end-of-tournament snapshot when the live API is unavailable
+// (no key, 403 on the free tier, or 429 rate limiting).
+function fallback(maxAge: number) {
+  return NextResponse.json(staticWorldCup, {
+    status: 200,
+    headers: { "Cache-Control": `public, s-maxage=${maxAge}, stale-while-revalidate=3600` },
+  });
 }
 
 export async function GET() {
   const key = process.env.FOOTBALL_DATA_API_KEY;
-  if (!key) return unavailable(600);
+  if (!key) return fallback(600);
 
   try {
     const [standings, matchesData] = await Promise.all([
@@ -105,13 +114,25 @@ export async function GET() {
       .filter((x): x is WcMatch => x !== null)
       .sort((a, b) => a.date.localeCompare(b.date));
 
+    // A live response with neither a table nor matches is no better than nothing —
+    // use the bundled snapshot instead of rendering an empty panel.
+    if (table.length === 0 && matches.length === 0) return fallback(300);
+
+    // The tournament is over, so the champion / final / England's finish are not
+    // in the England-scoped feed. Carry them through from the bundled snapshot.
+    const { complete, final, champion, englandFinish } = staticWorldCup;
+
     return NextResponse.json(
       {
-        available: table.length > 0 || matches.length > 0,
+        available: true,
         lastUpdated: new Date().toISOString().split("T")[0],
         group: groupName,
         table,
         matches,
+        complete,
+        final,
+        champion,
+        englandFinish,
       },
       {
         headers: {
@@ -120,7 +141,7 @@ export async function GET() {
       }
     );
   } catch (err) {
-    console.error("[wc-england] failed:", err);
-    return unavailable(300);
+    console.error("[wc-england] live fetch failed, serving snapshot:", err);
+    return fallback(300);
   }
 }
