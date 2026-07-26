@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Lora, Noto_Nastaliq_Urdu } from "next/font/google";
+import {
+  Playfair_Display,
+  Inter,
+  Lora,
+  Source_Serif_4,
+  IBM_Plex_Mono,
+  Noto_Nastaliq_Urdu,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -12,10 +19,27 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+// Retained for the RTL fallback chain; --font-prose now points at Source Serif 4.
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
   display: "swap",
+});
+
+// Editorial body, standfirsts, card headlines. Optical sizing, safe down to 15px.
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
+// Any figure a reader might compare: scores, times, statistics, dates.
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const inter = Inter({
@@ -32,7 +56,7 @@ const notoNastaliq = Noto_Nastaliq_Urdu({
 });
 
 export const metadata: Metadata = {
-  title: "CUVA Sports — Football & Cricket Journalism",
+  title: "CUVA Sports - Football & Cricket Journalism",
   description:
     "Expert football and cricket journalism by William Powell, FWA Life Member and sports writer since 1987. Match reports, analysis, and commentary.",
   metadataBase: new URL("https://cuvasports.com"),
@@ -69,7 +93,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${lora.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
+        className={`${playfair.variable} ${lora.variable} ${sourceSerif.variable} ${plexMono.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
       >
         <LanguageProvider>
           <Navigation />

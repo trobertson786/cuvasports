@@ -1,26 +1,36 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import Image from "next/image";
+import Link from "next/link";
 import { getAllArticles, getArticleBySlug } from "@/lib/articles";
 import { generateArticleMetadata } from "@/lib/metadata";
+import { parseArticleSections, timelineSplitIndex } from "@/lib/article-sections";
 import AuthorBio from "@/components/AuthorBio";
-import ArticleByline from "@/components/ArticleByline";
-import ShareButtons from "@/components/ShareButtons";
 import ArticleGrid from "@/components/ArticleGrid";
 import TranslatedHeading from "@/components/TranslatedHeading";
-import ScoreBox from "@/components/ScoreBox";
-import FWABadge from "@/components/FWABadge";
-import { formatCategoryLabel } from "@/lib/taxonomy";
-import Link from "next/link";
+import MatchCardImage from "@/components/MatchCardImage";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import Kicker from "@/components/editorial/Kicker";
+import BylineRow from "@/components/editorial/BylineRow";
+import MatchScorecard from "@/components/editorial/MatchScorecard";
+import MatchStatsTable from "@/components/editorial/MatchStatsTable";
+import MatchTimeline from "@/components/editorial/MatchTimeline";
+import MatchDetailsList from "@/components/editorial/MatchDetailsList";
+import StandoutPlayers from "@/components/editorial/StandoutPlayers";
+import ProvenanceNote from "@/components/editorial/ProvenanceNote";
+import CorrectionsNotice from "@/components/editorial/CorrectionsNotice";
+import ReportRail, { type RailSection } from "@/components/editorial/ReportRail";
+import ReadingProgress from "@/components/editorial/ReadingProgress";
+import ShareList from "@/components/editorial/ShareList";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const mdxOptions = { mdxOptions: { remarkPlugins: [remarkGfm] } };
+
 export async function generateStaticParams() {
-  const articles = getAllArticles();
-  return articles.map((article) => ({ slug: article.slug }));
+  return getAllArticles().map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -30,10 +40,22 @@ export async function generateMetadata({ params }: PageProps) {
   return generateArticleMetadata(article);
 }
 
+/** Pulls a value out of the parsed Match Details rows by label. */
+function detail(
+  rows: { label: string; value: string }[],
+  pattern: RegExp
+): string | undefined {
+  return rows.find((r) => pattern.test(r.label))?.value;
+}
+
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) notFound();
+
+  const sections = parseArticleSections(article.content);
+  const isCricket = article.category === "cricket";
+  const author = article.author || "William Powell";
 
   const allArticles = getAllArticles();
   const articleTags = new Set(article.tags ?? []);
@@ -57,10 +79,8 @@ export default async function ArticlePage({ params }: PageProps) {
     "@type": "NewsArticle",
     headline: article.title,
     datePublished: article.date,
-    author: {
-      "@type": "Person",
-      name: article.author || "William Powell",
-    },
+    ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
+    author: { "@type": "Person", name: author },
     description: article.excerpt,
     image: article.image
       ? `https://cuvasports.com${article.image}`
@@ -82,6 +102,34 @@ export default async function ArticlePage({ params }: PageProps) {
     wordCount: article.content.split(/\s+/).length,
   };
 
+  // ── Story is split so the timeline can interrupt it at the turn of the
+  //    match, rather than sitting in an appendix behind three other
+  //    modules. See the plan: this is the one deliberate departure from
+  //    the design handoff's order.
+  const splitAt = timelineSplitIndex(sections);
+  const storyBefore = sections.storyParagraphs.slice(0, splitAt).join("\n\n");
+  const storyAfter = sections.storyParagraphs.slice(splitAt).join("\n\n");
+
+  const hasScore =
+    !isCricket &&
+    article.homeTeam &&
+    article.awayTeam &&
+    article.homeScore != null &&
+    article.awayScore != null;
+
+  const aet = /after extra time|\bAET\b/i.test(
+    `${article.title} ${article.standfirst ?? ""}`
+  );
+
+  const railSections: RailSection[] = [
+    sections.timeline.length ? { id: "timeline", label: "Timeline of key events" } : null,
+    sections.stats ? { id: "match-statistics", label: "Match statistics" } : null,
+    sections.details.length ? { id: "match-details", label: "Match details" } : null,
+    sections.standout.length
+      ? { id: "standout-players", label: "Standout players" }
+      : null,
+  ].filter(Boolean) as RailSection[];
+
   return (
     <>
       <script
@@ -89,137 +137,252 @@ export default async function ArticlePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article>
-        {/* Dark header area */}
-        <div className="bg-surface">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
-            {/* Breadcrumb */}
-            <nav className="font-ui text-sm text-on-surface-muted mb-6">
-              <Link href="/" className="hover:text-primary transition-colors">
-                Home
-              </Link>
-              <span className="mx-2">/</span>
-              <Link href="/reports" className="hover:text-primary transition-colors">
-                Match Reports
-              </Link>
-              <span className="mx-2">/</span>
-              <Link
-                href={`/${article.category}`}
-                className="hover:text-primary capitalize transition-colors"
-              >
-                {article.category}
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-on-surface">{article.title}</span>
-            </nav>
+      {/* Always present; it is the fallback for the breakpoint at which
+          the rail's own track is hidden. */}
+      <ReadingProgress />
 
-            {/* Hero image */}
-            {article.image && (
-              <div className="mb-8 max-w-4xl mx-auto">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  width={1200}
-                  height={630}
-                  priority
-                  className="w-full rounded-lg object-cover"
-                />
-              </div>
-            )}
+      <div className="bg-cuva-newsprint">
+        <div className="mx-auto max-w-[1320px] px-8 py-8">
+          <nav aria-label="Breadcrumb" className="font-ui mb-8 text-[0.8125rem]">
+            <ol className="flex flex-wrap items-center gap-2 text-cuva-muted">
+              <li>
+                <Link href="/" className="target-44 inline-flex items-center text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-cuva-rule">/</li>
+              <li>
+                <Link href="/reports" className="target-44 inline-flex items-center text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]">
+                  Match Reports
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-cuva-rule">/</li>
+              <li>
+                <Link
+                  href={`/${article.category}`}
+                  className="target-44 inline-flex items-center capitalize text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]"
+                >
+                  {article.category}
+                </Link>
+              </li>
+              {article.subcategory ? (
+                <>
+                  <li aria-hidden="true" className="text-cuva-rule">/</li>
+                  <li aria-current="page" className="text-cuva-muted">
+                    {article.subcategory}
+                  </li>
+                </>
+              ) : null}
+            </ol>
+          </nav>
 
-            {/* Header */}
-            <header className="mb-10">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="font-ui text-xs font-semibold uppercase tracking-wider text-apex bg-apex/10 px-2 py-0.5 rounded-full">
-                  {formatCategoryLabel(article.category, article.subcategory)}
-                </span>
-              </div>
-              <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-on-surface leading-tight mb-4">
+          <div
+            className={
+              railSections.length
+                ? "grid gap-16 min-[1180px]:grid-cols-[minmax(0,720px)_300px] min-[1180px]:justify-center"
+                : "mx-auto max-w-[720px]"
+            }
+          >
+            <article className="min-w-0 max-w-[720px]">
+              <Kicker category={article.category} detail={article.competition} />
+
+              {/* Overhangs the measure into the gutter. Suppressed at the
+                  breakpoint where the rail would collide with it. */}
+              <h1 className="font-heading mt-3 text-[2.75rem] font-bold leading-[1.06] tracking-[-0.015em] text-cuva-ink min-[1180px]:-mr-14 min-[1180px]:text-[3.25rem]">
                 {article.title}
               </h1>
-              <div className="flex flex-wrap items-center gap-4 font-ui text-sm text-on-surface-muted">
-                <time dateTime={article.date}>
-                  {new Date(article.date).toLocaleDateString("en-GB", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </time>
-                <span>&middot;</span>
-                <span>{article.readingTime}</span>
-                <span>&middot;</span>
-                <span>{article.author || "William Powell"}</span>
-                <span>&middot;</span>
-                <FWABadge />
-              </div>
-            </header>
 
-            {/* ScoreBox for football match reports only */}
-            {article.category !== 'cricket' && article.homeTeam && article.awayTeam && article.homeScore != null && article.awayScore != null && (
-              <ScoreBox
-                homeTeam={article.homeTeam}
-                awayTeam={article.awayTeam}
-                homeScore={article.homeScore}
-                awayScore={article.awayScore}
-                competition={article.competition}
-                venue={article.venue}
+              {article.standfirst ? (
+                <p className="font-prose mt-5 text-[1.3125rem] leading-[1.5] text-cuva-navy-800">
+                  {article.standfirst}
+                </p>
+              ) : null}
+
+              <BylineRow
+                className="mt-6"
+                author={author}
                 date={article.date}
-                homeScorers={article.homeScorers}
-                awayScorers={article.awayScorers}
+                readingTime={article.readingTime}
+                fromTheGround={article.fromTheGround}
+                bracketed
               />
-            )}
-          </div>
-        </div>
 
-        {/* Hybrid lighter reading surface for article body */}
-        <div className="bg-reading-surface">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            {/* Byline */}
-            <ArticleByline author={article.author || "William Powell"} />
+              {hasScore ? (
+                <div className="mt-8">
+                  <MatchScorecard
+                    homeTeam={article.homeTeam!}
+                    awayTeam={article.awayTeam!}
+                    homeScore={article.homeScore!}
+                    awayScore={article.awayScore!}
+                    homeScorers={article.homeScorers}
+                    awayScorers={article.awayScorers}
+                    sentOff={detail(sections.details, /sent off/i)}
+                    competition={article.competition}
+                    venue={article.venue}
+                    date={article.date}
+                    halfTime={detail(sections.details, /half.?time/i)?.replace(
+                      /^.*?(\d+\s*-\s*\d+).*$/,
+                      "$1"
+                    )}
+                    afterNinety={detail(sections.details, /after 90/i)?.replace(
+                      /^.*?(\d+\s*-\s*\d+).*$/,
+                      "$1"
+                    )}
+                    aet={aet}
+                  />
+                </div>
+              ) : null}
 
-            {/* Article body */}
-            <div className="prose-article mb-10">
-              <MDXRemote source={article.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
-            </div>
+              {/* No placeholder box when there is no photograph. The
+                  scorecard carries the top of the page instead. */}
+              {article.image ? (
+                <figure className="mt-8">
+                  <div
+                    className={`relative aspect-[16/9] w-full border-t-[3px] ${
+                      isCricket ? "border-cuva-cricket" : "border-cuva-football"
+                    }`}
+                  >
+                    <MatchCardImage
+                      src={article.image}
+                      alt={article.title}
+                      priority
+                      sizes="(min-width: 1180px) 720px, 100vw"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-[0.8125rem] text-cuva-ink">
+                    {article.excerpt}{" "}
+                    <span className="text-cuva-muted">Photograph: {author}</span>
+                  </figcaption>
+                </figure>
+              ) : null}
 
-            {/* Share */}
-            <div className="pt-6 mb-10" style={{ borderTop: '1px solid rgba(183, 200, 225, 0.15)' }}>
-              <ShareButtons title={article.title} slug={article.slug} />
-            </div>
+              <CorrectionsNotice
+                updatedAt={article.updatedAt}
+                updateNote={article.updateNote}
+                correction={article.correction}
+                correctedAt={article.correctedAt}
+              />
 
-            {/* Tags */}
-            {article.tags && article.tags.length > 0 && (
-              <div className="mb-10">
-                <div className="flex flex-wrap gap-2">
+              {sections.hasStructure ? (
+                <>
+                  <div className="prose-article story-body mt-8">
+                    <MDXRemote source={storyBefore} options={mdxOptions} />
+                  </div>
+
+                  {sections.timeline.length ? (
+                    <div id="timeline" className="scroll-mt-8">
+                      <MatchTimeline
+                        events={sections.timeline}
+                        category={article.category}
+                        inline
+                      />
+                    </div>
+                  ) : null}
+
+                  {storyAfter ? (
+                    <div className="prose-article story-body">
+                      <MDXRemote source={storyAfter} options={mdxOptions} />
+                    </div>
+                  ) : null}
+
+                  {sections.scores ? (
+                    <div className="prose-article mt-8">
+                      <h2>Match scores</h2>
+                      <MDXRemote source={sections.scores} options={mdxOptions} />
+                    </div>
+                  ) : null}
+
+                  {sections.stats ? (
+                    <div id="match-statistics" className="scroll-mt-8">
+                      <MatchStatsTable
+                        home={sections.stats.home}
+                        away={sections.stats.away}
+                        rows={sections.stats.rows}
+                        category={article.category}
+                        sourceNote={article.statsSource}
+                      />
+                    </div>
+                  ) : null}
+
+                  <ProvenanceNote note={article.provenance} />
+
+                  {sections.details.length ? (
+                    <div id="match-details" className="scroll-mt-8">
+                      <MatchDetailsList rows={sections.details} />
+                    </div>
+                  ) : null}
+
+                  {sections.standout.length ? (
+                    <div id="standout-players" className="scroll-mt-8">
+                      <StandoutPlayers players={sections.standout} author={author} />
+                    </div>
+                  ) : null}
+
+                  {/* Anything the parser did not recognise still gets
+                      rendered, in source order. */}
+                  {sections.rest.map((s) => (
+                    <div key={s.heading} className="prose-article mt-8">
+                      {s.heading ? <h2>{s.heading}</h2> : null}
+                      <MDXRemote source={s.body} options={mdxOptions} />
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <div className="prose-article mt-8">
+                  <MDXRemote source={article.content} options={mdxOptions} />
+                </div>
+              )}
+
+              {article.tags?.length ? (
+                <div className="mt-10 flex flex-wrap items-center gap-3">
+                  <span className="mono-label">Tags</span>
                   {article.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-ui text-xs bg-surface-highest text-on-surface-muted px-3 py-1 rounded-full"
+                      className={`target-44 inline-flex items-center border border-cuva-rule bg-white px-4 text-[0.8125rem] font-medium text-cuva-ink transition-colors ${
+                        isCricket
+                          ? "hover:border-cuva-cricket hover:text-cuva-cricket"
+                          : "hover:border-cuva-football hover:text-cuva-football"
+                      }`}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
-            )}
+              ) : null}
 
-            {/* Author Bio */}
-            <div className="mb-12">
-              <AuthorBio />
-            </div>
+              {/* Below the rail's breakpoint the share controls move to the
+                  end of the article. */}
+              <div className="mt-10 min-[1180px]:hidden">
+                <ShareList title={article.title} slug={article.slug} />
+              </div>
+
+              <div className="mt-12">
+                <AuthorBio />
+              </div>
+            </article>
+
+            {railSections.length ? (
+              <ReportRail
+                title={article.title}
+                slug={article.slug}
+                sections={railSections}
+              />
+            ) : null}
           </div>
         </div>
+      </div>
 
-        {/* Related articles on dark surface */}
-        {related.length > 0 && (
-          <div className="bg-surface">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-              <TranslatedHeading titleKey="related" as="h2" />
-              <ArticleGrid articles={related} columns={3} />
-            </div>
+      {related.length > 0 && (
+        <div className="bg-cuva-newsprint">
+          <div className="mx-auto max-w-[1320px] px-8 pb-16">
+            <TranslatedHeading titleKey="related" as="h2" />
+            <ArticleGrid articles={related} columns={3} />
           </div>
-        )}
-      </article>
+        </div>
+      )}
+
+      <NewsletterSignup variant="section" />
     </>
   );
 }

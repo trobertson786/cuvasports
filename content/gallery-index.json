@@ -1,0 +1,151 @@
+{
+  "_comment": "Visual index of the unidentified gallery photographs. Built by opening each file and recording only what is actually visible in frame. `fixture` is set ONLY where a document in the photograph names the fixture (programme crests, team sheet). `venue`/`club` are set where the ground is identifiable. `confidence: venue` means the photo proves the ground but NOT which match, so any caption must describe the ground, not the game.",
+  "_status": "in progress",
+  "images": [
+    {
+      "file": "/images/gallery/cuva-sports-002.jpg",
+      "kind": "programme",
+      "venue": "King Power Stadium",
+      "club": "Leicester City",
+      "sport": "football",
+      "fixture": "Leicester City v Queens Park Rangers",
+      "season": "2025/26",
+      "confidence": "fixture",
+      "evidence": "Leicester City official matchday programme, season 2025/26. Leicester and QPR crests printed together at the foot of the cover.",
+      "description": "The Leicester City matchday programme for the QPR fixture."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-003.jpg",
+      "kind": "team sheet",
+      "venue": "King Power Stadium",
+      "club": "Leicester City",
+      "sport": "football",
+      "fixture": "Leicester City v Queens Park Rangers",
+      "date": "2026-03-14",
+      "confidence": "exact",
+      "evidence": "Team sheet reads 'Leicester City vs. Queens Park Rangers, Sky Bet Championship, Saturday 14 March, 2026, Kick-off: 3pm'. Referee Dean Whitestone.",
+      "description": "The team sheet issued in the press box at Leicester."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-005.jpg",
+      "kind": "ground exterior",
+      "venue": "Matrade Loftus Road Stadium",
+      "club": "Queens Park Rangers",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "'MATRADE LOFTUS ROAD STADIUM' fascia and box office. Supporters arriving, bare trees and winter coats.",
+      "description": "The main entrance at Loftus Road on a matchday."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-006.jpg",
+      "kind": "ground exterior",
+      "venue": "Matrade Loftus Road Stadium",
+      "club": "Queens Park Rangers",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "QPR superstore, 'COME ON YOU Rs' signage, visiting supporters direction board. Winter light, supporters arriving.",
+      "description": "Supporters arriving at Loftus Road past the club shop."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-007.jpg",
+      "kind": "ground exterior",
+      "venue": "Craven Cottage",
+      "club": "Fulham",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "The Stevenage Road stand, Fulham FC crest and ticket-office banners, crowd on the street before kick-off.",
+      "description": "The Stevenage Road frontage at Craven Cottage before kick-off."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-008.jpg",
+      "kind": "ground detail",
+      "venue": "Craven Cottage",
+      "club": "Fulham",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "The Johnny Haynes statue against the Stevenage Road brickwork, with the FFC monogram above.",
+      "description": "The Johnny Haynes statue outside the stand that carries his name."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-013.jpg",
+      "kind": "ground exterior",
+      "venue": "Gtech Community Stadium",
+      "club": "Brentford",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "Illuminated Brentford FC crest and 'Gtech Community Stadium' sign. Floodlit, dark sky, bare branches: a winter evening kick-off.",
+      "description": "The Gtech Community Stadium before an evening kick-off."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-014.jpg",
+      "kind": "ground exterior",
+      "venue": "Stamford Bridge",
+      "club": "Chelsea",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "'CHELSEA FOOTBALL CLUB' lettering, East Stand entrance and The Shed End away turnstiles. Floodlit, wet ground.",
+      "description": "The East Stand and Shed End at Stamford Bridge on a wet evening."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-015.jpg",
+      "kind": "ground exterior",
+      "venue": "The Valley",
+      "club": "Charlton Athletic",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "Charlton Athletic crest beside the Players and Officials Entrance, club imagery on the stand. Floodlit, night.",
+      "description": "The players' entrance at The Valley under floodlights."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-016.jpg",
+      "kind": "ground exterior",
+      "venue": "Emirates Stadium",
+      "club": "Arsenal",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "Illuminated 'EMIRATES STADIUM' sign above the Arsenal crest and the club's history mural. Night.",
+      "description": "The Emirates Stadium mural lit up before an evening fixture."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-017.jpg",
+      "kind": "ground exterior",
+      "venue": "Stamford Bridge",
+      "club": "Chelsea",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "Same East Stand and Shed End frontage as 014, but in daylight with supporters arriving. Winter coats.",
+      "description": "Supporters arriving at Stamford Bridge before kick-off."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-018.jpg",
+      "kind": "ground exterior",
+      "venue": "Emirates Stadium",
+      "club": "Arsenal",
+      "sport": "football",
+      "fixture": null,
+      "confidence": "venue",
+      "evidence": "Wide view of the Emirates with the ARSENAL lettering, box office, programme seller and stewards. Night.",
+      "description": "The approach to the Emirates Stadium on a matchday evening."
+    },
+    {
+      "file": "/images/gallery/cuva-sports-020.jpg",
+      "kind": "ground detail",
+      "venue": null,
+      "club": null,
+      "sport": "football",
+      "fixture": null,
+      "confidence": "unknown",
+      "evidence": "A navy bull's-head emblem outlined in gold, mounted on timber soffit cladding, floodlights beyond. The club cannot be established from what is in frame.",
+      "description": null
+    }
+  ]
+}

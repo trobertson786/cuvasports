@@ -96,7 +96,7 @@ export default function LeagueTable() {
           <button
             key={tab.key}
             onClick={() => { setActiveTab(tab.key); setExpanded(false); }}
-            className={`font-ui text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded transition-colors ${
+            className={`target-44 inline-flex items-center font-ui text-[10px] font-bold uppercase tracking-wider px-3 rounded transition-colors ${
               activeTab === tab.key
                 ? "bg-amber text-ink"
                 : "text-on-ink opacity-50 hover:opacity-80"

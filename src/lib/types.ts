@@ -19,6 +19,24 @@ export interface ArticleFrontmatter {
   awayScorers?: string[];
   competition?: string;
   venue?: string;
+
+  /* ── Trust components ──
+     All opt-in. A provenance or accreditation claim printed automatically
+     on every report would be false on the reports where it does not hold,
+     so nothing here renders unless the field is set. */
+
+  /** "How this report was made" note, e.g. attended, filed from the press box. */
+  provenance?: string;
+  /** Shows the "Reported from the ground" flag in the byline row. */
+  fromTheGround?: boolean;
+  /** ISO timestamp of a substantive update, plus what changed. */
+  updatedAt?: string;
+  updateNote?: string;
+  /** A published correction, shown on the report it affects. */
+  correction?: string;
+  correctedAt?: string;
+  /** Overrides the default source-attribution note under the stats table. */
+  statsSource?: string;
 }
 
 export interface Article extends ArticleFrontmatter {

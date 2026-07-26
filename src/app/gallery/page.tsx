@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
+import { galleryImages } from "@/lib/gallery-images";
 import TranslatedHeading from "@/components/TranslatedHeading";
 
 export const metadata = generatePageMetadata(
@@ -15,10 +16,12 @@ const matchImages = [
   { src: "/images/gallery/west-ham-vs-brentford.jpg", alt: "London Stadium — West Ham vs Brentford" },
 ];
 
-const archiveImages = Array.from({ length: 54 }, (_, i) => {
-  const num = String(i + 1).padStart(3, "0");
-  return { src: `/images/gallery/cuva-sports-${num}.jpg`, alt: `CUVA Sports ${num}` };
-});
+// Reads the shared list rather than generating 1 to 54, which produced
+// paths for five files that do not exist. One source of truth.
+const archiveImages = galleryImages.map((src) => ({
+  src,
+  alt: "Press box photograph by William Powell",
+}));
 
 const images = [...matchImages, ...archiveImages];
 

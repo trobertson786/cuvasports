@@ -60,7 +60,7 @@ export default function LeadStory({ article }: { article: Article }) {
 
       <Link
         href={`/reports/${article.slug}`}
-        className="inline-flex items-center gap-2 font-ui text-sm font-bold text-on-ink bg-ink hover:bg-amber hover:text-ink px-5 py-2.5 rounded transition-colors group"
+        className="target-44 inline-flex items-center gap-2 font-ui text-sm font-bold text-on-ink bg-ink hover:bg-amber hover:text-ink px-5 py-2.5 rounded transition-colors group"
       >
         {getHeroCta(article)}
         <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>

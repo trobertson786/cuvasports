@@ -1,24 +1,47 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* ══ CUVA design-system tokens ══════════════════════════════════
+     Source: design_handoff_cuva_homepage_report/README.md.
+     Ratios measured against the page background #F9F7F2.
+     These are the tokens new work should use. The families below
+     (surface-*, primary/apex, ink/paper/amber) are retained so the
+     pages this redesign does not touch keep rendering. */
+
+  --color-cuva-ink:       #0B1A2B;  /* brand navy, editorial ink, body   16.39:1 AAA */
+  --color-cuva-navy-950:  #071320;  /* footer, deepest surface */
+  --color-cuva-navy-800:  #14273D;  /* nav, scorecard, buttons           14.14:1 AAA */
+  --color-cuva-navy-600:  #1C3550;  /* nav hover, selected               11.71:1 AAA */
+  --color-cuva-link:      #23507F;  /* links on light, focus ring         7.77:1 AAA */
+  --color-cuva-newsprint: #F9F7F2;  /* page background */
+  --color-cuva-paper:     #FFFFFF;  /* article / input reading surface */
+  --color-cuva-tint:      #F3F1EC;  /* section tints, hover fills */
+  --color-cuva-rule:      #D9DEE3;  /* 1px editorial divider, input border */
+  --color-cuva-muted:     #5C6672;  /* secondary metadata                 5.45:1 AA */
+  --color-cuva-football:  #7A2E1E;  /* football section colour            8.77:1 AAA */
+  --color-cuva-cricket:   #1E5741;  /* cricket section colour             7.86:1 AAA */
+  --color-cuva-gold:      #D4A843;  /* DARK SURFACES ONLY       7.92:1 on #0B1A2B */
+  --color-cuva-gold-ink:  #8A6410;  /* light-surface substitute for gold  5.02:1 AA */
+  --color-cuva-live:      #B3261E;  /* red card, corrections, validation  6.11:1 AA */
+
   /* ── Paper canvas (light newspaper palette) ── */
   --color-surface:           #F9F7F2;   /* warm off-white body */
   --color-surface-low:       #F3F1EC;   /* section tints */
   --color-surface-container: #FFFFFF;   /* cards */
   --color-surface-high:      #E8E6E0;   /* hover tints, borders */
   --color-surface-highest:   #DDD9D1;   /* strongest tint, table headers */
-  --color-surface-lowest:    #1B2A44;   /* nav / footer (deep navy) */
+  --color-surface-lowest:    #0B1A2B;   /* nav / footer (brand navy) */
 
   /* ── Brand accent ── */
-  --color-primary:     #1B2A44;   /* headings, links (was teal) */
+  --color-primary:     #0B1A2B;   /* brand navy, matches cuva-mark.svg */
   --color-primary-dim: #374151;   /* muted links */
   --color-apex:        #D4A843;   /* amber accent (was yellow) */
   --color-apex-dark:   #B8902F;   /* amber hover */
 
   /* ── Legacy colour aliases — kept for component compatibility ── */
-  --color-navy:        #1B2A44;
-  --color-navy-light:  #2D3F5C;
-  --color-navy-dark:   #0F1E32;
+  --color-navy:        #0B1A2B;   /* corrected: was #1B2A44, brand navy is #0B1A2B */
+  --color-navy-light:  #1C3550;
+  --color-navy-dark:   #071320;
   --color-gold:        #D4A843;
   --color-gold-light:  #E2BC5C;
   --color-gold-dark:   #B8902F;
@@ -27,8 +50,8 @@
   --color-silver-dark: #4B5563;
 
   /* ── Text ── */
-  --color-on-surface:       #1B2A44;  /* main text on light bg */
-  --color-on-surface-muted: #6B7280;  /* secondary text */
+  --color-on-surface:       #0B1A2B;  /* main text on light bg */
+  --color-on-surface-muted: #5C6672;  /* secondary text, 5.45:1 on #F9F7F2 */
   --color-on-primary:       #F9F7F2;  /* text on navy surfaces */
 
   /* ── Outline ── */
@@ -36,11 +59,11 @@
 
   /* ── Article reading surface ── */
   --color-reading-surface: #FFFFFF;
-  --color-reading-text:    #1B2A44;
+  --color-reading-text:    #0B1A2B;
 
   /* ── New semantic tokens ── */
-  --color-ink:        #1B2A44;
-  --color-ink-mute:   #6B7280;
+  --color-ink:        #0B1A2B;
+  --color-ink-mute:   #5C6672;
   --color-ink-faint:  #9CA3AF;
   --color-paper:      #F9F7F2;
   --color-paper-low:  #F3F1EC;
@@ -62,11 +85,15 @@
   --color-gray-800:  #1F2937;
   --color-gray-900:  #111827;
 
-  /* ── Typography — strict 3-font stack ── */
+  /* ── Typography — four roles, strictly separated ──
+     display/headlines · editorial body · UI · figures.
+     --font-prose is now Source Serif 4; --font-lora stays loaded
+     for the RTL fallback chain only. */
   --font-heading: var(--font-playfair);
   --font-ui:      var(--font-inter);
   --font-body:    var(--font-inter);
-  --font-prose:   var(--font-lora);
+  --font-prose:   var(--font-source-serif);
+  --font-figure:  var(--font-plex-mono);
 
   /* ── Shape ── */
   --radius-default: 0.5rem;
@@ -76,14 +103,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* These rules must reference the next/font variables directly, NOT the
+   --font-* keys above. `@theme inline` inlines font families into the
+   generated utilities and does not emit them onto :root, so `var(--font-body)`
+   here resolves to nothing, invalidates the whole declaration, and the
+   element silently falls back to the system sans stack. That is what was
+   happening to every heading and every article body on the site. */
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 h1 { letter-spacing: -0.02em; }
@@ -99,16 +132,29 @@ h2 { letter-spacing: -0.01em; }
   border-right: 1px solid var(--color-outline);
 }
 
-/* ── Kicker / beat label ── */
+/* ── Kicker / beat label ──
+   Was --color-amber (#D4A843) on the cream page: 2.07:1, a WCAG AA
+   failure. Gold is legal on navy only. On light surfaces the kicker
+   takes the section colour, or gold-ink (#8A6410, 5.02:1) as default. */
 .kicker, .bk {
   display: inline-block;
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-amber);
+  letter-spacing: 0.12em;
+  color: var(--color-cuva-gold-ink);
 }
+
+/* Section-coloured variants. Colour encodes the beat, never decoration. */
+.kicker-football { color: var(--color-cuva-football); }
+.kicker-cricket  { color: var(--color-cuva-cricket); }
+
+/* On navy surfaces gold is the correct colour and clears 7.92:1. */
+.on-navy .kicker,
+.on-navy .bk,
+.on-navy .fwa-micro,
+.kicker-gold { color: var(--color-cuva-gold); }
 
 /* ── Inline FWA micro-badge ── */
 .fwa-micro {
@@ -119,7 +165,7 @@ h2 { letter-spacing: -0.01em; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-amber);
+  color: var(--color-cuva-gold-ink);
   margin-left: 0.5rem;
 }
 
@@ -129,7 +175,7 @@ h2 { letter-spacing: -0.01em; }
   line-height: 1.75;
   font-size: 1.1875rem;
   color: var(--color-reading-text);
-  font-family: var(--font-prose), Georgia, serif;
+  font-family: var(--font-source-serif), Georgia, serif;
 }
 
 .prose-article h2 {
@@ -138,7 +184,7 @@ h2 { letter-spacing: -0.01em; }
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--color-ink);
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 .prose-article h3 {
@@ -147,7 +193,7 @@ h2 { letter-spacing: -0.01em; }
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   color: var(--color-ink);
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 .prose-article p {
@@ -227,7 +273,7 @@ h2 { letter-spacing: -0.01em; }
 
 /* ── RTL support for Urdu ── */
 [dir="rtl"] body {
-  font-family: var(--font-urdu), var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-urdu), var(--font-inter), system-ui, sans-serif;
 }
 
 [dir="rtl"] h1,
@@ -236,7 +282,7 @@ h2 { letter-spacing: -0.01em; }
 [dir="rtl"] h4,
 [dir="rtl"] h5,
 [dir="rtl"] h6 {
-  font-family: var(--font-urdu), var(--font-heading), Georgia, serif;
+  font-family: var(--font-urdu), var(--font-playfair), Georgia, serif;
 }
 
 [dir="rtl"] .prose-article blockquote {
@@ -304,4 +350,75 @@ h2 { letter-spacing: -0.01em; }
 .btn-gradient:hover {
   background: var(--color-amber);
   color: var(--color-ink);
+}
+
+/* ══ CUVA typed metadata and editorial chrome ════════════════════
+   These are first-class components with defined styles, not
+   leftover small text. See the handoff README, "Typography". */
+
+/* Focus is never removed. 2px at 3px offset, 1px offset on inputs. */
+:focus-visible {
+  outline: 2px solid var(--color-cuva-link);
+  outline-offset: 3px;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 1px;
+}
+
+/* Any figure a reader might compare: scores, times, stats, dates. */
+.figure-mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Small mono label: SOURCE, UPDATED, READING, HOW THIS REPORT WAS MADE. */
+.mono-label {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cuva-muted);
+}
+
+/* Byline row. Bracketed by 1px rules on the report page. */
+.byline-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.8125rem;
+}
+.byline-row .byline-name { font-weight: 600; color: var(--color-cuva-ink); }
+.byline-row .byline-date {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  color: var(--color-cuva-muted);
+}
+.byline-row .byline-read { color: var(--color-cuva-muted); }
+.byline-row .byline-flag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-cuva-gold-ink);
+}
+.byline-row .byline-sep { color: var(--color-cuva-rule); }
+
+/* Editorial rules. Hierarchy comes from rules and tints, never shadow. */
+.rule-hair    { border-bottom: 1px solid var(--color-cuva-rule); }
+.rule-section { border-bottom: 2px solid var(--color-cuva-ink); }
+
+/* Every interactive element clears 44px in its smallest dimension.
+   Inline prose links are exempt.
+
+   Deliberately sets no `display`. This rule is unlayered, and unlayered CSS
+   beats anything in Tailwind's `utilities` layer, so a `display` here would
+   silently override every display utility on the same element - including
+   `md:hidden`, which is how the mobile logo and hamburger ended up visible
+   at 1440px. Pair it with `inline-flex items-center` where needed. */
+.target-44 {
+  min-height: 44px;
 }

@@ -12,8 +12,15 @@ interface SearchItem {
   excerpt: string;
 }
 
-export default function SearchBar({ items }: { items: SearchItem[] }) {
-  const [query, setQuery] = useState("");
+export default function SearchBar({
+  items,
+  initialQuery = "",
+}: {
+  items: SearchItem[];
+  /** Seeded from ?q= so the masthead search actually lands somewhere. */
+  initialQuery?: string;
+}) {
+  const [query, setQuery] = useState(initialQuery);
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
 

@@ -43,12 +43,12 @@ export default function Footer() {
             <h4 className="font-ui text-xs font-bold uppercase tracking-widest text-on-primary/40 mb-3">
               {t("footer.navigation")}
             </h4>
-            <ul className="space-y-2">
+            <ul>
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-ui text-sm text-on-primary/70 hover:text-amber transition-colors"
+                    className="target-44 font-ui flex items-center text-sm text-on-primary/85 transition-colors hover:text-amber"
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={social.label}
-                  className="font-ui text-xs font-bold text-on-primary/60 hover:text-amber transition-colors uppercase bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded"
+                  className="target-44 font-ui inline-flex min-w-[44px] items-center justify-center bg-white/5 px-3 text-xs font-bold uppercase text-on-primary/75 transition-colors hover:bg-white/10 hover:text-amber"
                 >
                   {social.abbr}
                 </a>

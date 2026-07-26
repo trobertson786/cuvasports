@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Design reference from Claude Design, not source. Prototype artefacts
+    // (inline styles, ReactDOM.render) are not ours to fix.
+    "design_handoff_cuva_homepage_report/**",
   ]),
 ]);
 
