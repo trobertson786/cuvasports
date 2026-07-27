@@ -78,7 +78,7 @@ export default function NewsletterSignup({
     <section
       className={
         inline
-          ? "my-12 border-t-[3px] border-cuva-navy-800 bg-cuva-tint px-8 py-8"
+          ? "my-12 border-t-[3px] border-cuva-navy-800 bg-cuva-tint px-4 py-8 min-[390px]:px-5 sm:px-6 lg:px-8"
           : "bg-cuva-tint"
       }
     >
@@ -86,7 +86,7 @@ export default function NewsletterSignup({
         className={
           inline
             ? ""
-            : "mx-auto grid max-w-[1320px] gap-12 px-8 py-12 min-[900px]:grid-cols-2"
+            : "mx-auto grid max-w-[1320px] grid-cols-[minmax(0,1fr)] gap-12 px-4 py-12 min-[390px]:px-5 sm:px-6 lg:px-8 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
         }
       >
         <div>
@@ -132,7 +132,7 @@ export default function NewsletterSignup({
               <button
                 type="submit"
                 disabled={submitting}
-                className="font-ui h-12 min-w-[132px] bg-cuva-navy-800 px-5 text-[0.9375rem] font-semibold text-white transition-colors hover:bg-cuva-ink disabled:opacity-70"
+                className="font-ui h-12 shrink-0 bg-cuva-navy-800 px-4 sm:min-w-[132px] sm:px-5 text-[0.9375rem] font-semibold text-white transition-colors hover:bg-cuva-ink disabled:opacity-70"
               >
                 {submitting ? "Subscribing..." : "Subscribe"}
               </button>

@@ -87,8 +87,8 @@
 
   /* ── Typography — four roles, strictly separated ──
      display/headlines · editorial body · UI · figures.
-     --font-prose is now Source Serif 4; --font-lora stays loaded
-     for the RTL fallback chain only. */
+     --font-prose is now Source Serif 4. Lora was removed: its
+     variable was referenced by this comment and nothing else. */
   --font-heading: var(--font-playfair);
   --font-ui:      var(--font-inter);
   --font-body:    var(--font-inter);
@@ -127,9 +127,15 @@ h2 { letter-spacing: -0.01em; }
   color: var(--color-paper);
 }
 
-/* ── Column rule utility ── */
-.col-rule {
-  border-right: 1px solid var(--color-outline);
+/* ── Column rule utility ──
+   A divider between grid columns, so it only means anything once there ARE
+   columns. The homepage grid switches at 1000px, not at Tailwind's `lg`, so
+   the rule is gated on the same width. Below it the border was drawing down
+   the right edge of the viewport on every phone. */
+@media (min-width: 1000px) {
+  .col-rule {
+    border-right: 1px solid var(--color-outline);
+  }
 }
 
 /* ── Kicker / beat label ──
@@ -170,12 +176,22 @@ h2 { letter-spacing: -0.01em; }
 }
 
 /* ── Article prose styles ── */
+/* 18px at 1.6 on mobile, which measures about 38 characters at 390px with
+   20px gutters and 42 at 430px. Steps up to 19px at 1.75 once the column is
+   wide enough to carry the longer measure. */
 .prose-article {
   max-width: 70ch;
-  line-height: 1.75;
-  font-size: 1.1875rem;
+  line-height: 1.6;
+  font-size: 1.125rem;
   color: var(--color-reading-text);
   font-family: var(--font-source-serif), Georgia, serif;
+}
+
+@media (min-width: 768px) {
+  .prose-article {
+    line-height: 1.75;
+    font-size: 1.1875rem;
+  }
 }
 
 .prose-article h2 {
@@ -200,8 +216,10 @@ h2 { letter-spacing: -0.01em; }
   margin-bottom: 1.25rem;
 }
 
+/* Was --color-amber on white: 1.87:1, invisible as a structural rule.
+   Section ink carries it instead. */
 .prose-article blockquote {
-  border-left: 4px solid var(--color-amber);
+  border-left: 4px solid var(--color-cuva-navy-800);
   padding-left: 1.25rem;
   margin: 1.5rem 0;
   font-style: italic;
@@ -229,11 +247,11 @@ h2 { letter-spacing: -0.01em; }
 }
 
 .prose-article a:hover {
-  color: var(--color-amber);
+  color: var(--color-cuva-link);
 }
 
+/* 0 radii is the system. Photographs are square-cornered like everything else. */
 .prose-article img {
-  border-radius: 0.5rem;
   margin: 1.5rem 0;
 }
 
@@ -268,7 +286,7 @@ h2 { letter-spacing: -0.01em; }
 }
 
 .prose-article tbody tr:last-child td {
-  border-bottom: 2px solid var(--color-amber);
+  border-bottom: 2px solid var(--color-cuva-ink);
 }
 
 /* ── RTL support for Urdu ── */
@@ -287,7 +305,7 @@ h2 { letter-spacing: -0.01em; }
 
 [dir="rtl"] .prose-article blockquote {
   border-left: none;
-  border-right: 4px solid var(--color-amber);
+  border-right: 4px solid var(--color-cuva-navy-800);
   padding-left: 0;
   padding-right: 1.25rem;
 }

@@ -48,7 +48,7 @@ export default function MatchReportFilters({
             aria-label="Filter by competition"
             value={activeSub}
             onChange={(e) => setActiveSub(e.target.value)}
-            className="appearance-none font-ui text-sm font-medium pl-4 pr-9 py-2 rounded-lg bg-surface-high text-on-surface border border-surface-highest hover:bg-surface-highest transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-apex/40"
+            className="appearance-none font-ui target-44 text-sm font-medium pl-4 pr-9 rounded-lg bg-surface-high text-on-surface border border-surface-highest hover:bg-surface-highest transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-apex/40"
           >
             <option value="All">{t("category.all")} ({countFor("All")})</option>
             {subcategories.map((sub) => (
@@ -84,7 +84,7 @@ export default function MatchReportFilters({
           <span className="font-ui text-sm text-on-surface-muted">{t("filter.sort")}</span>
           <button
             onClick={() => setSortOrder("newest")}
-            className={`font-ui text-sm px-3 py-1 rounded-lg font-medium transition-colors ${
+            className={`font-ui target-44 inline-flex items-center text-sm px-3 rounded-lg font-medium transition-colors ${
               sortOrder === "newest"
                 ? "bg-surface-highest text-on-surface"
                 : "bg-surface-high text-on-surface-muted hover:bg-surface-highest"
@@ -94,7 +94,7 @@ export default function MatchReportFilters({
           </button>
           <button
             onClick={() => setSortOrder("oldest")}
-            className={`font-ui text-sm px-3 py-1 rounded-lg font-medium transition-colors ${
+            className={`font-ui target-44 inline-flex items-center text-sm px-3 rounded-lg font-medium transition-colors ${
               sortOrder === "oldest"
                 ? "bg-surface-highest text-on-surface"
                 : "bg-surface-high text-on-surface-muted hover:bg-surface-highest"

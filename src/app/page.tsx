@@ -63,20 +63,28 @@ function SectionHeader({
   const colour = sport === "cricket" ? "text-cuva-cricket" : "text-cuva-football";
   const rule = sport === "cricket" ? "border-cuva-cricket" : "border-cuva-football";
 
+  // Below sm the link drops under the subtitle rather than sharing a baseline
+  // row with the h2, which was forcing "54 reports" to break onto a line of
+  // its own. At sm and above the grid puts it back on the h2's baseline, which
+  // is where the desktop design has it.
   return (
-    <div className={`border-t-[3px] ${rule} pt-4`}>
-      <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <h2 className={`font-heading text-[1.875rem] font-bold leading-tight ${colour}`}>
-          {title}
-        </h2>
-        <Link
-          href={href}
-          className="font-ui target-44 inline-flex items-center text-[0.9375rem] text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]"
-        >
-          {linkLabel} &rarr;
-        </Link>
-      </div>
-      <p className="font-ui mt-1 text-[0.875rem] text-cuva-muted">{subtitle}</p>
+    <div
+      className={`grid gap-x-4 border-t-[3px] pt-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline ${rule}`}
+    >
+      <h2
+        className={`font-heading text-balance text-[1.625rem] font-bold leading-tight sm:text-[1.875rem] ${colour}`}
+      >
+        {title}
+      </h2>
+      <Link
+        href={href}
+        className="font-ui target-44 order-3 inline-flex items-center text-[0.9375rem] text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px] sm:order-2 sm:col-start-2 sm:row-start-1"
+      >
+        {linkLabel} &rarr;
+      </Link>
+      <p className="font-ui order-2 mt-1 text-balance text-[0.875rem] text-cuva-muted sm:order-3 sm:col-start-1 sm:row-start-2">
+        {subtitle}
+      </p>
     </div>
   );
 }
@@ -105,7 +113,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
 
-      <div className="mx-auto max-w-[1320px] px-8">
+      <div className="mx-auto max-w-[1320px] px-4 min-[390px]:px-5 sm:px-6 lg:px-8">
         {/* ── Lead: 8 columns of story, 4 of latest ── */}
         <section className="border-b-2 border-cuva-ink py-8">
           <div className="grid gap-8 min-[1000px]:grid-cols-12">
@@ -187,10 +195,10 @@ export default function HomePage() {
             live inside DataRail's bg-ink container), so it keeps that
             surface here rather than being restyled. */}
         <section className="border-t border-cuva-rule py-12">
-          <h2 className="font-heading mb-5 text-[1.875rem] font-bold leading-tight text-cuva-ink">
+          <h2 className="font-heading mb-5 text-[1.625rem] font-bold leading-tight text-cuva-ink sm:text-[1.875rem]">
             League Table
           </h2>
-          <div className="on-navy bg-cuva-ink p-6 text-white">
+          <div className="on-navy bg-cuva-ink p-4 text-white sm:p-6">
             <LeagueTable />
           </div>
         </section>
@@ -198,9 +206,9 @@ export default function HomePage() {
         {/* ── Across the Grounds ── */}
         {groundsArticles.length > 0 && (
           <section className="border-t border-cuva-rule py-12">
-            <div className="mb-6 flex flex-wrap items-baseline justify-between gap-4">
+            <div className="mb-6 flex flex-col items-start gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
               <div>
-                <h2 className="font-heading text-[1.875rem] font-bold leading-tight text-cuva-ink">
+                <h2 className="font-heading text-balance text-[1.625rem] font-bold leading-tight text-cuva-ink sm:text-[1.875rem]">
                   Across the Grounds
                 </h2>
                 <p className="font-ui mt-1 text-[0.875rem] text-cuva-muted">

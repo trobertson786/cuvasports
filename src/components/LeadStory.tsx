@@ -17,50 +17,79 @@ function getHeroCta(article: Article): string {
 
 export default function LeadStory({ article }: { article: Article }) {
   const imageSrc = getImageForArticle(article.slug, article.category, article.image);
+  const hasScore = article.homeScore != null && article.awayScore != null;
 
   return (
-    <article className="col-rule pr-6 animate-fade-in-up">
-      <span className="kicker mb-2 block">
+    <article className="col-rule animate-fade-in-up min-[1000px]:pr-6">
+      <span
+        className={`kicker mb-2 block ${
+          article.category === "cricket" ? "kicker-cricket" : "kicker-football"
+        }`}
+      >
         {formatCategoryLabel(article.category, article.subcategory)}
       </span>
 
-      <h1 className="font-heading text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-ink leading-[1.1] mb-3">
-        <Link href={`/reports/${article.slug}`} className="hover:text-amber transition-colors">
+      {/* 32px at 320, 34px at 430, 44px at 1024. Playfair never goes below
+          20px, so this is the floor, not a proportional shrink. */}
+      <h1 className="font-heading mb-3 text-balance text-[2rem] font-bold leading-[1.1] text-cuva-ink min-[430px]:text-[2.125rem] lg:text-[2.6rem]">
+        <Link href={`/reports/${article.slug}`} className="transition-colors hover:text-cuva-link">
           {article.title}
         </Link>
       </h1>
 
-      <div className="flex flex-wrap items-center gap-2 text-xs font-ui text-ink-mute mb-4">
-        <span className="font-semibold text-ink">{article.author ?? "William Powell"}</span>
-        <span>·</span>
-        <time dateTime={article.date}>
+      <div className="byline-row mb-4">
+        <span className="byline-name">{article.author ?? "William Powell"}</span>
+        <span className="byline-sep" aria-hidden="true">·</span>
+        <time dateTime={article.date} className="byline-date">
           {new Date(article.date).toLocaleDateString("en-GB", {
             day: "numeric",
             month: "long",
             year: "numeric",
           })}
         </time>
-        <span>·</span>
-        <span>{article.readingTime}</span>
+        <span className="byline-sep" aria-hidden="true">·</span>
+        <span className="byline-read">{article.readingTime}</span>
       </div>
 
-      <div className="relative aspect-[16/9] overflow-hidden rounded-sm mb-4 group">
-        <MatchCardImage
-          src={imageSrc}
-          alt={article.title}
-          className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-          sizes="(max-width: 1024px) 100vw, 45vw"
-          priority
-        />
-      </div>
+      {/* No photograph means no image slot at all. A 16:9 branded rectangle at
+          full mobile width costs about 240px and conveys nothing; the
+          scoreline in its place is real information. */}
+      {imageSrc ? (
+        <div className="group relative mb-4 aspect-[16/9] overflow-hidden">
+          <MatchCardImage
+            src={imageSrc}
+            alt={article.title}
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            priority
+          />
+        </div>
+      ) : hasScore ? (
+        <div className="mb-4 border-y-2 border-cuva-ink py-4">
+          <span className="sr-only">
+            {article.homeTeam} {article.homeScore}, {article.awayTeam}{" "}
+            {article.awayScore}.
+          </span>
+          <p
+            aria-hidden="true"
+            className="figure-mono text-[2rem] font-semibold leading-none text-cuva-navy-800"
+          >
+            {article.homeScore}-{article.awayScore}
+          </p>
+          <p className="font-ui mt-2 text-[0.8125rem] text-cuva-muted">
+            {article.homeTeam} v {article.awayTeam}
+            {article.venue ? `, ${article.venue}` : ""}
+          </p>
+        </div>
+      ) : null}
 
-      <p className="font-body text-base text-ink leading-relaxed mb-5">
+      <p className="font-prose mb-5 text-[1.125rem] leading-[1.6] text-cuva-ink">
         {article.standfirst || article.excerpt}
       </p>
 
       <Link
         href={`/reports/${article.slug}`}
-        className="target-44 inline-flex items-center gap-2 font-ui text-sm font-bold text-on-ink bg-ink hover:bg-amber hover:text-ink px-5 py-2.5 rounded transition-colors group"
+        className="font-ui target-44 group inline-flex items-center gap-2 bg-cuva-navy-800 px-5 text-sm font-bold text-white transition-colors hover:bg-cuva-ink"
       >
         {getHeroCta(article)}
         <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>

@@ -50,11 +50,11 @@ export default function SearchBar({
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
-        className="w-full px-4 py-2.5 rounded-lg bg-surface-highest text-on-surface text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder-on-surface-muted"
+        className="font-ui h-11 w-full border border-cuva-rule bg-white px-4 text-base text-cuva-ink placeholder:text-cuva-muted"
         style={{ border: '1px solid rgba(183, 200, 225, 0.15)' }}
       />
       {open && results.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-surface-high rounded-lg z-50 overflow-hidden">
+        <div className="absolute top-full left-0 right-0 mt-1 z-50 border border-cuva-rule bg-white overflow-hidden">
           {results.map((item) => (
             <Link
               key={item.slug}

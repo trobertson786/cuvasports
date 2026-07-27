@@ -142,9 +142,9 @@ export default async function ArticlePage({ params }: PageProps) {
       <ReadingProgress />
 
       <div className="bg-cuva-newsprint">
-        <div className="mx-auto max-w-[1320px] px-8 py-8">
+        <div className="mx-auto max-w-[1320px] px-4 py-8 min-[390px]:px-5 sm:px-6 lg:px-8">
           <nav aria-label="Breadcrumb" className="font-ui mb-8 text-[0.8125rem]">
-            <ol className="flex flex-wrap items-center gap-2 text-cuva-muted">
+            <ol className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-cuva-muted">
               <li>
                 <Link href="/" className="target-44 inline-flex items-center text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]">
                   Home
@@ -186,14 +186,14 @@ export default async function ArticlePage({ params }: PageProps) {
             <article className="min-w-0 max-w-[720px]">
               <Kicker category={article.category} detail={article.competition} />
 
-              {/* Overhangs the measure into the gutter. Suppressed at the
-                  breakpoint where the rail would collide with it. */}
-              <h1 className="font-heading mt-3 text-[2.75rem] font-bold leading-[1.06] tracking-[-0.015em] text-cuva-ink min-[1180px]:-mr-14 min-[1180px]:text-[3.25rem]">
+              {/* 32px at 320, 34px at 430, 44px at 1024. Overhangs the measure
+                  into the gutter at the width where the rail appears. */}
+              <h1 className="font-heading mt-3 text-balance text-[2rem] font-bold leading-[1.1] tracking-[-0.015em] text-cuva-ink min-[430px]:text-[2.125rem] lg:text-[2.75rem] lg:leading-[1.06] min-[1180px]:-mr-14 min-[1180px]:text-[3.25rem]">
                 {article.title}
               </h1>
 
               {article.standfirst ? (
-                <p className="font-prose mt-5 text-[1.3125rem] leading-[1.5] text-cuva-navy-800">
+                <p className="font-prose mt-5 text-[1.1875rem] leading-[1.5] text-cuva-navy-800 sm:text-[1.3125rem]">
                   {article.standfirst}
                 </p>
               ) : null}
@@ -262,6 +262,35 @@ export default async function ArticlePage({ params }: PageProps) {
                 correction={article.correction}
                 correctedAt={article.correctedAt}
               />
+
+              {/* The rail's contents list, moved inline below the width at
+                  which the rail exists. A native <details> costs nothing
+                  against INP, and closed by default it never interrupts the
+                  read. Never present at the same time as the rail. */}
+              {railSections.length ? (
+                <details className="mt-8 border-y border-cuva-rule min-[1180px]:hidden">
+                  <summary className="mono-label flex min-h-[48px] cursor-pointer items-center justify-between text-cuva-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                    In this report
+                    <span aria-hidden="true" className="text-[0.8125rem] text-cuva-muted">
+                      +
+                    </span>
+                  </summary>
+                  <nav aria-label="In this report" className="pb-2">
+                    <ul>
+                      {railSections.map((s) => (
+                        <li key={s.id}>
+                          <a
+                            href={`#${s.id}`}
+                            className="font-ui flex min-h-[44px] w-full items-center border-t border-cuva-rule text-[0.9375rem] text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]"
+                          >
+                            {s.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </details>
+              ) : null}
 
               {sections.hasStructure ? (
                 <>
@@ -375,7 +404,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
       {related.length > 0 && (
         <div className="bg-cuva-newsprint">
-          <div className="mx-auto max-w-[1320px] px-8 pb-16">
+          <div className="mx-auto max-w-[1320px] px-4 pb-16 min-[390px]:px-5 sm:px-6 lg:px-8">
             <TranslatedHeading titleKey="related" as="h2" />
             <ArticleGrid articles={related} columns={3} />
           </div>

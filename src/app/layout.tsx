@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import {
   Playfair_Display,
   Inter,
-  Lora,
   Source_Serif_4,
   IBM_Plex_Mono,
   Noto_Nastaliq_Urdu,
@@ -15,13 +14,6 @@ import "./globals.css";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-// Retained for the RTL fallback chain; --font-prose now points at Source Serif 4.
-const lora = Lora({
-  variable: "--font-lora",
   subsets: ["latin"],
   display: "swap",
 });
@@ -48,11 +40,16 @@ const inter = Inter({
   display: "swap",
 });
 
+// 236KB, and only ever used under [dir="rtl"], which requires the language
+// toggle behind NEXT_PUBLIC_ENABLE_LANG_TOGGLE. preload:false keeps the
+// @font-face declared, so RTL still renders correctly if that flag is turned
+// on, but stops every reader downloading half a megabyte they cannot use.
 const notoNastaliq = Noto_Nastaliq_Urdu({
   variable: "--font-urdu",
   subsets: ["arabic"],
   display: "swap",
   weight: ["400", "700"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -93,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${lora.variable} ${sourceSerif.variable} ${plexMono.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
+        className={`${playfair.variable} ${sourceSerif.variable} ${plexMono.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
       >
         <LanguageProvider>
           <Navigation />

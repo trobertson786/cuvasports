@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import UtilityStrip from "@/components/chrome/UtilityStrip";
 import Masthead from "@/components/chrome/Masthead";
+import MobileMasthead from "@/components/chrome/MobileMasthead";
 import { useLanguage } from "@/lib/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 
@@ -15,6 +16,22 @@ const navLinks: { href: string; labelKey: TranslationKey }[] = [
   { href: "/cricket", labelKey: "nav.cricket" },
   { href: "/about", labelKey: "nav.about" },
   { href: "/contact", labelKey: "nav.contact" },
+];
+
+/**
+ * The three visible entries in the mobile navy bar. Football and cricket are
+ * the two beats this publication exists for, and results are the thing a
+ * reader most often arrives wanting, so none of the three is hidden behind
+ * the menu. The menu still repeats everything.
+ */
+const mobileBeats: { href: string; label: string }[] = [
+  { href: "/football", label: "Football" },
+  { href: "/cricket", label: "Cricket" },
+  // The design labels this third entry "Results". There is no results route:
+  // the results module lives on the homepage, and /reports is the archive of
+  // match reports. Labelling the tab "Results" would send a reader somewhere
+  // other than where the word promises, so it says what it is.
+  { href: "/reports", label: "Reports" },
 ];
 
 /**
@@ -38,23 +55,44 @@ export default function Navigation() {
 
   return (
     <header>
+      <UtilityStrip />
+
       <div className="hidden md:block">
-        <UtilityStrip />
         <Masthead />
       </div>
 
-      <nav className="sticky top-0 z-50 bg-cuva-navy-800" aria-label="Primary">
-        <div className="mx-auto flex max-w-[1320px] items-center justify-between px-8">
-          {/* The masthead is hidden on narrow viewports, so the nav carries
-              the home link there. */}
-          <Link
-            href="/"
-            className="font-heading target-44 flex items-center pr-6 text-lg font-bold text-white md:hidden"
-            aria-label="CUVA Sports home"
-          >
-            CUVA
-          </Link>
+      <MobileMasthead
+        menuOpen={mobileOpen}
+        onToggleMenu={() => setMobileOpen(!mobileOpen)}
+      />
 
+      <nav className="sticky top-0 z-50 bg-cuva-navy-800" aria-label="Primary">
+        {/* Below md the bar carries the three visible beats instead of a
+            wordmark and a hamburger; identity and the menu button both live in
+            <MobileMasthead/> above. */}
+        <ul className="flex md:hidden">
+          {mobileBeats.map((beat) => {
+            const active = isActive(beat.href);
+            return (
+              <li
+                key={beat.href}
+                className="flex-1 border-l border-white/15 first:border-l-0"
+              >
+                <Link
+                  href={beat.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`font-ui flex min-h-[48px] items-center justify-center border-b-[3px] text-[0.875rem] font-semibold text-white ${
+                    active ? "border-cuva-gold" : "border-transparent"
+                  }`}
+                >
+                  {beat.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="mx-auto flex max-w-[1320px] items-center justify-between px-8 max-md:hidden">
           <ul className="hidden md:flex">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -98,45 +136,43 @@ export default function Navigation() {
                 </svg>
               </button>
             )}
-
-            <button
-              className="target-44 flex items-center px-2 text-white md:hidden"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-expanded={mobileOpen}
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {mobileOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
           </div>
         </div>
 
         <div
+          id="mobile-menu"
           className={`overflow-hidden transition-all duration-300 md:hidden ${
-            mobileOpen ? "max-h-96 pb-4" : "max-h-0"
+            mobileOpen ? "max-h-[32rem] pb-4" : "max-h-0"
           }`}
         >
-          <ul className="mx-auto max-w-[1320px] border-t border-white/10 px-8 pt-2">
+          {/* Search sits at the top of the menu as well as outside it. A
+              reader who has already opened the menu should not have to close
+              it again to reach the field. */}
+          <form
+            action="/reports"
+            method="get"
+            role="search"
+            className="mx-auto flex max-w-[1320px] border-t border-white/10 px-4 pt-3 min-[390px]:px-5 sm:px-6"
+          >
+            <label htmlFor="menu-search" className="sr-only">
+              Search reports and archive
+            </label>
+            <input
+              id="menu-search"
+              name="q"
+              type="search"
+              placeholder="Search reports and archive"
+              className="font-ui h-11 min-w-0 flex-1 border border-r-0 border-white/25 bg-white/10 px-3 text-base text-white placeholder:text-white/55"
+            />
+            <button
+              type="submit"
+              className="font-ui h-11 shrink-0 bg-cuva-gold px-4 text-sm font-semibold text-cuva-ink"
+            >
+              Search
+            </button>
+          </form>
+
+          <ul className="mx-auto max-w-[1320px] px-4 pt-2 min-[390px]:px-5 sm:px-6">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -145,7 +181,7 @@ export default function Navigation() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     onClick={() => setMobileOpen(false)}
-                    className={`font-ui target-44 flex items-center w-full text-[0.9375rem] ${
+                    className={`font-ui flex min-h-[48px] w-full items-center border-b border-white/10 text-[0.9375rem] ${
                       active ? "font-semibold text-cuva-gold" : "text-white/85 hover:text-white"
                     }`}
                   >

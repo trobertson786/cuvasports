@@ -15,7 +15,7 @@ export default function AuthorBio() {
       </Link>
       <div>
         <h3 className="font-heading text-lg font-bold text-on-surface">
-          <Link href="/about" className="hover:text-primary transition-colors">
+          <Link href="/about" className="target-44 inline-flex items-center transition-colors hover:text-cuva-link">
             William Powell
           </Link>
         </h3>

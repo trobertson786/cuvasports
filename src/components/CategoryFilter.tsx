@@ -23,7 +23,7 @@ export default function CategoryFilter() {
           <Link
             key={cat.href}
             href={cat.href}
-            className={`font-ui text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`font-ui target-44 inline-flex items-center text-sm px-4 rounded-lg font-medium transition-colors ${
               isActive
                 ? "bg-apex text-surface"
                 : "bg-surface-high text-on-surface-muted hover:bg-surface-highest hover:text-on-surface"
