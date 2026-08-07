@@ -52,7 +52,7 @@ export default function ContactPage() {
         Contact
       </h1>
       <p className="text-on-surface-muted mb-10">
-        Get in touch with William Powell for press enquiries, interview
+        Get in touch with CUVA Sports for press enquiries, interview
         requests, or collaboration opportunities.
       </p>
 
@@ -63,7 +63,7 @@ export default function ContactPage() {
           <div className="bg-surface border-l-4 border-primary p-4 mb-6 rounded-r-lg">
             <p className="font-ui text-sm text-on-surface leading-relaxed">
               For urgent press box access, PR pitches, embargoed releases, or syndication
-              inquiries, please email William directly at{" "}
+              inquiries, please email CUVA Sports directly at{" "}
               <a
                 href="mailto:cuvasports@gmail.com"
                 className="text-primary hover:text-apex transition-colors font-semibold"
@@ -80,8 +80,8 @@ export default function ContactPage() {
                 Message Sent
               </h2>
               <p className="text-on-surface-muted">
-                Thank you for getting in touch. William will respond as soon as
-                possible.
+                Thank you for getting in touch. CUVA Sports will respond as
+                soon as possible.
               </p>
             </div>
           ) : (
@@ -184,24 +184,9 @@ export default function ContactPage() {
               Press Enquiries
             </h3>
             <p className="text-sm text-on-surface-muted leading-relaxed">
-              For press enquiries and interview requests, please use the form
-              or connect via social media.
+              For press enquiries and interview requests, please use the
+              form.
             </p>
-          </div>
-          <div className="bg-surface-container rounded-lg p-6">
-            <h3 className="font-heading text-lg font-bold text-on-surface mb-3">
-              Connect
-            </h3>
-            <div className="space-y-2">
-              <a
-                href="https://x.com/WillsSportMedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block font-ui text-sm text-primary hover:text-apex transition-colors"
-              >
-                @WillsSportMedia &rarr;
-              </a>
-            </div>
           </div>
         </div>
       </div>
