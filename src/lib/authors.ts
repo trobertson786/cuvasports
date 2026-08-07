@@ -22,8 +22,8 @@ export interface Author {
 const authors: Author[] = [
   {
     name: "William Powell",
-    role: "FWA Life Member · Sports Journalist since 1987",
-    bio: "William Powell has covered football and cricket at the highest level for nearly four decades. A Life Member of the Football Writers' Association, his writing combines deep tactical knowledge with the narrative flair of the best sports journalism.",
+    role: "Senior Editor · FWA Life Member · Sports Journalist since 1987",
+    bio: "William Powell is CUVA Sports' senior editor and lead correspondent, covering football and cricket at the highest level for nearly four decades. A Life Member of the Football Writers' Association, his writing combines deep tactical knowledge with the narrative flair of the best sports journalism.",
     image: "/images/william-powell.jpg",
   },
   {
@@ -32,10 +32,13 @@ const authors: Author[] = [
     // with wording Darrion approves, and add a headshot at
     // /public/images/darrion-watson.jpg, before this goes live. Deliberately
     // contains no employer, qualification or accrediting body, since none has
-    // been confirmed and an accreditor may check any claim made here.
+    // been confirmed and an accreditor may check any claim made here. `role`
+    // deliberately positions him as junior to William per Theo's instruction
+    // (2026-08-07) that the site should read as a senior/junior newsroom
+    // structure, not two equal correspondents.
     name: "Darrion Watson",
-    role: "Contributing Football Reporter",
-    bio: "Darrion Watson is a freelance football journalist who contributes match reports to CUVA Sports.",
+    role: "Junior Football Reporter",
+    bio: "Darrion Watson is a football reporter contributing match reports to CUVA Sports, working under William Powell's editorial guidance as he builds his experience covering the English game.",
   },
 ];
 
