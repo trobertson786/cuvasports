@@ -65,10 +65,10 @@ export default function ContactPage() {
               For urgent press box access, PR pitches, embargoed releases, or syndication
               inquiries, please email William directly at{" "}
               <a
-                href="mailto:wjspowell@aol.com"
+                href="mailto:cuvasports@gmail.com"
                 className="text-primary hover:text-apex transition-colors font-semibold"
               >
-                wjspowell@aol.com
+                cuvasports@gmail.com
               </a>{" "}
               or use the secure priority form below.
             </p>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { generatePageMetadata } from "@/lib/metadata";
 import { galleryImages } from "@/lib/gallery-images";
 import { getAllArticles } from "@/lib/articles";
+import { authors } from "@/lib/authors";
 
 export const metadata = generatePageMetadata(
   "About",
@@ -11,6 +12,9 @@ export const metadata = generatePageMetadata(
 
 export default function AboutPage() {
   const latestArticle = getAllArticles()[0];
+  // William has the long-form biography above, so the list below covers the
+  // other contributors rather than repeating him.
+  const contributors = authors.filter((a) => a.name !== "William Powell");
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -60,10 +64,18 @@ export default function AboutPage() {
             believe that good sports writing matters. Not hot takes or clickbait,
             just proper journalism. The kind that puts you in the ground,
             explains why a match unfolded the way it did, and treats readers as
-            the knowledgeable fans they are - that&apos;s why I have established
-            CUVA Sports.
+            the knowledgeable fans they are - that&apos;s the standard I bring
+            to CUVA Sports as senior football and cricket correspondent.
           </p>
 
+          {/* TODO (accreditation review - needs a human decision, do not guess):
+              The paragraph below claims membership of "BSJA, AIPS, BAJ".
+              src/components/ArticleByline.tsx instead claims "NUJ & SJA
+              Accredited". The two sets of bodies conflict and an accreditor
+              may check them against each other. Confirm with William which
+              memberships are current and make all locations agree before this
+              goes live. CredibilityBlock.tsx carries the same BSJA/AIPS/BAJ
+              claim in expanded form and must be updated to match. */}
           <p>
             My career has taken me from non-league grounds on wet Tuesday
             evenings to World Cup finals and Ashes series. Along the way,
@@ -126,7 +138,10 @@ export default function AboutPage() {
             freedom to cover the stories I care about, in my own voice, without
             editorial interference. Every article is written by me and my
             colleagues, no aggregation, no AI-generated content, no filler. Just
-            honest sports journalism shaped by decades of experience.
+            honest sports journalism shaped by decades of experience. CUVA
+            Sports is actively growing its contributor network of UK football
+            and cricket writers, and building toward syndication partnerships
+            that put independent match coverage in front of more readers.
           </p>
 
           <h2>Get in Touch</h2>
@@ -138,10 +153,31 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Editor & Developer */}
+      {/* Contributors. CUVA Sports is a multi-contributor outlet, so the
+          people who file reports are listed here rather than implied. Driven
+          by src/lib/authors.ts so this page and the per-article author bio
+          cannot drift apart. */}
       <section className="mt-16 border-t border-surface-high pt-12">
         <h2 className="font-heading text-2xl font-bold text-on-surface mb-8">
-          Editor &amp; Developer
+          Contributors
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {contributors.map((person) => (
+            <div key={person.name} className="prose-article">
+              <h3>{person.name}</h3>
+              <p className="font-ui text-sm text-apex font-medium">
+                {person.role}
+              </p>
+              <p>{person.bio}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Head of CUVA Sports & Production */}
+      <section className="mt-16 border-t border-surface-high pt-12">
+        <h2 className="font-heading text-2xl font-bold text-on-surface mb-8">
+          Head of CUVA Sports &amp; Production
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="md:col-span-1">
@@ -159,12 +195,13 @@ export default function AboutPage() {
           <div className="md:col-span-2 prose-article">
             <h3>Theodore Robertson</h3>
             <p>
-              Theodore Robertson is the editor and developer behind CUVA Sports,
-              responsible for building and maintaining the platform that brings
-              William Powell&apos;s journalism to readers. Theodore designed and
-              developed the site to give William the freedom to publish honest,
-              unfiltered sports writing without the constraints of third-party
-              platforms.
+              Theodore Robertson leads CUVA Sports and its production, running
+              the outlet day to day and building and maintaining the platform
+              that brings William Powell&apos;s journalism, and that of CUVA
+              Sports&apos; other contributors, to readers. Theodore built the
+              site to give the outlet&apos;s writers the freedom to publish
+              honest, unfiltered sports writing without the constraints of
+              third-party platforms.
             </p>
           </div>
         </div>

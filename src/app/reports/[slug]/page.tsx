@@ -387,7 +387,7 @@ export default async function ArticlePage({ params }: PageProps) {
               </div>
 
               <div className="mt-12">
-                <AuthorBio />
+                <AuthorBio author={author} />
               </div>
             </article>
 

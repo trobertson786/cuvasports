@@ -1,32 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getAuthor } from "@/lib/authors";
 
-export default function AuthorBio() {
+interface AuthorBioProps {
+  /** Article frontmatter author. Defaults to the founding contributor. */
+  author?: string;
+}
+
+export default function AuthorBio({ author = "William Powell" }: AuthorBioProps) {
+  const person = getAuthor(author);
+
+  // An unrecognised byline gets no biography rather than someone else's.
+  if (!person) return null;
+
   return (
     <div className="bg-surface-container rounded-lg p-6 flex flex-col sm:flex-row gap-5 items-start transition-all duration-300">
       <Link href="/about" className="flex-shrink-0">
-        <Image
-          src="/images/william-powell.jpg"
-          alt="William Powell"
-          width={80}
-          height={80}
-          className="w-20 h-20 rounded-full object-cover"
-        />
+        {person.image ? (
+          <Image
+            src={person.image}
+            alt={person.name}
+            width={80}
+            height={80}
+            className="w-20 h-20 rounded-full object-cover"
+          />
+        ) : (
+          <span
+            aria-hidden="true"
+            className="font-heading w-20 h-20 rounded-full bg-surface-high text-on-surface flex items-center justify-center text-2xl font-bold"
+          >
+            {person.name.charAt(0)}
+          </span>
+        )}
       </Link>
       <div>
         <h3 className="font-heading text-lg font-bold text-on-surface">
           <Link href="/about" className="target-44 inline-flex items-center transition-colors hover:text-cuva-link">
-            William Powell
+            {person.name}
           </Link>
         </h3>
         <p className="font-ui text-sm text-apex font-medium mb-2">
-          FWA Life Member &middot; Sports Journalist since 1987
+          {person.role}
         </p>
         <p className="text-sm text-on-surface-muted leading-relaxed">
-          William Powell has covered football and cricket at the highest level
-          for nearly four decades. A Life Member of the Football Writers&apos;
-          Association, his writing combines deep tactical knowledge with the
-          narrative flair of the best sports journalism.
+          {person.bio}
         </p>
       </div>
     </div>

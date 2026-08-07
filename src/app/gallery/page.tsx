@@ -9,8 +9,7 @@ export const metadata = generatePageMetadata(
 );
 
 const matchImages = [
-  { src: "/images/gallery/tottenham-stadium-exterior.jpg", alt: "Tottenham Hotspur Stadium exterior — Champions League night" },
-  { src: "/images/gallery/tottenham-stadium-interior.jpg", alt: "Inside the Tottenham Hotspur Stadium — Spurs vs Atletico Madrid" },
+  { src: "/images/gallery/tottenham-stadium-exterior.jpg", alt: "Tottenham Hotspur Stadium exterior - Champions League night" },
   { src: "/images/gallery/chelsea-vs-psg.jpg", alt: "Stamford Bridge fixture board — Chelsea vs PSG" },
   { src: "/images/gallery/leicester-vs-qpr.jpg", alt: "King Power Stadium — Leicester vs QPR" },
   { src: "/images/gallery/west-ham-vs-brentford.jpg", alt: "London Stadium — West Ham vs Brentford" },
