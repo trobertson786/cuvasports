@@ -18,7 +18,7 @@ export default function MatchdayBar() {
               <span className="font-ui text-ink font-semibold text-xs">
                 {r.home}
               </span>
-              <span className="font-mono text-amber font-bold text-sm tabular-nums">
+              <span className="figure-mono text-amber font-bold text-sm tabular-nums">
                 {r.homeScore}–{r.awayScore}
               </span>
               <span className="font-ui text-ink font-semibold text-xs">

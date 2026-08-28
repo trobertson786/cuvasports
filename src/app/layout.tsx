@@ -3,7 +3,6 @@ import {
   Playfair_Display,
   Inter,
   Source_Serif_4,
-  IBM_Plex_Mono,
   Noto_Nastaliq_Urdu,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -24,14 +23,6 @@ const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-});
-
-// Any figure a reader might compare: scores, times, statistics, dates.
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600"],
 });
 
 const inter = Inter({
@@ -90,7 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${sourceSerif.variable} ${plexMono.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
+        className={`${playfair.variable} ${sourceSerif.variable} ${inter.variable} ${notoNastaliq.variable} antialiased`}
       >
         <LanguageProvider>
           <Navigation />
