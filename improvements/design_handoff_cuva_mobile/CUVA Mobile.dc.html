@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B1A2B;color:#FFFFFF;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+*{box-sizing:border-box}
+a{color:#9FC2E8;text-decoration:none}
+a:hover{color:#FFFFFF;text-decoration:underline;text-underline-offset:3px}
+h1,h2,h3,h4,p,ul,ol,table{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:2px solid #D4A843;outline-offset:3px}
+</style>
+</helmet>
+
+<div style="padding:40px 40px 72px;display:flex;flex-direction:column;gap:44px">
+
+  <div style="display:flex;flex-direction:column;gap:10px;border-bottom:1px solid rgba(217,222,227,.25);padding-bottom:18px;max-width:900px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:#D4A843">CUVA SPORTS &middot; MOBILE 320-767PX</span>
+    <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:38px;line-height:1.1;font-weight:700">Mobile layouts for the homepage and match report</h1>
+    <p style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.55;color:rgba(255,255,255,.75)">Same tokens, same type roles, same components as the desktop templates. Nothing here is a new colour, font or pattern. The two live screens below scroll inside their frames; below them are the four components that change shape rather than reflow, and the breakpoint spec to implement against.</p>
+  </div>
+
+  <section data-screen-label="Screens" style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.16em;color:#D4A843">1 &middot; FULL SCREENS, LIVE AND SCROLLABLE</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(255,255,255,.7)">HOMEPAGE &middot; 390PX &middot; IPHONE 14</p>
+        <div style="width:390px;height:1180px;overflow-y:auto;overflow-x:hidden;border:1px solid rgba(217,222,227,.3);background:#F9F7F2;--cuva-h1:32px">
+          <dc-import name="CUVA Mobile Home" hint-size="390px,1180px"></dc-import>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(255,255,255,.7)">HOMEPAGE &middot; 430PX &middot; IPHONE 14 PLUS</p>
+        <div style="width:430px;height:1180px;overflow-y:auto;overflow-x:hidden;border:1px solid rgba(217,222,227,.3);background:#F9F7F2;--cuva-h1:34px">
+          <dc-import name="CUVA Mobile Home" hint-size="430px,1180px"></dc-import>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(255,255,255,.7)">MATCH REPORT &middot; 390PX</p>
+        <div style="width:390px;height:1180px;overflow-y:auto;overflow-x:hidden;border:1px solid rgba(217,222,227,.3);background:#F9F7F2;--cuva-h1:32px">
+          <dc-import name="CUVA Mobile Report" hint-size="390px,1180px"></dc-import>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:rgba(255,255,255,.7)">MATCH REPORT &middot; 430PX</p>
+        <div style="width:430px;height:1180px;overflow-y:auto;overflow-x:hidden;border:1px solid rgba(217,222,227,.3);background:#F9F7F2;--cuva-h1:34px">
+          <dc-import name="CUVA Mobile Report" hint-size="430px,1180px"></dc-import>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section data-screen-label="Shape changes" style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.16em;color:#D4A843">2 &middot; COMPONENTS THAT CHANGE SHAPE, DESKTOP BESIDE MOBILE</h2>
+
+    <div style="background:#F9F7F2;color:#0B1A2B;padding:28px;display:flex;flex-direction:column;gap:14px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">Recent Results</h3>
+        <p style="font-size:13px;color:#5C6672;max-width:70ch">The single worst defect. Below 768px the table stops being a grid and each row becomes a block: sport and competition, then the scoreline in mono as the dominant element, then date, status and one report link. Real table markup is kept, the header row is visually hidden but still read, and every cell carries data-label so the column name survives the visual change.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">DESKTOP 1024PX AND UP &middot; UNCHANGED</p>
+          <table style="width:100%;border-collapse:collapse;text-align:left">
+            <thead>
+              <tr style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5C6672">
+                <th scope="col" style="padding:10px 12px 10px 0;font-weight:600">Sport</th>
+                <th scope="col" style="padding:10px 12px;font-weight:600">Competition</th>
+                <th scope="col" style="padding:10px 12px;font-weight:600">Result</th>
+                <th scope="col" style="padding:10px 12px;font-weight:600">Date</th>
+                <th scope="col" style="padding:10px 0 10px 12px;font-weight:600;text-align:right">Report</th>
+              </tr>
+            </thead>
+            <tbody style="font-size:14px">
+              <tr style="border-top:1px solid #D9DEE3">
+                <td style="padding:12px 12px 12px 0"><span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A2E1E;border-left:3px solid #7A2E1E;padding-left:8px">Football</span></td>
+                <td style="padding:12px;color:#14273D">World Cup 2026, Final</td>
+                <td style="padding:12px;font-family:'IBM Plex Mono',monospace">Spain 1-0 Argentina</td>
+                <td style="padding:12px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5C6672">19 JUL 2026</td>
+                <td style="padding:12px 0 12px 12px;text-align:right"><a href="#" style="font-size:14px;font-weight:600;color:#23507F">Report &rarr;</a></td>
+              </tr>
+              <tr style="border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3">
+                <td style="padding:12px 12px 12px 0"><span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1E5741;border-left:3px solid #1E5741;padding-left:8px">Cricket</span></td>
+                <td style="padding:12px;color:#14273D">England v India, Third ODI</td>
+                <td style="padding:12px;font-family:'IBM Plex Mono',monospace">England beat India by 27 runs</td>
+                <td style="padding:12px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5C6672">19 JUL 2026</td>
+                <td style="padding:12px 0 12px 12px;text-align:right"><a href="#" style="font-size:14px;font-weight:600;color:#23507F">Report &rarr;</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7A2E1E">BELOW 768PX &middot; STACKED ROWS, NO SIDEWAYS SCROLL</p>
+          <div style="width:350px;max-width:100%;border-top:1px solid #D9DEE3">
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:14px 0;border-bottom:1px solid #D9DEE3">
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A2E1E;border-left:3px solid #7A2E1E;padding-left:7px">Football</span>
+              <span style="flex:1;min-width:0;font-size:13px;color:#5C6672">World Cup 2026, Final</span>
+              <span style="flex:0 0 100%;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#0B1A2B">Spain 1-0 Argentina</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">19 JUL 2026</span>
+              <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#14273D">Full time (AET)</span>
+              <a href="#" style="flex:0 0 100%;min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;color:#23507F">Read the report <span style="font-family:'IBM Plex Mono',monospace;padding-left:8px">&rarr;</span></a>
+            </div>
+          </div>
+          <p style="font-size:13px;line-height:1.5;color:#5C6672;max-width:44ch">The League Table is the exception and stays as it is: a reader genuinely holds those columns against each other, and it already fits at 430px.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#F9F7F2;color:#0B1A2B;padding:28px;display:flex;flex-direction:column;gap:14px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">Masthead and navigation</h3>
+        <p style="font-size:13px;color:#5C6672;max-width:70ch">The compact lockup and the descriptor come back below 768px. Search is reachable in one tap without opening the menu, and Football, Cricket and Results are visible entry points rather than menu contents. The menu still exists and repeats everything, with a search field at the top of it.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:28px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">CURRENT BELOW 768PX &middot; WHAT IS WRONG</p>
+          <div style="background:#14273D;min-height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px">
+            <span style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;color:#FFFFFF">CUVA</span>
+            <span style="color:#FFFFFF;font-size:20px">&#9776;</span>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.5;color:#14273D;padding-top:4px">
+            <li style="border-left:3px solid #B3261E;padding-left:10px">No logo lockup, so the masthead carries none of the identity.</li>
+            <li style="border-left:3px solid #B3261E;padding-left:10px">No descriptor, so a first-time reader cannot tell what this publication is.</li>
+            <li style="border-left:3px solid #B3261E;padding-left:10px">Search only exists inside the menu, and both beats are hidden behind it.</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7A2E1E">PROPOSED &middot; 390PX</p>
+          <div style="border:1px solid #D9DEE3;background:#F9F7F2">
+            <div style="border-bottom:1px solid #D9DEE3;padding:0 20px;display:flex;align-items:center;justify-content:space-between;min-height:40px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">SAT 25 JUL 2026</span>
+              <span style="font-size:13px;font-weight:500;color:#23507F">Contact the desk</span>
+            </div>
+            <div style="padding:12px 20px;display:flex;align-items:center;gap:12px">
+              <img src="assets/logo-compact-t.png" alt="CUVA Sports" style="display:block;height:38px;width:auto;flex:1;object-fit:contain;object-position:left">
+              <span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #D9DEE3;background:#FFFFFF">
+                <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" stroke="#14273D" stroke-width="1.8"></circle><path d="M13 13l5 5" stroke="#14273D" stroke-width="1.8" stroke-linecap="round"></path></svg>
+              </span>
+              <span style="min-height:44px;display:flex;align-items:center;gap:8px;padding:0 12px;background:#14273D;color:#FFFFFF;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">
+                <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" stroke="#FFFFFF" stroke-width="1.8"></path></svg>Menu
+              </span>
+            </div>
+            <p style="padding:0 20px 12px;font-family:'Source Serif 4',Georgia,serif;font-size:14px;font-style:italic;color:#5C6672">Football and cricket journalism, written from the press box.</p>
+            <div style="background:#14273D;display:flex">
+              <span style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:600;border-bottom:3px solid #D4A843">Football</span>
+              <span style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:600;border-left:1px solid rgba(255,255,255,.14)">Cricket</span>
+              <span style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:600;border-left:1px solid rgba(255,255,255,.14)">Results</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#F9F7F2;color:#0B1A2B;padding:28px;display:flex;flex-direction:column;gap:14px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">Reports with no photograph</h3>
+        <p style="font-size:13px;color:#5C6672;max-width:70ch">Twelve of eighty-one reports have no picture. A 16:9 branded fallback at full mobile width spends about 240px saying nothing. The text-forward card gives that space back to the result, which is what the reader came for, and does not imply a photograph exists.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+        <div style="display:flex;flex-direction:column;gap:10px;width:350px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#5C6672">CURRENT &middot; BRANDED FALLBACK</p>
+          <div style="border:1px solid #D9DEE3;background:#FFFFFF;border-radius:6px;overflow:hidden">
+            <div style="aspect-ratio:16/9;background:#14273D;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+              <span style="font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700;color:rgba(255,255,255,.6)">CUVA</span>
+              <span style="min-height:36px;display:inline-flex;align-items:center;padding:0 14px;background:#D4A843;color:#0B1A2B;font-size:12px;font-weight:700;letter-spacing:0.08em">READ ARTICLE &rarr;</span>
+            </div>
+            <div style="padding:14px">
+              <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Semi-Final</p>
+              <p style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;padding-top:8px">England 1-2 Argentina: Late Argentina Double Breaks English Hearts in Atlanta</p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.5;color:#14273D">
+            <li style="border-left:3px solid #B3261E;padding-left:10px">240px of navy that conveys nothing.</li>
+            <li style="border-left:3px solid #B3261E;padding-left:10px">A second CTA to the same article.</li>
+            <li style="border-left:3px solid #B3261E;padding-left:10px">Rounded corners and a white card fill, from the old system.</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;width:350px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7A2E1E">PROPOSED &middot; TEXT-FORWARD CARD</p>
+          <div style="border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3">
+            <a href="#" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:start;padding:14px 0;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Semi-Final</span>
+              <span style="grid-row:span 3;font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#14273D;align-self:center">1-2</span>
+              <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">England 1-2 Argentina: Late Argentina Double Breaks English Hearts in Atlanta</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">15 JUL 2026</span>
+            </a>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.5;color:#14273D">
+            <li style="border-left:3px solid #1E5741;padding-left:10px">Three of these fit where one fallback card sat.</li>
+            <li style="border-left:3px solid #1E5741;padding-left:10px">The scoreline is the anchor, in mono, and it is real information.</li>
+            <li style="border-left:3px solid #1E5741;padding-left:10px">The whole row is the target, so there is one CTA.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#F9F7F2;color:#0B1A2B;padding:28px;display:flex;flex-direction:column;gap:14px">
+      <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700">Credibility block and report contents</h3>
+        <p style="font-size:13px;color:#5C6672;max-width:70ch">Words before portrait, and the three mono figures become a two-column list so nothing wraps ragged. On the report page the rail is already gone below 1180px; the only open question was the contents list, which becomes a closed disclosure between the hero and the first paragraph.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+        <div style="display:flex;flex-direction:column;gap:10px;width:350px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7A2E1E">CREDIBILITY &middot; TEXT FIRST, FIGURES PAIRED</p>
+          <div style="background:#14273D;color:#FFFFFF;padding:18px;display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:#D4A843">WHO WRITES CUVA SPORTS</span>
+            <h4 style="font-family:'Source Serif 4',Georgia,serif;font-size:28px;font-weight:700">William Powell</h4>
+            <p style="font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.5;color:rgba(255,255,255,.85)">Every report on this site is written from the ground, not from a desk.</p>
+            <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;align-items:start">
+              <div style="aspect-ratio:3/4;background:rgba(255,255,255,.08);border-top:3px solid #D4A843;display:flex;align-items:flex-end;padding:8px"><span style="font-size:11px;color:rgba(255,255,255,.5)">Portrait 3:4</span></div>
+              <div style="display:flex;flex-direction:column">
+                <p style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(217,222,227,.25)"><span style="font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,.7)">Reporting since</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#D4A843">1987</span></p>
+                <p style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(217,222,227,.25)"><span style="font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,.7)">Years active</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#D4A843">39</span></p>
+                <p style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(217,222,227,.25)"><span style="font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,.7)">CMC since</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#D4A843">1989</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;width:350px">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#7A2E1E">IN THIS REPORT &middot; CLOSED BY DEFAULT</p>
+          <div style="border-top:1px solid #D9DEE3;border-bottom:1px solid #D9DEE3">
+            <p style="min-height:48px;display:flex;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#14273D">In this report <span style="font-size:13px;color:#5C6672">+</span></p>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.5;color:#14273D;padding-top:4px">
+            <li style="border-left:3px solid #1E5741;padding-left:10px">Native disclosure, no script, so it costs nothing against INP.</li>
+            <li style="border-left:3px solid #1E5741;padding-left:10px">Sits after the hero, before the first paragraph, so it never interrupts the read.</li>
+            <li style="border-left:3px solid #1E5741;padding-left:10px">Share moves to the end of the article; the 3px progress bar stays pinned to the top of the window.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Spec" style="display:flex;flex-direction:column;gap:18px">
+    <h2 style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.16em;color:#D4A843">3 &middot; BREAKPOINT SPEC TO IMPLEMENT AGAINST</h2>
+    <div style="background:#F9F7F2;color:#0B1A2B;padding:28px;display:flex;flex-direction:column;gap:26px">
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:700;border-bottom:2px solid #0B1A2B;padding-bottom:8px">Breakpoints</h3>
+        <table style="width:100%;border-collapse:collapse;text-align:left">
+          <thead>
+            <tr style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5C6672">
+              <th scope="col" style="padding:8px 12px 8px 0;font-weight:600;width:150px">Range</th>
+              <th scope="col" style="padding:8px 12px;font-weight:600;width:110px">Tailwind</th>
+              <th scope="col" style="padding:8px 0 8px 12px;font-weight:600">What changes</th>
+            </tr>
+          </thead>
+          <tbody style="font-size:14px;line-height:1.5">
+            <tr style="border-top:1px solid #D9DEE3"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">320-389</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">base</td><td style="padding:11px 0 11px 12px">16px gutters. Everything else as 390. Nav labels hold at 14px.</td></tr>
+            <tr style="border-top:1px solid #D9DEE3"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">390-429</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">base</td><td style="padding:11px 0 11px 12px">Design target. 20px gutters, h1 32px, body 18px, single column throughout.</td></tr>
+            <tr style="border-top:1px solid #D9DEE3"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">430-639</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">min-[430px]</td><td style="padding:11px 0 11px 12px">h1 34px. Nothing else moves; the extra 40px goes to the measure.</td></tr>
+            <tr style="border-top:1px solid #D9DEE3"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">640-767</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">sm</td><td style="padding:11px 0 11px 12px">Gutters return to 24px. Cricket thumbnail cards may pair two up. Results rows stay stacked.</td></tr>
+            <tr style="border-top:1px solid #D9DEE3"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">768-1023</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">md</td><td style="padding:11px 0 11px 12px">Results table becomes a real grid again. Utility strip and full masthead return. Section grids go two column. Menu still collapsed.</td></tr>
+            <tr style="border-top:1px solid #D9DEE3"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">1024-1179</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">lg</td><td style="padding:11px 0 11px 12px">Desktop nav bar, 12 column homepage grid, 32px gutters. Report page still single column, no rail.</td></tr>
+            <tr style="border-top:1px solid #D9DEE3;border-bottom:2px solid #0B1A2B"><td style="padding:11px 12px 11px 0;font-family:'IBM Plex Mono',monospace">1180 and up</td><td style="padding:11px 12px;font-family:'IBM Plex Mono',monospace;color:#5C6672">min-[1180px]</td><td style="padding:11px 0 11px 12px">Report rail appears: progress, at a glance, share, contents. The inline contents disclosure and the end-of-article share block are removed at the same width, never both present.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px solid #14273D;padding-top:12px">
+          <h4 style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700">Type on mobile</h4>
+          <ul style="display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.55;color:#14273D">
+            <li>Report h1 Playfair 700 at 32px from 320, 34px from 430, 44px from 1024. Never below 20px anywhere.</li>
+            <li>Homepage lead h1 the same steps. Card headlines Source Serif 4 at 17-24px.</li>
+            <li>Body Source Serif 4 18px, line-height 1.6, which measures about 38 characters at 390 with 20px gutters and 42 at 430.</li>
+            <li>Metadata Inter 13px minimum, mono dates 12px, kickers 11px with 0.12em tracking, which is the one exception and it is uppercase and short.</li>
+            <li>Form inputs 16px so iOS does not zoom on focus.</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px solid #7A2E1E;padding-top:12px">
+          <h4 style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700">Targets and spacing</h4>
+          <ul style="display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.55;color:#14273D">
+            <li>44px minimum on the smallest dimension for every target except links inside a sentence.</li>
+            <li>Utility strip, tags and footer keep 24px minimum between adjacent targets. Breadcrumb links are separated by a 14px gap either side of the divider, so the clear distance between two targets is 28px.</li>
+            <li>Footer links are 48px full-width rows with a hairline between, so the gap is unambiguous.</li>
+            <li>One call to action per card, and the whole card is the target.</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px solid #1E5741;padding-top:12px">
+          <h4 style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700">iOS Safari and layout stability</h4>
+          <ul style="display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.55;color:#14273D">
+            <li>svh for any full-height treatment, never dvh, never vh.</li>
+            <li>Footer pads to calc(28px + env(safe-area-inset-bottom)), so the real 28px still holds when the inset returns 0.</li>
+            <li>Every image slot declares aspect-ratio: 16/9 for lead and feature, 3/2 for hero and picture desk, 4/3 for thumbnails, 3/4 for the portrait. Nothing shifts as pictures load.</li>
+            <li>The lead photograph is the LCP element: it is the only eager image on the homepage, everything below it is lazy.</li>
+            <li>No carousels, no scroll-driven animation, no polling. The only interactive JS on mobile is the menu, the search toggle and the newsletter validation.</li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:3px solid #8A6410;padding-top:12px">
+          <h4 style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:700">Kept from desktop, unchanged</h4>
+          <ul style="display:flex;flex-direction:column;gap:7px;font-size:14px;line-height:1.55;color:#14273D">
+            <li>0 radii, 1px rules, 2px and 3px section rules, no shadows, no card fills. Any surviving rounded corner or white card on mobile is a bug.</li>
+            <li>Gold only on navy. Section colours and gold-ink carry labels on light surfaces.</li>
+            <li>Scores are aria-hidden blocks paired with a hidden sentence.</li>
+            <li>Hyphens only, British English, no invented data.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-left:3px solid #B3261E;background:#FFFFFF;padding:16px 18px;display:flex;flex-direction:column;gap:8px">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#B3261E;font-weight:600">STILL OUTSTANDING, NOT SOLVED BY LAYOUT</p>
+        <ul style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.55;color:#14273D">
+          <li>Photography. The twelve reports without pictures now degrade honestly, but the Football section will keep looking thinner than Cricket until there are real photographs. This is the strongest case for the picture work.</li>
+          <li>Logos are still screenshot crops. The compact lockup is used at 38px on mobile, where a bitmap softens most. cuva-mark.svg and cuva-mark-white.svg are needed before launch.</li>
+          <li>The MDX source still records eleven goalkeeper saves against ten in the prose and in both designs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+</body>
+</html>

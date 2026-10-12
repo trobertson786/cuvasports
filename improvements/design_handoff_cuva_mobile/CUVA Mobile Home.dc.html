@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#F9F7F2;color:#0B1A2B;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+*{box-sizing:border-box}
+a{color:#23507F;text-decoration:none}
+a:hover{color:#0B1A2B;text-decoration:underline;text-underline-offset:3px}
+h1,h2,h3,h4,p,ul,ol,figure,table{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid #23507F;outline-offset:3px}
+input:focus-visible{outline:2px solid #23507F;outline-offset:1px}
+</style>
+</helmet>
+
+<div style="background:#F9F7F2;width:100%;overflow:hidden">
+
+<div style="border-bottom:1px solid #D9DEE3">
+  <div style="padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:40px;font-size:13px;color:#5C6672">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em">SAT 25 JUL 2026</span>
+    <a href="#" style="color:#23507F;font-weight:500;min-height:44px;display:inline-flex;align-items:center;font-size:13px">Contact the desk</a>
+  </div>
+</div>
+
+<header style="border-bottom:1px solid #D9DEE3">
+  <div style="padding:12px 20px;display:flex;align-items:center;gap:12px">
+    <a href="#" aria-label="CUVA Sports, home" style="display:flex;align-items:center;min-height:44px;flex:1;min-width:0"><img src="assets/logo-compact-t.png" alt="CUVA Sports" style="display:block;height:38px;width:auto"></a>
+    <button type="button" aria-label="Search reports and archive" aria-expanded="{{ searchOpen }}" onClick="{{ toggleSearch }}" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #D9DEE3;background:#FFFFFF;cursor:pointer;border-radius:0;padding:0" style-hover="border-color:#14273D">
+      <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" stroke="#14273D" stroke-width="1.8"></circle><path d="M13 13l5 5" stroke="#14273D" stroke-width="1.8" stroke-linecap="round"></path></svg>
+    </button>
+    <button type="button" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}" style="min-height:44px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid #14273D;background:#14273D;color:#FFFFFF;font-family:Inter,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:0" style-hover="background:#0B1A2B">
+      <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" stroke="#FFFFFF" stroke-width="1.8"></path></svg>Menu
+    </button>
+  </div>
+  <p style="padding:0 20px 12px;font-family:'Source Serif 4',Georgia,serif;font-size:14px;font-style:italic;line-height:1.4;color:#5C6672">Football and cricket journalism, written from the press box.</p>
+  <sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+    <form onSubmit="{{ noop }}" style="padding:0 20px 14px;display:flex;align-items:stretch">
+      <label for="m-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search CUVA Sports</label>
+      <input id="m-search" type="search" placeholder="Search reports and archive" style="flex:1;min-width:0;height:48px;border:1px solid #D9DEE3;border-right:none;background:#FFFFFF;padding:0 14px;font-family:Inter,sans-serif;font-size:16px;color:#0B1A2B;border-radius:0">
+      <button type="submit" style="height:48px;padding:0 18px;border:1px solid #14273D;background:#14273D;color:#FFFFFF;font-size:15px;font-weight:600;cursor:pointer;border-radius:0">Search</button>
+    </form>
+  </sc-if>
+</header>
+
+<nav style="background:#14273D;display:flex;align-items:stretch">
+  <a href="#" style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:600;border-bottom:3px solid #D4A843;text-decoration:none" style-hover="text-decoration:none;background:#1C3550">Football</a>
+  <a href="#" style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:600;border-bottom:3px solid transparent;border-left:1px solid rgba(255,255,255,.14);text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">Cricket</a>
+  <a href="#" style="flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:600;border-bottom:3px solid transparent;border-left:1px solid rgba(255,255,255,.14);text-decoration:none" style-hover="text-decoration:none;background:#1C3550;border-bottom-color:rgba(212,168,67,.5)">Results</a>
+</nav>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="background:#0B1A2B;padding:16px 20px 20px;display:flex;flex-direction:column;gap:4px">
+  <form onSubmit="{{ noop }}" style="display:flex;align-items:stretch;margin-bottom:10px">
+    <label for="m-menu-search" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search CUVA Sports</label>
+    <input id="m-menu-search" type="search" placeholder="Search reports and archive" style="flex:1;min-width:0;height:48px;border:1px solid rgba(255,255,255,.3);border-right:none;background:#FFFFFF;padding:0 14px;font-family:Inter,sans-serif;font-size:16px;color:#0B1A2B;border-radius:0">
+    <button type="submit" style="height:48px;padding:0 18px;border:1px solid #D4A843;background:#D4A843;color:#0B1A2B;font-size:15px;font-weight:600;cursor:pointer;border-radius:0">Search</button>
+  </form>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:600;border-top:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">Home</a>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:500;border-top:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">Match Reports</a>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:500;border-top:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">Football</a>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:500;border-top:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">Cricket</a>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:500;border-top:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">Recent Results</a>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:500;border-top:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">About</a>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;color:#FFFFFF;font-size:16px;font-weight:500;border-top:1px solid rgba(217,222,227,.2);border-bottom:1px solid rgba(217,222,227,.2)" style-hover="text-decoration:none;color:#D4A843">Contact</a>
+  <a href="#" style="min-height:44px;display:inline-flex;align-items:center;color:rgba(255,255,255,.7);font-size:13px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;margin-top:6px" style-hover="text-decoration:none;color:#D4A843">RSS FEED</a>
+</div>
+</sc-if>
+
+<main style="padding:0 20px">
+
+  <section data-screen-label="Lead" style="padding:22px 0 26px;border-bottom:2px solid #0B1A2B;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">Football <span style="color:#D9DEE3">/</span> World Cup Final</span>
+      <span style="height:1px;flex:1;background:#D9DEE3"></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#5C6672">LEAD</span>
+    </div>
+    <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:var(--cuva-h1,32px);line-height:1.1;letter-spacing:-0.015em;font-weight:700;color:#0B1A2B">
+      <a href="#" style="color:inherit;text-decoration:none" style-hover="color:#23507F;text-decoration:none">Spain 1-0 Argentina AET: Ferran Torres Wins the World Cup for Spain</a>
+    </h1>
+    <p style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.55;color:#14273D">Ferran Torres came off the bench to score the only goal in extra time as Spain overcame ten-man Argentina to lift the World Cup for the second time, despite a record ten-save display from Emiliano Martinez at MetLife Stadium.</p>
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:#5C6672">
+      <span style="font-weight:600;color:#0B1A2B">William Powell</span>
+      <span style="color:#D9DEE3">·</span>
+      <span style="font-family:'IBM Plex Mono',monospace">19 JUL 2026</span>
+      <span style="color:#D9DEE3">·</span>
+      <span>4 min read</span>
+    </div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8A6410">Reported from the ground</p>
+    <div style="position:relative;width:100%;aspect-ratio:16/9;border-top:3px solid #7A2E1E">
+      <image-slot id="m-lead-photo" shape="rect" radius="0" placeholder="Lead photograph - World Cup final, MetLife Stadium"></image-slot>
+    </div>
+    <p style="font-size:12px;color:#5C6672">Photograph: William Powell</p>
+    <div style="background:#14273D;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+      <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Spain 1, Argentina 0, after extra time. Scorer: Torres, 106 minutes.</span>
+      <div aria-hidden="true" style="display:flex;flex-direction:column;gap:6px">
+        <p style="display:flex;align-items:baseline;justify-content:space-between;gap:12px"><span style="font-family:'Source Serif 4',Georgia,serif;font-size:20px;font-weight:700;color:#FFFFFF">Spain</span><span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#D4A843">1</span></p>
+        <p style="display:flex;align-items:baseline;justify-content:space-between;gap:12px"><span style="font-family:'Source Serif 4',Georgia,serif;font-size:20px;font-weight:700;color:rgba(255,255,255,.75)">Argentina</span><span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:rgba(255,255,255,.75)">0</span></p>
+      </div>
+      <p aria-hidden="true" style="display:flex;align-items:center;gap:10px;border-top:1px solid rgba(217,222,227,.2);padding-top:10px;font-size:12px;color:rgba(255,255,255,.72)"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#D4A843;border:1px solid rgba(212,168,67,.5);padding:3px 6px;letter-spacing:0.08em">AET</span>Torres 106&#39; <span style="color:rgba(255,255,255,.3)">·</span> Fernandez sent off 90+3&#39;</p>
+    </div>
+    <a href="#" style="min-height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#F3F1EC;border-left:3px solid #7A2E1E;font-size:15px;font-weight:600;color:#23507F" style-hover="background:#D9DEE3;text-decoration:none">Read the full report <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+  </section>
+
+  <section data-screen-label="Latest" style="padding:22px 0 24px;border-bottom:1px solid #D9DEE3">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid #0B1A2B;padding-bottom:8px">
+      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:700">Latest</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5C6672">UPDATED 25 JUL</span>
+    </div>
+    <a href="#" style="display:flex;flex-direction:column;gap:6px;padding:14px 0;border-bottom:1px solid #D9DEE3;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1E5741">Cricket <span style="color:#D9DEE3">/</span> One-Day International</span>
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.3;font-weight:600;color:#0B1A2B">Duckett 141 Powers England to 27 Run Win at Lord&#39;s to Seal ODI Series 2-1</span>
+      <span style="font-size:13px;color:#5C6672;display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace">19 JUL</span><span style="color:#D9DEE3">·</span><span>6 min read</span></span>
+    </a>
+    <a href="#" style="display:flex;flex-direction:column;gap:6px;padding:14px 0;border-bottom:1px solid #D9DEE3;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">Football <span style="color:#D9DEE3">/</span> World Cup, Third Place</span>
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.3;font-weight:600;color:#0B1A2B">France 4-6 England: Saka Hat-Trick Seals Bronze in Ten-Goal Miami Thriller</span>
+      <span style="font-size:13px;color:#5C6672;display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace">18 JUL</span><span style="color:#D9DEE3">·</span><span>4 min read</span></span>
+    </a>
+    <a href="#" style="display:flex;flex-direction:column;gap:6px;padding:14px 0;border-bottom:1px solid #D9DEE3;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">Football <span style="color:#D9DEE3">/</span> World Cup, Semi-Final</span>
+      <span style="font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.3;font-weight:600;color:#0B1A2B">England 1-2 Argentina: Late Argentina Double Breaks English Hearts in Atlanta</span>
+      <span style="font-size:13px;color:#5C6672;display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace">15 JUL</span><span style="color:#D9DEE3">·</span><span>4 min read</span></span>
+    </a>
+    <a href="#" style="min-height:48px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#23507F">All match reports <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+  </section>
+
+  <section data-screen-label="Football" style="padding:22px 0 24px;border-bottom:1px solid #D9DEE3">
+    <div style="border-bottom:3px solid #7A2E1E;padding-bottom:10px;margin-bottom:18px;display:flex;flex-direction:column;gap:4px">
+      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:700;letter-spacing:-0.01em;color:#7A2E1E">Football</h2>
+      <p style="font-size:13px;line-height:1.45;color:#5C6672;text-wrap:balance">Premier League, EFL and international coverage <span style="color:#D9DEE3">·</span> 55 reports</p>
+    </div>
+    <article style="display:flex;flex-direction:column;gap:10px;padding-bottom:18px">
+      <div style="position:relative;width:100%;aspect-ratio:16/9;border-top:3px solid #7A2E1E">
+        <image-slot id="m-football-feature" shape="rect" radius="0" placeholder="Football feature photograph"></image-slot>
+      </div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Third Place</span>
+      <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:24px;line-height:1.18;font-weight:700"><a href="#" style="color:inherit" style-hover="color:#7A2E1E;text-decoration:none">France 4-6 England: Saka Hat-Trick Seals Bronze in Ten-Goal Miami Thriller</a></h3>
+      <p style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;color:#14273D">Bukayo Saka scored a hat-trick as England built a 4-0 lead and then survived a stirring French recovery to take third place.</p>
+      <p style="font-size:13px;color:#5C6672;display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="font-weight:600;color:#0B1A2B">William Powell</span><span style="color:#D9DEE3">·</span><span style="font-family:'IBM Plex Mono',monospace">18 JUL 2026</span><span style="color:#D9DEE3">·</span><span>4 min read</span></p>
+    </article>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #D9DEE3">
+      <a href="#" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:start;padding:14px 0;border-bottom:1px solid #D9DEE3;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Semi-Final</span>
+        <span style="grid-row:span 3;font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#14273D;white-space:nowrap;align-self:center">1-2</span>
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">England 1-2 Argentina: Late Argentina Double Breaks English Hearts in Atlanta</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">15 JUL 2026</span>
+      </a>
+      <a href="#" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:start;padding:14px 0;border-bottom:1px solid #D9DEE3;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Semi-Final</span>
+        <span style="grid-row:span 3;font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#14273D;white-space:nowrap;align-self:center">0-2</span>
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">France 0-2 Spain: Oyarzabal and Porro Send Spain into the World Cup Final</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">14 JUL 2026</span>
+      </a>
+      <a href="#" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:start;padding:14px 0;border-bottom:1px solid #D9DEE3;text-decoration:none" style-hover="text-decoration:none;background:#F3F1EC">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#7A2E1E">World Cup, Quarter-Final</span>
+        <span style="grid-row:span 3;font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#14273D;white-space:nowrap;align-self:center">1-2</span>
+        <span style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.3;font-weight:600;color:#0B1A2B">Norway 1-2 England AET: Bellingham Double Fires Three Lions into the Semi-Finals</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">12 JUL 2026</span>
+      </a>
+    </div>
+    <a href="#" style="min-height:48px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#7A2E1E">All football <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+  </section>
+
+  <section data-screen-label="Cricket" style="padding:22px 0 24px;border-bottom:1px solid #D9DEE3">
+    <div style="border-bottom:3px solid #1E5741;padding-bottom:10px;margin-bottom:18px;display:flex;flex-direction:column;gap:4px">
+      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:700;letter-spacing:-0.01em;color:#1E5741">Cricket</h2>
+      <p style="font-size:13px;line-height:1.45;color:#5C6672;text-wrap:balance">County Championship, Test and international coverage <span style="color:#D9DEE3">·</span> 26 reports</p>
+    </div>
+    <article style="display:flex;flex-direction:column;gap:10px;padding-bottom:18px">
+      <div style="position:relative;width:100%;aspect-ratio:16/9;border-top:3px solid #1E5741">
+        <image-slot id="m-cricket-feature" shape="rect" radius="0" placeholder="Lord's, third ODI - press box photograph"></image-slot>
+      </div>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1E5741">One-Day International, Third of Three</span>
+      <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:24px;line-height:1.18;font-weight:700"><a href="#" style="color:inherit" style-hover="color:#1E5741;text-decoration:none">Duckett 141 Powers England to 27 Run Win at Lord&#39;s to Seal ODI Series 2-1</a></h3>
+      <p style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;color:#14273D">Ben Duckett hit 141, the highest individual ODI innings at Lord&#39;s, to help England to a series-clinching win in front of a full house.</p>
+      <p style="font-size:13px;color:#5C6672;display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="font-weight:600;color:#0B1A2B">William Powell</span><span style="color:#D9DEE3">·</span><span style="font-family:'IBM Plex Mono',monospace">19 JUL 2026</span><span style="color:#D9DEE3">·</span><span>6 min read</span></p>
+    </article>
+    <article style="display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:start;border-top:1px solid #D9DEE3;padding:14px 0">
+      <div style="position:relative;width:100%;aspect-ratio:4/3"><image-slot id="m-cricket-1" shape="rect" radius="0" placeholder="Trent Bridge"></image-slot></div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1E5741">T20 International</span>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600"><a href="#" style="color:inherit" style-hover="color:#1E5741;text-decoration:none">India Suffer Record T20 Defeat as England Win by 125 Runs at Trent Bridge</a></h3>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">7 JUL 2026</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:start;border-top:1px solid #D9DEE3;padding:14px 0">
+      <div style="position:relative;width:100%;aspect-ratio:4/3"><image-slot id="m-cricket-2" shape="rect" radius="0" placeholder="Lord's, T20 World Cup final"></image-slot></div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1E5741">ICC Women&#39;s T20 World Cup</span>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600"><a href="#" style="color:inherit" style-hover="color:#1E5741;text-decoration:none">England v Australia Final: Australia Lift 7th Title at Lord&#39;s by 7 Wickets</a></h3>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">6 JUL 2026</span>
+      </div>
+    </article>
+    <div style="border-left:3px solid #1E5741;background:#F3F1EC;padding:16px 18px;display:flex;flex-direction:column;gap:8px;margin-top:14px">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#1E5741">Analysis <span style="color:#5C6672">/</span> From the desk</span>
+      <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:20px;line-height:1.25;font-weight:700;font-style:italic"><a href="#" style="color:inherit" style-hover="color:#1E5741;text-decoration:none">Why three days at Lord&#39;s still tell you more than a franchise final</a></h3>
+      <p style="font-family:'Source Serif 4',Georgia,serif;font-size:15px;line-height:1.5;color:#14273D">Comment, not reporting: what the Lord&#39;s press box said about the shape of England&#39;s summer.</p>
+      <p style="font-size:12px;color:#5C6672;display:flex;gap:8px"><span style="font-weight:600;color:#0B1A2B">William Powell</span><span style="color:#D9DEE3">·</span><span>Column</span></p>
+    </div>
+    <a href="#" style="min-height:48px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#1E5741;margin-top:6px">All cricket <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+  </section>
+
+  <section data-screen-label="Recent Results" style="padding:22px 0 24px;border-bottom:1px solid #D9DEE3">
+    <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;display:flex;flex-direction:column;gap:4px">
+      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:700;letter-spacing:-0.01em">Recent Results</h2>
+      <p style="font-size:13px;line-height:1.45;color:#5C6672">Every result CUVA Sports has reported, newest first</p>
+    </div>
+    <table style="width:100%;border-collapse:collapse;display:block">
+      <thead style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">
+        <tr>
+          <th scope="col">Sport</th><th scope="col">Competition</th><th scope="col">Result</th><th scope="col">Date</th><th scope="col">Status</th><th scope="col">Report</th>
+        </tr>
+      </thead>
+      <tbody style="display:block">
+        <tr style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:14px 0;border-bottom:1px solid #D9DEE3">
+          <td data-label="Sport" style="display:block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A2E1E;border-left:3px solid #7A2E1E;padding-left:7px">Football</td>
+          <td data-label="Competition" style="display:block;flex:1;min-width:0;font-size:13px;color:#5C6672">World Cup 2026, Final</td>
+          <td data-label="Result" style="display:block;flex:0 0 100%;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:500;line-height:1.3;color:#0B1A2B">Spain 1-0 Argentina</td>
+          <td data-label="Date" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">19 JUL 2026</td>
+          <td data-label="Status" style="display:block;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#14273D">Full time (AET) <span style="color:#5C6672;font-weight:400;text-transform:none;letter-spacing:0">MetLife Stadium</span></td>
+          <td data-label="Report" style="display:block;flex:0 0 100%"><a href="#" style="min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;color:#23507F">Read the report <span style="font-family:'IBM Plex Mono',monospace;padding-left:8px">&rarr;</span></a></td>
+        </tr>
+        <tr style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:14px 0;border-bottom:1px solid #D9DEE3">
+          <td data-label="Sport" style="display:block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1E5741;border-left:3px solid #1E5741;padding-left:7px">Cricket</td>
+          <td data-label="Competition" style="display:block;flex:1;min-width:0;font-size:13px;color:#5C6672">England v India, Third ODI</td>
+          <td data-label="Result" style="display:block;flex:0 0 100%;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:500;line-height:1.3;color:#0B1A2B">England beat India by 27 runs</td>
+          <td data-label="Date" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">19 JUL 2026</td>
+          <td data-label="Status" style="display:block;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#14273D">Series won 2-1 <span style="color:#5C6672;font-weight:400;text-transform:none;letter-spacing:0">Lord&#39;s</span></td>
+          <td data-label="Report" style="display:block;flex:0 0 100%"><a href="#" style="min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;color:#23507F">Read the report <span style="font-family:'IBM Plex Mono',monospace;padding-left:8px">&rarr;</span></a></td>
+        </tr>
+        <tr style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:14px 0;border-bottom:1px solid #D9DEE3">
+          <td data-label="Sport" style="display:block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A2E1E;border-left:3px solid #7A2E1E;padding-left:7px">Football</td>
+          <td data-label="Competition" style="display:block;flex:1;min-width:0;font-size:13px;color:#5C6672">World Cup 2026, Third Place</td>
+          <td data-label="Result" style="display:block;flex:0 0 100%;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:500;line-height:1.3;color:#0B1A2B">France 4-6 England</td>
+          <td data-label="Date" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">18 JUL 2026</td>
+          <td data-label="Status" style="display:block;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#14273D">Full time <span style="color:#5C6672;font-weight:400;text-transform:none;letter-spacing:0">Miami</span></td>
+          <td data-label="Report" style="display:block;flex:0 0 100%"><a href="#" style="min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;color:#23507F">Read the report <span style="font-family:'IBM Plex Mono',monospace;padding-left:8px">&rarr;</span></a></td>
+        </tr>
+        <tr style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:14px 0;border-bottom:1px solid #D9DEE3">
+          <td data-label="Sport" style="display:block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A2E1E;border-left:3px solid #7A2E1E;padding-left:7px">Football</td>
+          <td data-label="Competition" style="display:block;flex:1;min-width:0;font-size:13px;color:#5C6672">World Cup 2026, Semi-Final</td>
+          <td data-label="Result" style="display:block;flex:0 0 100%;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:500;line-height:1.3;color:#0B1A2B">England 1-2 Argentina</td>
+          <td data-label="Date" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">15 JUL 2026</td>
+          <td data-label="Status" style="display:block;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#14273D">Full time <span style="color:#5C6672;font-weight:400;text-transform:none;letter-spacing:0">Atlanta</span></td>
+          <td data-label="Report" style="display:block;flex:0 0 100%"><a href="#" style="min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;color:#23507F">Read the report <span style="font-family:'IBM Plex Mono',monospace;padding-left:8px">&rarr;</span></a></td>
+        </tr>
+        <tr style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:14px 0;border-bottom:2px solid #0B1A2B">
+          <td data-label="Sport" style="display:block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#1E5741;border-left:3px solid #1E5741;padding-left:7px">Cricket</td>
+          <td data-label="Competition" style="display:block;flex:1;min-width:0;font-size:13px;color:#5C6672">ICC Women&#39;s T20 World Cup, Final</td>
+          <td data-label="Result" style="display:block;flex:0 0 100%;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:500;line-height:1.3;color:#0B1A2B">Australia beat England by 7 wickets</td>
+          <td data-label="Date" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C6672">6 JUL 2026</td>
+          <td data-label="Status" style="display:block;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#14273D">Result <span style="color:#5C6672;font-weight:400;text-transform:none;letter-spacing:0">Lord&#39;s</span></td>
+          <td data-label="Report" style="display:block;flex:0 0 100%"><a href="#" style="min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:600;color:#23507F">Read the report <span style="font-family:'IBM Plex Mono',monospace;padding-left:8px">&rarr;</span></a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="#" style="min-height:48px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#23507F">Results archive <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+    <p style="font-size:12px;line-height:1.5;color:#5C6672">This module lists results only. The words &ldquo;League Table&rdquo; are used solely where actual positions and points are shown.</p>
+  </section>
+
+  <section data-screen-label="Across the Grounds" style="padding:22px 0 26px">
+    <div style="border-bottom:2px solid #0B1A2B;padding-bottom:10px;margin-bottom:16px;display:flex;flex-direction:column;gap:4px">
+      <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:700;letter-spacing:-0.01em">Across the Grounds</h2>
+      <p style="font-size:13px;line-height:1.45;color:#5C6672">Photographic reporting, all pictures taken by William Powell from the press box</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <figure style="display:flex;flex-direction:column;gap:8px">
+        <div style="position:relative;width:100%;aspect-ratio:3/2"><image-slot id="m-grounds-1" shape="rect" radius="0" placeholder="Lord's - pavilion end"></image-slot></div>
+        <figcaption style="font-size:13px;line-height:1.5;color:#14273D">Lord&#39;s, the third ODI. <span style="color:#5C6672">A full house watched Duckett pass 141 before lunch on the second afternoon.</span></figcaption>
+      </figure>
+      <figure style="display:flex;flex-direction:column;gap:8px">
+        <div style="position:relative;width:100%;aspect-ratio:3/2"><image-slot id="m-grounds-2" shape="rect" radius="0" placeholder="Trent Bridge"></image-slot></div>
+        <figcaption style="font-size:13px;line-height:1.5;color:#14273D">Trent Bridge. <span style="color:#5C6672">England&#39;s 125-run T20 win, seen from the back of the press box.</span></figcaption>
+      </figure>
+      <figure style="display:flex;flex-direction:column;gap:8px">
+        <div style="position:relative;width:100%;aspect-ratio:3/2"><image-slot id="m-grounds-3" shape="rect" radius="0" placeholder="Non-league ground, midweek"></image-slot></div>
+        <figcaption style="font-size:13px;line-height:1.5;color:#14273D">A midweek non-league tie. <span style="color:#5C6672">The same notebook, four decades apart.</span></figcaption>
+      </figure>
+    </div>
+    <a href="#" style="min-height:48px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#23507F;margin-top:8px">Picture archive <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+  </section>
+</main>
+
+<section data-screen-label="Credibility" style="background:#14273D;color:#FFFFFF;padding:28px 20px;display:flex;flex-direction:column;gap:16px">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#D4A843">Who writes CUVA Sports</span>
+  <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:30px;line-height:1.1;font-weight:700">William Powell</h2>
+  <p style="font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.55;color:rgba(255,255,255,.85)">Every report on this site is written from the ground, not from a desk. Thirty-nine years of press boxes, from non-league ties on wet Tuesday evenings to World Cup finals and Ashes series - and the photographs are mine too.</p>
+  <div style="display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;align-items:start">
+    <div style="position:relative;width:100%;aspect-ratio:3/4;border-top:3px solid #D4A843"><image-slot id="m-wp-portrait" shape="rect" radius="0" placeholder="Portrait - William Powell"></image-slot></div>
+    <dl style="display:flex;flex-direction:column">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(217,222,227,.25)">
+        <dt style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Reporting since</dt>
+        <dd style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#D4A843">1987</dd>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(217,222,227,.25)">
+        <dt style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Years active</dt>
+        <dd style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#D4A843">39</dd>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(217,222,227,.25)">
+        <dt style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,.7)">Cricket Media Club since</dt>
+        <dd style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#D4A843">1989</dd>
+      </div>
+    </dl>
+  </div>
+  <h3 style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#D4A843;padding-top:4px">Accreditation and memberships</h3>
+  <ul style="display:flex;flex-direction:column">
+    <li style="padding:11px 0;border-top:1px solid rgba(217,222,227,.2);font-size:15px;line-height:1.45">Life Member, <strong style="font-weight:600">Football Writers&#39; Association</strong></li>
+    <li style="padding:11px 0;border-top:1px solid rgba(217,222,227,.2);font-size:15px;line-height:1.45">Full Member and Archivist, <strong style="font-weight:600">Cricket Media Club</strong> <span style="color:rgba(255,255,255,.6)">since 1989</span></li>
+    <li style="padding:11px 0;border-top:1px solid rgba(217,222,227,.2);font-size:15px;line-height:1.45">Member, <strong style="font-weight:600">British Sports Journalists&#39; Association</strong></li>
+    <li style="padding:11px 0;border-top:1px solid rgba(217,222,227,.2);font-size:15px;line-height:1.45">Member, <strong style="font-weight:600">AIPS</strong></li>
+    <li style="padding:11px 0;border-top:1px solid rgba(217,222,227,.2);border-bottom:1px solid rgba(217,222,227,.2);font-size:15px;line-height:1.45">Member, <strong style="font-weight:600">British Association of Journalists</strong></li>
+  </ul>
+  <a href="#" style="min-height:48px;display:flex;align-items:center;justify-content:center;gap:10px;background:#D4A843;color:#0B1A2B;font-size:15px;font-weight:600" style-hover="background:#FFFFFF;text-decoration:none">More about William Powell <span style="font-family:'IBM Plex Mono',monospace">&rarr;</span></a>
+</section>
+
+<section data-screen-label="Newsletter" style="background:#F3F1EC;border-bottom:1px solid #D9DEE3;padding:26px 20px;display:flex;flex-direction:column;gap:12px">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8A6410">Newsletter</span>
+  <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:26px;line-height:1.15;font-weight:700">Weekly from the Press Box</h2>
+  <p style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.55;color:#14273D">One email every Monday morning: the week&#39;s reports, what I saw that did not make the copy, and where I will be next.</p>
+  <form onSubmit="{{ onSubscribe }}" style="display:flex;flex-direction:column;gap:10px;padding-top:4px">
+    <label for="m-nl" style="font-size:13px;font-weight:600;color:#0B1A2B">Email address</label>
+    <input id="m-nl" type="email" name="email" placeholder="you@example.com" value="{{ email }}" onChange="{{ onEmail }}" aria-describedby="m-nl-help" style="width:100%;height:52px;border:1px solid #D9DEE3;background:#FFFFFF;padding:0 14px;font-family:Inter,sans-serif;font-size:16px;color:#0B1A2B;border-radius:0">
+    <button type="submit" style="width:100%;height:52px;border:1px solid #14273D;background:#14273D;color:#FFFFFF;font-size:16px;font-weight:600;cursor:pointer;border-radius:0" style-hover="background:#0B1A2B;border-color:#0B1A2B">Subscribe</button>
+    <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+      <p role="alert" style="font-size:14px;font-weight:500;color:#B3261E;border-left:3px solid #B3261E;padding-left:10px">{{ error }}</p>
+    </sc-if>
+    <sc-if value="{{ success }}" hint-placeholder-val="{{ false }}">
+      <p role="status" style="font-size:14px;font-weight:500;color:#1E5741;border-left:3px solid #1E5741;padding-left:10px">{{ success }}</p>
+    </sc-if>
+    <p id="m-nl-help" style="font-size:13px;line-height:1.5;color:#5C6672">Sent every Monday. No advertising, no sharing of your address, unsubscribe in one click.</p>
+  </form>
+  <p style="font-size:13px;color:#5C6672;border-top:1px solid #D9DEE3;padding-top:12px">Prefer a feed? <a href="#" style="font-weight:600;color:#23507F">Subscribe by RSS</a> instead.</p>
+</section>
+
+<footer style="background:#071320;color:rgba(255,255,255,.8);padding:28px 20px calc(28px + env(safe-area-inset-bottom))">
+  <img src="assets/logo-reversed-t.png" alt="CUVA Sports" style="display:block;height:48px;width:auto">
+  <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.7);padding:14px 0 18px">Independent football and cricket journalism by William Powell. Established 1987.</p>
+  <h3 style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#D4A843">Coverage</h3>
+  <div style="display:flex;flex-direction:column">
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">Match Reports</a>
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">Football</a>
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">Cricket</a>
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">Recent Results</a>
+  </div>
+  <h3 style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#D4A843;padding-top:20px">The publication</h3>
+  <div style="display:flex;flex-direction:column">
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">About</a>
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">Contact</a>
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">Newsletter</a>
+    <a href="#" style="font-size:15px;color:rgba(255,255,255,.85);min-height:48px;display:flex;align-items:center;border-bottom:1px solid rgba(217,222,227,.15)">RSS feed</a>
+  </div>
+  <h3 style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#D4A843;padding-top:20px">Corrections and enquiries</h3>
+  <p style="font-size:14px;line-height:1.6;color:rgba(255,255,255,.7);padding-top:10px">Corrections are published on the report they affect. Press enquiries, syndication and corrections go through the <a href="#" style="color:#FFFFFF;font-weight:500">contact form</a>, which reaches William directly.</p>
+  <p style="font-size:12px;line-height:1.6;color:rgba(255,255,255,.55);border-top:1px solid rgba(217,222,227,.18);margin-top:20px;padding-top:16px">&copy; 2026 CUVA Sports. All photography &copy; William Powell.<br><span style="font-family:'IBM Plex Mono',monospace">FWA LIFE MEMBER &middot; EST. 1987</span></p>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { email: "", error: "", success: "", menuOpen: false, searchOpen: false };
+  renderVals() {
+    return {
+      email: this.state.email,
+      error: this.state.error,
+      success: this.state.success,
+      menuOpen: this.state.menuOpen,
+      searchOpen: this.state.searchOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen, searchOpen: false })),
+      toggleSearch: () => this.setState(s => ({ searchOpen: !s.searchOpen, menuOpen: false })),
+      noop: (e) => e.preventDefault(),
+      onEmail: (e) => this.setState({ email: e.target.value, error: "", success: "" }),
+      onSubscribe: (e) => {
+        e.preventDefault();
+        const v = this.state.email.trim();
+        if (!v) return this.setState({ error: "Enter your email address to subscribe.", success: "" });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return this.setState({ error: "Enter an email address in the form name@domain.com.", success: "" });
+        this.setState({ error: "", success: "Thank you. Check your inbox to confirm; the first email arrives on Monday." });
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
