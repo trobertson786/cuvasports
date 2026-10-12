@@ -66,11 +66,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@WillsSportMedia",
   },
-  alternates: {
-    types: {
-      "application/rss+xml": "/feed.xml",
-    },
-  },
 };
 
 export default function RootLayout({

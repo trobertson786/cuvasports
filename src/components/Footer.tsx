@@ -16,7 +16,6 @@ const footerLinks: { href: string; labelKey: TranslationKey }[] = [
 
 const socialLinks = [
   { label: "X / Twitter", abbr: "X", href: "https://x.com/WillsSportMedia" },
-  { label: "RSS Feed", abbr: "RSS", href: "/feed.xml" },
 ];
 
 export default function Footer() {

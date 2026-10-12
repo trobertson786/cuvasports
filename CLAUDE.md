@@ -8,7 +8,7 @@
 - Article URLs use `/reports/{slug}`.
 - Article source files live in `content/articles/`.
 - The filename without `.mdx` is the article slug.
-- RSS is generated at `/feed.xml`.
+- There is no RSS feed on `main` (removed 2026-10-12 at Theo's request). A styled version exists on branch `security-hardening`.
 - Sitemap is generated at `/sitemap.xml`.
 
 ## Technical Publishing Rules
@@ -19,7 +19,7 @@
 - Article route: `src/app/reports/[slug]/page.tsx`.
 - Article index: `src/app/reports/page.tsx`.
 - Category pages: `src/app/football/page.tsx` and `src/app/cricket/page.tsx`.
-- SEO helpers: `src/lib/metadata.ts`, `src/app/sitemap.ts`, `src/app/feed.xml/route.ts`, `src/app/opengraph-image.tsx`.
+- SEO helpers: `src/lib/metadata.ts`, `src/app/sitemap.ts`, `src/app/opengraph-image.tsx`.
 - Deployment: GitHub repo `trobertson786/cuvasports`; push to `main` triggers Vercel.
 - Vercel cron: `vercel.json` calls `/api/update-standings` daily.
 - Validation before publication: run `npm run lint`, run `npm run build`, and review `git diff`.
@@ -36,7 +36,7 @@ title: "Article Title"
 date: "2026-07-06"
 category: football
 subcategory: Championship
-excerpt: "One-sentence summary shown on cards, search, RSS, and metadata."
+excerpt: "One-sentence summary shown on cards, search, and metadata."
 featured: false
 tags:
   - QPR
@@ -147,7 +147,7 @@ Football match reports use the ScoreBox component automatically when `homeTeam`,
 
 ## PENDING - read this first when opening the project
 
-RSS styling and security hardening are finished and committed on branch `security-hardening` (not merged, not pushed). **Do not merge it into `main` or push until Theo has done these steps**, otherwise the contact/newsletter forms error and the daily standings cron gets a 401:
+Security hardening (plus a styled RSS feed that `main` no longer has; merging the branch brings `/feed.xml` back, so confirm with Theo or drop it first) is finished and committed on branch `security-hardening` (not merged, not pushed). **Do not merge it into `main` or push until Theo has done these steps**, otherwise the contact/newsletter forms error and the daily standings cron gets a 401:
 
 1. Generate a secret: `openssl rand -hex 32`.
 2. Create a NEW Web3Forms access key (same inbox). The old key `4fe43e0f-...` is public in git history; delete it only after the new one is live.

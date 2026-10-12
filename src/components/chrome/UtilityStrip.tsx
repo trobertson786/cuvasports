@@ -42,9 +42,6 @@ export default function UtilityStrip() {
         {/* gap-6 is 24px, which is the minimum clear distance WCAG 2.2's
             target-spacing exception asks for between adjacent targets. */}
         <div className="flex items-center gap-6">
-          <a href="/feed.xml" className={link}>
-            RSS
-          </a>
           <Link href="/contact" className={link}>
             Contact the desk
           </Link>

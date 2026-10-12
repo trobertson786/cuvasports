@@ -63,10 +63,10 @@ export default function NewsletterSignup({
         );
         setEmail("");
       } else {
-        setError("Something went wrong. Try again, or subscribe by RSS.");
+        setError("Something went wrong. Please try again in a moment.");
       }
     } catch {
-      setError("Something went wrong. Try again, or subscribe by RSS.");
+      setError("Something went wrong. Please try again in a moment.");
     } finally {
       setSubmitting(false);
     }
@@ -153,14 +153,7 @@ export default function NewsletterSignup({
               id={`newsletter-help-${variant}`}
               className="font-ui mt-3 text-[0.8125rem] text-cuva-muted"
             >
-              No advertising and no sharing of your address.{" "}
-              <a
-                href="/feed.xml"
-                className="text-cuva-link hover:text-cuva-ink hover:underline hover:underline-offset-[3px]"
-              >
-                RSS instead
-              </a>
-              .
+              No advertising and no sharing of your address.
             </p>
           </form>
         </div>
