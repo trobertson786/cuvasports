@@ -144,3 +144,21 @@ Football match reports use the ScoreBox component automatically when `homeTeam`,
 - Matchday data (ticker, results, fixtures): `/content/matchday.json`
 - Live article URL: `https://cuvasports.com/reports/YYYY-MM-DD-slug`
 - Do not publish unless the user explicitly asks for publication.
+
+## PENDING - read this first when opening the project
+
+RSS styling and security hardening are finished and committed on branch `security-hardening` (not merged, not pushed). **Do not merge it into `main` or push until Theo has done these steps**, otherwise the contact/newsletter forms error and the daily standings cron gets a 401:
+
+1. Generate a secret: `openssl rand -hex 32`.
+2. Create a NEW Web3Forms access key (same inbox). The old key `4fe43e0f-...` is public in git history; delete it only after the new one is live.
+3. Vercel project, Settings, Environment Variables: add `CRON_SECRET` (the secret) and `WEB3FORMS_ACCESS_KEY` (new key) for Production (and Preview if wanted). Optional: `NEXT_PUBLIC_SITE_URL=https://cuvasports.com`. Redeploy afterwards.
+4. Put the new key in local `.env.local` as `WEB3FORMS_ACCESS_KEY` (it currently holds the old key and `CRON_SECRET=local-dev-secret`).
+5. Merge `security-hardening` into `main`, push, then test: both forms deliver, `/api/update-standings` in a browser shows `{"ok":false}`, `/feed.xml` shows the styled page.
+6. Account hygiene: 2FA on GitHub, Vercel, Hostinger; domain/transfer lock at Hostinger; Vercel Deployment Protection on previews; save recovery codes off this Mac.
+7. Later: flip the CSP in `next.config.ts` from `Content-Security-Policy-Report-Only` to enforcing after a DevTools console pass over `/`, `/reports/*`, `/gallery`, `/contact`. Optional: a plain `/rss` HTML page, since Chrome plans to remove XSLT.
+
+Full plan: `/Users/theorobertson/Plans/spicy-sauteeing-shore.md`. Ask Theo before starting; he said he cannot do the setup yet (2026-10-12).
+
+## Name spelling
+
+Former West Ham goalkeeper is **Luděk Mikloško** (with the Czech accents). Do not strip them.
